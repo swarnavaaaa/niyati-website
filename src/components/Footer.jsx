@@ -5,18 +5,18 @@ import { siteContent } from '../data/content';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#FFEB99] text-[#3D3820] border-t border-[#FFE28A] text-xs pt-8 sm:pt-12 pb-10 sm:pb-12 font-sans">
+    <footer className="bg-[#1F1B0E] text-[#FFFEF7] border-t border-[#1F1B0E] text-xs pt-8 sm:pt-12 pb-10 sm:pb-12 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 space-y-8 sm:space-y-10">
         
         {/* Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 pb-6 sm:pb-8 border-b border-[#FFE28A]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 pb-6 sm:pb-8 border-b border-[#FFFEF7]/15">
           
           {/* Col 1: Practice Name & Social Media Links */}
           <div className="sm:col-span-2 md:col-span-4 space-y-2.5 sm:space-y-3">
-            <span className="font-serif font-medium text-[#1F1B0E] text-base sm:text-lg block">
+            <span className="font-serif font-medium text-[#FFFEF7] text-base sm:text-lg block">
               {siteContent.practice.name}
             </span>
-            <p className="text-xs sm:text-sm text-[#3D3820] leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#FFFEF7]/80 leading-relaxed">
               A private counseling practice offering thoughtful, supportive therapy for individuals and couples in Pune and online.
             </p>
 
@@ -27,7 +27,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#1F1B0E]/20 bg-[#FFFEF7] hover:bg-[#FFC72C] flex items-center justify-center text-[#1F1B0E] transition-colors shadow-sm"
+                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#FFC72C]/40 bg-[#2E2812] hover:bg-[#FFC72C] flex items-center justify-center text-[#FFC72C] hover:text-[#1F1B0E] transition-colors shadow-sm"
               >
                 <Instagram className="w-4 h-4" />
               </a>
@@ -36,7 +36,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#1F1B0E]/20 bg-[#FFFEF7] hover:bg-[#FFC72C] flex items-center justify-center text-[#1F1B0E] transition-colors shadow-sm"
+                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#FFC72C]/40 bg-[#2E2812] hover:bg-[#FFC72C] flex items-center justify-center text-[#FFC72C] hover:text-[#1F1B0E] transition-colors shadow-sm"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
@@ -45,7 +45,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#1F1B0E]/20 bg-[#FFFEF7] hover:bg-[#FFC72C] flex items-center justify-center text-[#1F1B0E] transition-colors shadow-sm"
+                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#FFC72C]/40 bg-[#2E2812] hover:bg-[#FFC72C] flex items-center justify-center text-[#FFC72C] hover:text-[#1F1B0E] transition-colors shadow-sm"
               >
                 <Youtube className="w-4 h-4" />
               </a>
@@ -54,7 +54,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter / X"
-                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#1F1B0E]/20 bg-[#FFFEF7] hover:bg-[#FFC72C] flex items-center justify-center text-[#1F1B0E] transition-colors shadow-sm"
+                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#FFC72C]/40 bg-[#2E2812] hover:bg-[#FFC72C] flex items-center justify-center text-[#FFC72C] hover:text-[#1F1B0E] transition-colors shadow-sm"
               >
                 <Twitter className="w-4 h-4" />
               </a>
@@ -63,7 +63,7 @@ export default function Footer() {
 
           {/* Col 2: Navigation Links */}
           <div className="md:col-span-2 space-y-2.5 sm:space-y-3">
-            <span className="text-[#1F1B0E] font-semibold text-[11px] sm:text-xs uppercase tracking-wider block font-mono">
+            <span className="text-[#FFC72C] font-semibold text-[11px] sm:text-xs uppercase tracking-wider block font-mono">
               Explore
             </span>
             <ul className="space-y-2 text-xs sm:text-sm">
@@ -71,7 +71,7 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     to={item.href}
-                    className="hover:text-[#FF8A3D] transition-colors flex items-center justify-between text-[#1F1B0E] py-0.5"
+                    className="hover:text-[#FFC72C] transition-colors flex items-center justify-between text-[#FFFEF7]/90 py-0.5"
                   >
                     <span>{item.name}</span>
                     <ArrowUpRight className="w-3 h-3 opacity-60" />
@@ -83,24 +83,24 @@ export default function Footer() {
 
           {/* Col 3: Direct Contact Details */}
           <div className="md:col-span-3 space-y-2.5 sm:space-y-3">
-            <span className="text-[#1F1B0E] font-semibold text-[11px] sm:text-xs uppercase tracking-wider block font-mono">
+            <span className="text-[#FFC72C] font-semibold text-[11px] sm:text-xs uppercase tracking-wider block font-mono">
               Get in Touch
             </span>
-            <div className="space-y-2 text-xs sm:text-sm text-[#3D3820]">
+            <div className="space-y-2 text-xs sm:text-sm text-[#FFFEF7]/90">
               <div className="flex items-center space-x-2.5">
-                <Mail className="w-4 h-4 text-[#FF8A3D] shrink-0" />
-                <a href={`mailto:${siteContent.practice.email}`} className="hover:text-[#FF8A3D] transition-colors font-medium text-[#1F1B0E] break-all">
+                <Mail className="w-4 h-4 text-[#FFC72C] shrink-0" />
+                <a href={`mailto:${siteContent.practice.email}`} className="hover:text-[#FFC72C] transition-colors font-medium text-[#FFFEF7] break-all">
                   {siteContent.practice.email}
                 </a>
               </div>
               <div className="flex items-center space-x-2.5">
-                <Phone className="w-4 h-4 text-[#FF8A3D] shrink-0" />
-                <a href={`tel:${siteContent.practice.phone.replace(/\s+/g, '')}`} className="hover:text-[#FF8A3D] transition-colors font-medium text-[#1F1B0E]">
+                <Phone className="w-4 h-4 text-[#FFC72C] shrink-0" />
+                <a href={`tel:${siteContent.practice.phone.replace(/\s+/g, '')}`} className="hover:text-[#FFC72C] transition-colors font-medium text-[#FFFEF7]">
                   {siteContent.practice.phone}
                 </a>
               </div>
-              <div className="flex items-start space-x-2.5 text-xs text-[#3D3820]">
-                <MapPin className="w-4 h-4 text-[#FF8A3D] shrink-0 mt-0.5" />
+              <div className="flex items-start space-x-2.5 text-xs text-[#FFFEF7]/80">
+                <MapPin className="w-4 h-4 text-[#FFC72C] shrink-0 mt-0.5" />
                 <span>Koregaon Park, Pune & Video</span>
               </div>
             </div>
@@ -108,11 +108,11 @@ export default function Footer() {
 
           {/* Col 4: Articles Button */}
           <div className="md:col-span-3 space-y-2.5 sm:space-y-3">
-            <span className="text-[#1F1B0E] font-semibold text-[11px] sm:text-xs uppercase tracking-wider block font-mono">
+            <span className="text-[#FFC72C] font-semibold text-[11px] sm:text-xs uppercase tracking-wider block font-mono">
               Articles
             </span>
             <div className="space-y-2">
-              <p className="text-xs text-[#3D3820] leading-relaxed">
+              <p className="text-xs text-[#FFFEF7]/80 leading-relaxed">
                 Short essays and gentle thoughts on mental health, relationships, and well-being.
               </p>
               <a
@@ -121,9 +121,9 @@ export default function Footer() {
                   e.preventDefault();
                   alert("Articles & Writing section coming soon!");
                 }}
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-4 py-2.5 bg-[#FFFEF7] hover:bg-[#FFC72C] text-[#1F1B0E] font-mono text-xs uppercase tracking-wider font-bold border border-[#1F1B0E] rounded transition-colors shadow-sm min-h-[40px]"
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-4 py-2.5 bg-[#FFC72C] hover:bg-[#F5A300] text-[#1F1B0E] font-mono text-xs uppercase tracking-wider font-bold border border-[#FFC72C] rounded transition-colors shadow-sm min-h-[40px]"
               >
-                <BookOpen className="w-3.5 h-3.5 text-[#FF8A3D]" />
+                <BookOpen className="w-3.5 h-3.5 text-[#1F1B0E]" />
                 <span>Read Articles</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
@@ -134,12 +134,12 @@ export default function Footer() {
 
         {/* Caring Emergency Disclaimer & Copyright */}
         <div className="space-y-3 sm:space-y-4 pt-1">
-          <div className="p-3.5 sm:p-4 border border-[#FF8A3D]/40 bg-[#FFFEF7] rounded-lg text-xs text-[#1F1B0E] flex items-start space-x-2.5 sm:space-x-3 leading-relaxed">
+          <div className="p-3.5 sm:p-4 border border-[#FF8A3D]/50 bg-[#2E2812] rounded-lg text-xs text-[#FFFEF7] flex items-start space-x-2.5 sm:space-x-3 leading-relaxed">
             <ShieldAlert className="w-4 h-4 text-[#FF8A3D] shrink-0 mt-0.5" />
             <span>{siteContent.footer.disclaimer}</span>
           </div>
 
-          <div className="text-xs text-[#3D3820] pt-1 text-center sm:text-left">
+          <div className="text-xs text-[#FFFEF7]/60 pt-1 text-center sm:text-left">
             <p>{siteContent.footer.copyright}</p>
           </div>
         </div>

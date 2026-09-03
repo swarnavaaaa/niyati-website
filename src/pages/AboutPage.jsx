@@ -7,7 +7,7 @@ export default function AboutPage() {
   const [activeTab, setActiveTab] = useState(0);
 
   const tabs = [
-    { label: "My Therapeutic Approach", bgHex: "#F5A300", textColor: "#1F1B0E" },
+    { label: "My Therapeutic Approach", bgHex: "#FFFEF7", textColor: "#1F1B0E" },
     { label: "Areas I Can Help With", bgHex: "#FFEB99", textColor: "#1F1B0E" },
   ];
 
@@ -19,13 +19,13 @@ export default function AboutPage() {
         <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#1F1B0E] font-normal leading-[1.15] tracking-tight">
           About My Practice
         </h1>
-        <p className="font-sans text-sm sm:text-lg md:text-xl text-[#3D3820] font-light leading-relaxed max-w-2xl">
+        <p className="font-sans text-sm sm:text-lg md:text-xl text-[#352F18] font-medium leading-relaxed max-w-2xl">
           Learn about how I work and the core areas I support in individual and couples therapy.
         </p>
       </div>
 
       {/* THE SINGLE ABOUT FOLDER */}
-      <div className="w-full flex flex-col shadow-lg rounded-t-lg overflow-hidden">
+      <div className="w-full flex flex-col shadow-xl rounded-t-xl overflow-hidden border border-[#1F1B0E]/15">
         
         {/* TABS ROW */}
         <div className="flex items-end pl-0 overflow-x-auto no-scrollbar z-10 -space-x-1 sm:space-x-0">
@@ -43,7 +43,10 @@ export default function AboutPage() {
         </div>
 
         {/* FOLDER COVER BAR */}
-        <div className="bg-[#F5A300] text-[#1F1B0E] px-3.5 sm:px-8 py-3 sm:py-3.5 flex items-center justify-between border-b border-[#1F1B0E]/10">
+        <div
+          className="px-3.5 sm:px-8 py-3 sm:py-3.5 flex items-center justify-between border-b border-[#1F1B0E]/15 transition-colors duration-200"
+          style={{ backgroundColor: tabs[activeTab]?.bgHex, color: tabs[activeTab]?.textColor }}
+        >
           <div className="flex items-center space-x-2 sm:space-x-3">
             <span className="font-mono text-[11px] sm:text-xs opacity-75 font-bold">02 //</span>
             <span className="font-mono text-xs sm:text-sm uppercase tracking-wider font-bold">
@@ -56,7 +59,10 @@ export default function AboutPage() {
         </div>
 
         {/* FOLDER CONTENT */}
-        <div className="bg-[#F5A300] text-[#1F1B0E] px-4 sm:px-10 md:px-12 py-6 sm:py-12 space-y-8">
+        <div
+          className="px-4 sm:px-10 md:px-12 py-6 sm:py-12 space-y-8 transition-colors duration-200"
+          style={{ backgroundColor: tabs[activeTab]?.bgHex, color: tabs[activeTab]?.textColor }}
+        >
           
           {/* TAB 1: About My Therapeutic Approach */}
           {activeTab === 0 && (

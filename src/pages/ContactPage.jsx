@@ -7,8 +7,8 @@ export default function ContactPage() {
   const [activeTab, setActiveTab] = useState(0);
 
   const tabs = [
-    { label: "Testimonials", bgHex: "#FF8A3D", textColor: "#FFFEF7" },
-    { label: "Direct Info & FAQ", bgHex: "#FFC72C", textColor: "#1F1B0E" },
+    { label: "Testimonials", bgHex: "#FFFEF7", textColor: "#1F1B0E" },
+    { label: "Direct Info & FAQ", bgHex: "#FFEB99", textColor: "#1F1B0E" },
   ];
 
   const testimonials = [
@@ -46,13 +46,13 @@ export default function ContactPage() {
         <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#1F1B0E] font-normal leading-[1.15] tracking-tight">
           Client Reflections & Info
         </h1>
-        <p className="font-sans text-sm sm:text-lg md:text-xl text-[#3D3820] font-light leading-relaxed max-w-2xl">
+        <p className="font-sans text-sm sm:text-lg md:text-xl text-[#352F18] font-medium leading-relaxed max-w-2xl">
           Read what working together has felt like for others, along with direct contact details and answers to common questions.
         </p>
       </div>
 
       {/* THE SINGLE CONTACT FOLDER */}
-      <div className="w-full flex flex-col shadow-lg rounded-t-lg overflow-hidden">
+      <div className="w-full flex flex-col shadow-xl rounded-t-xl overflow-hidden border border-[#1F1B0E]/15">
         
         {/* TABS ROW */}
         <div className="flex items-end pl-0 overflow-x-auto no-scrollbar z-10 -space-x-1 sm:space-x-0">
@@ -70,7 +70,10 @@ export default function ContactPage() {
         </div>
 
         {/* FOLDER COVER BAR */}
-        <div className="bg-[#FF8A3D] text-[#FFFEF7] px-3.5 sm:px-8 py-3 sm:py-3.5 flex items-center justify-between border-b border-[#1F1B0E]/10">
+        <div
+          className="px-3.5 sm:px-8 py-3 sm:py-3.5 flex items-center justify-between border-b border-[#1F1B0E]/15 transition-colors duration-200"
+          style={{ backgroundColor: tabs[activeTab]?.bgHex, color: tabs[activeTab]?.textColor }}
+        >
           <div className="flex items-center space-x-2 sm:space-x-3">
             <span className="font-mono text-[11px] sm:text-xs opacity-75 font-bold">03 //</span>
             <span className="font-mono text-xs sm:text-sm uppercase tracking-wider font-bold">
@@ -83,16 +86,19 @@ export default function ContactPage() {
         </div>
 
         {/* FOLDER CONTENT */}
-        <div className="bg-[#FF8A3D] text-[#FFFEF7] px-4 sm:px-10 md:px-12 py-6 sm:py-12 space-y-8">
+        <div
+          className="px-4 sm:px-10 md:px-12 py-6 sm:py-12 space-y-8 transition-colors duration-200"
+          style={{ backgroundColor: tabs[activeTab]?.bgHex, color: tabs[activeTab]?.textColor }}
+        >
           
           {/* TAB 1: Testimonials */}
           {activeTab === 0 && (
             <div className="space-y-6 sm:space-y-8 animate-fadeIn max-w-5xl">
               <div className="space-y-1.5 sm:space-y-2">
-                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-white">
+                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1F1B0E]">
                   Kind Words from Clients
                 </h2>
-                <p className="font-sans text-xs sm:text-sm md:text-base text-white/85 font-light">
+                <p className="font-sans text-xs sm:text-sm md:text-base text-[#352F18] font-light">
                   A few reflections shared by individuals and couples I've worked alongside (names anonymized for privacy):
                 </p>
               </div>

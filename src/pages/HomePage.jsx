@@ -8,8 +8,8 @@ export default function HomePage() {
   const [activeTab, setActiveTab] = useState(0);
 
   const tabs = [
-    { label: "Photo & Short Note", bgHex: "#FFEB99", textColor: "#1F1B0E" },
-    { label: "Credentials", bgHex: "#FFC72C", textColor: "#1F1B0E" },
+    { label: "Photo & Short Note", bgHex: "#FFFEF7", textColor: "#1F1B0E" },
+    { label: "Credentials", bgHex: "#FFEB99", textColor: "#1F1B0E" },
     { label: "Work Experience", bgHex: "#FF8A3D", textColor: "#FFFEF7" },
   ];
 
@@ -21,13 +21,13 @@ export default function HomePage() {
         <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#1F1B0E] font-normal leading-[1.15] tracking-tight">
           {siteContent.home.hero.title}
         </h1>
-        <p className="font-sans text-sm sm:text-lg md:text-xl text-[#3D3820] font-light leading-relaxed max-w-2xl">
+        <p className="font-sans text-sm sm:text-lg md:text-xl text-[#352F18] font-medium leading-relaxed max-w-2xl">
           {siteContent.home.hero.subtitle}
         </p>
       </div>
 
       {/* THE SINGLE HOME FOLDER */}
-      <div className="w-full flex flex-col shadow-lg rounded-t-lg overflow-hidden">
+      <div className="w-full flex flex-col shadow-xl rounded-t-xl overflow-hidden border border-[#1F1B0E]/15">
         
         {/* TABS ROW */}
         <div className="flex items-end pl-0 overflow-x-auto no-scrollbar z-10 -space-x-1 sm:space-x-0">
@@ -45,7 +45,10 @@ export default function HomePage() {
         </div>
 
         {/* FOLDER COVER BAR */}
-        <div className="bg-[#FFEB99] text-[#1F1B0E] px-3.5 sm:px-8 py-3 sm:py-3.5 flex items-center justify-between border-b border-[#1F1B0E]/10">
+        <div
+          className="px-3.5 sm:px-8 py-3 sm:py-3.5 flex items-center justify-between border-b border-[#1F1B0E]/15 transition-colors duration-200"
+          style={{ backgroundColor: tabs[activeTab]?.bgHex, color: tabs[activeTab]?.textColor }}
+        >
           <div className="flex items-center space-x-2 sm:space-x-3">
             <span className="font-mono text-[11px] sm:text-xs opacity-75 font-bold">01 //</span>
             <span className="font-mono text-xs sm:text-sm uppercase tracking-wider font-bold">
@@ -58,7 +61,10 @@ export default function HomePage() {
         </div>
 
         {/* FOLDER CONTENT */}
-        <div className="bg-[#FFEB99] text-[#1F1B0E] px-4 sm:px-10 md:px-12 py-6 sm:py-12 space-y-8">
+        <div
+          className="px-4 sm:px-10 md:px-12 py-6 sm:py-12 space-y-8 transition-colors duration-200"
+          style={{ backgroundColor: tabs[activeTab]?.bgHex, color: tabs[activeTab]?.textColor }}
+        >
           
           {/* TAB 1: Photo & Short Note */}
           {activeTab === 0 && (

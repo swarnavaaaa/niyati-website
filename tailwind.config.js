@@ -8,14 +8,17 @@ export default {
     extend: {
       colors: {
         palette: {
-          base: '#FFFEF7',
-          surface: '#FFEB99',
+          base: '#FFC72C',
+          surface: '#FFFEF7',
+          surfaceWarm: '#FFF6D6',
+          surfaceAlt: '#FFEB99',
           primary: '#FFC72C',
           pop: '#FF8A3D',
           hover: '#F5A300',
           heading: '#1F1B0E',
-          body: '#3D3820',
-          border: '#FFE28A',
+          body: '#352F18',
+          border: '#1F1B0E',
+          borderLight: '#FFE28A',
         },
       },
       fontFamily: {
