@@ -5,15 +5,15 @@
 @layer base {
   html {
     color-scheme: light;
-    background-color: #FFC72C;
+    background-color: #FDFF6D;
     overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
   }
   
   body {
-    background-color: #FFC72C;
-    color: #1F1B0E;
+    background-color: #FDFF6D;
+    color: #1A180E;
     font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -22,8 +22,8 @@
   }
 
   ::selection {
-    background-color: #1F1B0E;
-    color: #FFC72C;
+    background-color: #1A180E;
+    color: #FDFF6D;
   }
 }
 

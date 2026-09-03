@@ -8,17 +8,17 @@ export default {
     extend: {
       colors: {
         palette: {
-          base: '#FFC72C',
-          surface: '#FFFEF7',
-          surfaceWarm: '#FFF6D6',
-          surfaceAlt: '#FFEB99',
-          primary: '#FFC72C',
-          pop: '#FF8A3D',
-          hover: '#F5A300',
-          heading: '#1F1B0E',
-          body: '#352F18',
-          border: '#1F1B0E',
-          borderLight: '#FFE28A',
+          base: '#FDFF6D',
+          surface: '#FFFFFF',
+          surfaceWarm: '#FFFDE0',
+          surfaceAlt: '#FFDE59',
+          primary: '#FDFF6D',
+          pop: '#FF7F3F',
+          hover: '#E5E84A',
+          heading: '#1A180E',
+          body: '#2D2913',
+          border: '#1A180E',
+          borderLight: '#E8EA50',
         },
       },
       fontFamily: {
