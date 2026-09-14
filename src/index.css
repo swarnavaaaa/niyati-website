@@ -5,15 +5,15 @@
 @layer base {
   html {
     color-scheme: light;
-    background-color: #FDFF6D;
+    background-color: #FFD6FF;
     overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
   }
   
   body {
-    background-color: #FDFF6D;
-    color: #1A180E;
+    background-color: #FFD6FF;
+    color: #1E1A2B;
     font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -22,8 +22,8 @@
   }
 
   ::selection {
-    background-color: #1A180E;
-    color: #FDFF6D;
+    background-color: #1E1A2B;
+    color: #FFD6FF;
   }
 }
 
@@ -40,5 +40,5 @@
 /* Custom focus ring */
 *:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px #FF8A3D;
+  box-shadow: 0 0 0 2px #C8B6FF;
 }

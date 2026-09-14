@@ -36,41 +36,41 @@ export default function MosbyStack() {
       id: "home-folder",
       index: "01",
       path: "/",
-      bgHex: "#FFEB99", // Secondary surface: vivid soft sunshine yellow
-      textColor: "#1F1B0E",
+      bgHex: "#FFD6FF", // Petal Frost
+      textColor: "#1E1A2B",
       category: "A Quiet Place to Talk",
       desc: "Therapy should feel calm, supportive, and human. We'll take things one step at a time to help you make sense of what you're carrying.",
       tabs: [
-        { label: "Welcome", bgHex: "#FFEB99", textColor: "#1F1B0E" },
-        { label: "What We Can Work On", bgHex: "#FFC72C", textColor: "#1F1B0E" },
-        { label: "My Approach", bgHex: "#FF8A3D", textColor: "#FFFEF7" },
+        { label: "Welcome", bgHex: "#FFD6FF", textColor: "#1E1A2B" },
+        { label: "What We Can Work On", bgHex: "#E7C6FF", textColor: "#1E1A2B" },
+        { label: "My Approach", bgHex: "#C8B6FF", textColor: "#1E1A2B" },
       ],
     },
     {
       id: "about-folder",
       index: "02",
       path: "/about",
-      bgHex: "#F5A300", // Hover/deep state: saturated amber
-      textColor: "#1F1B0E",
+      bgHex: "#E7C6FF", // Mauve Light
+      textColor: "#1E1A2B",
       category: "About Niyati",
       desc: "A little about who I am, how we'll work together in sessions, and what you can expect when you come in.",
       tabs: [
-        { label: "Meet Niyati", bgHex: "#F5A300", textColor: "#1F1B0E" },
-        { label: "The Way We'll Work", bgHex: "#FFEB99", textColor: "#1F1B0E" },
-        { label: "Background & Degrees", bgHex: "#1F1B0E", textColor: "#FFFEF7" },
+        { label: "Meet Niyati", bgHex: "#E7C6FF", textColor: "#1E1A2B" },
+        { label: "The Way We'll Work", bgHex: "#FFD6FF", textColor: "#1E1A2B" },
+        { label: "Background & Degrees", bgHex: "#B8C0FF", textColor: "#1E1A2B" },
       ],
     },
     {
       id: "contact-folder",
       index: "03",
       path: "/contact",
-      bgHex: "#FF8A3D", // Pop accent: warm coral-orange
-      textColor: "#FFFEF7",
+      bgHex: "#BBD0FF", // Periwinkle Soft
+      textColor: "#1E1A2B",
       category: "Get in Touch",
       desc: "Reaching out is easy and unpressured. Send me a quick note below or take a look at the common questions.",
       tabs: [
-        { label: "Send a Note", bgHex: "#FF8A3D", textColor: "#FFFEF7" },
-        { label: "Direct Info & FAQ", bgHex: "#FFC72C", textColor: "#1F1B0E" },
+        { label: "Send a Note", bgHex: "#BBD0FF", textColor: "#1E1A2B" },
+        { label: "Direct Info & FAQ", bgHex: "#C8B6FF", textColor: "#1E1A2B" },
       ],
     },
   ];

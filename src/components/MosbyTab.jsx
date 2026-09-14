@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * Mobile-First Mosby Files curved tab component
  */
-export function MosbyTab({ label, isActive, onClick, bgHex, textColor = '#1F1B0E', isFirst = false }) {
+export function MosbyTab({ label, isActive, onClick, bgHex, textColor = '#1E1A2B', isFirst = false }) {
   return (
     <button
       type="button"
