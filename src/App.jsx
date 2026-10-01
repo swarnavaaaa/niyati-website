@@ -12,10 +12,10 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen bg-[#FFD6FF] text-[#1E1A2B] selection:bg-[#1E1A2B] selection:text-[#FFD6FF]">
+      <div className="flex flex-col min-h-screen bg-[#FAF8F5] text-[#1A2421] selection:bg-[#527965] selection:text-white">
         <Navbar />
 
-        <main className="flex-grow pt-20 sm:pt-24 pb-8">
+        <main className="flex-grow pt-20 sm:pt-24 pb-12">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />

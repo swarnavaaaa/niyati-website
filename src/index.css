@@ -5,16 +5,17 @@
 @layer base {
   html {
     color-scheme: light;
-    background-color: #FFD6FF;
+    background-color: #FAF8F5;
+    color: #1A2421;
     overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
   }
   
   body {
-    background-color: #FFD6FF;
-    color: #1E1A2B;
-    font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+    background-color: #FAF8F5;
+    color: #1A2421;
+    font-family: "DM Sans", "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -22,12 +23,12 @@
   }
 
   ::selection {
-    background-color: #1E1A2B;
-    color: #FFD6FF;
+    background-color: #527965;
+    color: #FFFFFF;
   }
 }
 
-/* Hide scrollbar across all browsers */
+/* Hide scrollbar when needed */
 .no-scrollbar::-webkit-scrollbar {
   display: none !important;
 }
@@ -40,5 +41,5 @@
 /* Custom focus ring */
 *:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px #C8B6FF;
+  box-shadow: 0 0 0 2px #527965;
 }

@@ -1,172 +1,242 @@
-import React, { useState } from 'react';
-import { MosbyTab } from '../components/MosbyTab';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { siteContent } from '../data/content';
-import { Heart, Sparkles, Compass, Smile } from 'lucide-react';
+import {
+  Compass,
+  Heart,
+  Sparkles,
+  Smile,
+  CheckCircle2,
+  GraduationCap,
+  Award,
+  ArrowRight,
+  ShieldCheck,
+  Calendar,
+  MapPin,
+  Check,
+} from 'lucide-react';
 
 export default function AboutPage() {
-  const [activeTab, setActiveTab] = useState(0);
-
-  const tabs = [
-    { label: "My Therapeutic Approach", bgHex: "#FFFFFF", textColor: "#1E1A2B" },
-    { label: "Areas I Can Help With", bgHex: "#E7C6FF", textColor: "#1E1A2B" },
-  ];
-
   return (
-    <div className="w-full max-w-7xl mx-auto px-3 sm:px-8 py-4 sm:py-8 select-none">
+    <div className="w-full space-y-16 sm:space-y-24">
       
-      {/* Top Header */}
-      <div className="mb-6 sm:mb-10 max-w-3xl space-y-2.5 sm:space-y-3">
-        <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#1E1A2B] font-normal leading-[1.15] tracking-tight">
-          About My Practice
-        </h1>
-        <p className="font-sans text-sm sm:text-lg md:text-xl text-[#3A3347] font-medium leading-relaxed max-w-2xl">
-          Learn about how I work and the core areas I support in individual and couples therapy.
-        </p>
-      </div>
+      {/* 1. HERO SECTION */}
+      <section className="relative overflow-hidden pt-4 pb-12 sm:pt-8 sm:pb-20">
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#FAF3F0] via-[#FAF8F5] to-[#E8F2F7] -z-10" />
+        <div className="absolute top-1/3 right-0 -mr-24 w-96 h-96 rounded-full bg-[#BDDBE7]/20 blur-3xl pointer-events-none" />
 
-      {/* THE SINGLE ABOUT FOLDER */}
-      <div className="w-full flex flex-col shadow-xl rounded-t-xl overflow-hidden border border-[#1E1A2B]/15">
-        
-        {/* TABS ROW */}
-        <div className="flex items-end pl-0 overflow-x-auto no-scrollbar z-10 -space-x-1 sm:space-x-0">
-          {tabs.map((tab, idx) => (
-            <MosbyTab
-              key={tab.label}
-              label={tab.label}
-              isFirst={idx === 0}
-              isActive={activeTab === idx}
-              bgHex={tab.bgHex}
-              textColor={tab.textColor}
-              onClick={() => setActiveTab(idx)}
-            />
-          ))}
-        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+          <div className="max-w-3xl mx-auto text-center space-y-6 sm:space-y-8">
+            
+            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#D8E4DC] text-xs text-[#527965] font-medium shadow-subtle mx-auto">
+              <Sparkles className="w-3.5 h-3.5 text-[#527965]" />
+              <span>About Niyati Bagla • Clinical Psychotherapist</span>
+            </div>
 
-        {/* FOLDER COVER BAR */}
-        <div
-          className="px-3.5 sm:px-8 py-3 sm:py-3.5 flex items-center justify-between border-b border-[#1E1A2B]/15 transition-colors duration-200"
-          style={{ backgroundColor: tabs[activeTab]?.bgHex, color: tabs[activeTab]?.textColor }}
-        >
-          <div className="flex items-center space-x-2 sm:space-x-3">
-            <span className="font-mono text-[11px] sm:text-xs opacity-75 font-bold">02 //</span>
-            <span className="font-mono text-xs sm:text-sm uppercase tracking-wider font-bold">
-              {tabs[activeTab]?.label}
-            </span>
-          </div>
-          <div className="font-mono text-[11px] sm:text-sm tracking-wider uppercase opacity-90 font-medium">
-            <span>About Practice</span>
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#1A2421] font-normal leading-[1.18] tracking-tight">
+              Hi, I'm <span className="font-serif italic font-normal text-[#527965]">Niyati</span>.
+            </h1>
+
+            <p className="font-sans text-base sm:text-lg md:text-xl text-[#46544E] font-normal leading-relaxed max-w-2xl mx-auto">
+              {siteContent.about.hero.subtitle}
+            </p>
+
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+              <Link
+                to="/contact"
+                className="inline-flex items-center space-x-2 px-8 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] text-white text-xs font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all min-h-[46px]"
+              >
+                <Calendar className="w-4 h-4 text-[#BDDBE7]" />
+                <span>Book a Consultation</span>
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
+            </div>
+
           </div>
         </div>
+      </section>
 
-        {/* FOLDER CONTENT */}
-        <div
-          className="px-4 sm:px-10 md:px-12 py-6 sm:py-12 space-y-8 transition-colors duration-200"
-          style={{ backgroundColor: tabs[activeTab]?.bgHex, color: tabs[activeTab]?.textColor }}
-        >
+      {/* 2. MY STORY / JOURNEY */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8">
+        <div className="bg-white border border-[#E3ECE6] rounded-3xl p-6 sm:p-10 md:p-14 shadow-card">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
+            
+            <div className="lg:col-span-5 space-y-5">
+              <div className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl p-8 text-center space-y-4">
+                <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-[#194B4E] to-[#527965] text-white flex items-center justify-center font-serif text-3xl shadow-subtle">
+                  NB
+                </div>
+                <div>
+                  <h3 className="font-serif text-2xl text-[#1A2421]">Niyati Bagla</h3>
+                  <p className="text-xs text-[#527965] font-medium mt-1">LMFT, Master’s in Psychology</p>
+                  <p className="text-[11px] text-[#697A72] mt-0.5">Licensed Marriage & Family Therapist</p>
+                </div>
+                <div className="pt-4 border-t border-[#E3ECE6] text-xs text-[#5B6D64] space-y-1 text-left">
+                  <p className="flex items-center space-x-2">
+                    <MapPin className="w-3.5 h-3.5 text-[#527965] shrink-0" />
+                    <span>Koregaon Park Studio, Pune</span>
+                  </p>
+                  <p className="flex items-center space-x-2">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#527965] shrink-0" />
+                    <span>Licensed Clinical Practice</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 space-y-5">
+              <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
+                My Story
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1A2421] leading-snug">
+                Walking alongside you with <span className="font-serif italic font-normal text-[#527965]">clarity & warmth</span>
+              </h2>
+              <div className="font-sans text-sm sm:text-base text-[#46544E] space-y-4 leading-relaxed font-normal">
+                {siteContent.about.story.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 3. MY THERAPEUTIC APPROACH (The 4 Pillars) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 space-y-10">
+        <div className="text-center space-y-3 max-w-2xl mx-auto">
+          <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
+            Therapeutic Modalities
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#1A2421]">
+            How We Will <span className="font-serif italic font-normal text-[#527965]">Work Together</span>
+          </h2>
+          <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
+            Therapy is conversational, unhurried, and collaborative. We sit together to explore your experiences with genuine kindness and evidence-backed tools.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           
-          {/* TAB 1: About My Therapeutic Approach */}
-          {activeTab === 0 && (
-            <div className="space-y-6 sm:space-y-8 animate-fadeIn max-w-4xl">
-              <div className="space-y-2 sm:space-y-3">
-                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1E1A2B]">
-                  How We'll Work Together
-                </h2>
-                <p className="font-sans text-sm sm:text-base md:text-lg text-[#1E1A2B] leading-relaxed font-light">
-                  Therapy with me is conversational, warm, and collaborative. I don't sit in silence taking notes, nor do I give generic advice. We sit together to explore your inner world with kindness and practical clarity.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-                <div className="p-5 sm:p-6 bg-[#FFFFFF] border border-[#1E1A2B]/15 rounded-xl space-y-2 shadow-sm">
-                  <div className="w-8 h-8 rounded-full bg-[#FFD6FF] text-[#1E1A2B] flex items-center justify-center border border-[#1E1A2B]/20">
-                    <Compass className="w-4 h-4" />
-                  </div>
-                  <h3 className="font-serif text-lg sm:text-xl text-[#1E1A2B]">Understanding the Full Picture</h3>
-                  <p className="font-sans text-xs sm:text-sm text-[#3A3347] leading-relaxed font-light">
-                    We look at both your past experiences and your current daily life to understand why certain feelings or reactions keep coming up.
-                  </p>
-                </div>
-
-                <div className="p-5 sm:p-6 bg-[#FFFFFF] border border-[#1E1A2B]/15 rounded-xl space-y-2 shadow-sm">
-                  <div className="w-8 h-8 rounded-full bg-[#E7C6FF] text-[#1E1A2B] flex items-center justify-center border border-[#1E1A2B]/20">
-                    <Heart className="w-4 h-4 text-[#7C3AED]" />
-                  </div>
-                  <h3 className="font-serif text-lg sm:text-xl text-[#1E1A2B]">Calming Mind & Body</h3>
-                  <p className="font-sans text-xs sm:text-sm text-[#3A3347] leading-relaxed font-light">
-                    Stress lives in the body. We use simple grounding tools to ease physical tension, slow down anxiety, and help your body feel calm again.
-                  </p>
-                </div>
-
-                <div className="p-5 sm:p-6 bg-[#FFFFFF] border border-[#1E1A2B]/15 rounded-xl space-y-2 shadow-sm">
-                  <div className="w-8 h-8 rounded-full bg-[#BBD0FF] text-[#1E1A2B] flex items-center justify-center border border-[#1E1A2B]/20">
-                    <Sparkles className="w-4 h-4 text-[#7C3AED]" />
-                  </div>
-                  <h3 className="font-serif text-lg sm:text-xl text-[#1E1A2B]">Living by Your Values</h3>
-                  <p className="font-sans text-xs sm:text-sm text-[#3A3347] leading-relaxed font-light">
-                    We focus on helping you make choices that align with what genuinely matters to you, rather than feeling trapped by expectations.
-                  </p>
-                </div>
-
-                <div className="p-5 sm:p-6 bg-[#FFFFFF] border border-[#1E1A2B]/15 rounded-xl space-y-2 shadow-sm">
-                  <div className="w-8 h-8 rounded-full bg-[#B8C0FF] text-[#1E1A2B] flex items-center justify-center border border-[#1E1A2B]/20">
-                    <Smile className="w-4 h-4" />
-                  </div>
-                  <h3 className="font-serif text-lg sm:text-xl text-[#1E1A2B]">Softening Self-Criticism</h3>
-                  <p className="font-sans text-xs sm:text-sm text-[#3A3347] leading-relaxed font-light">
-                    Learning to quiet that harsh inner voice and building real, patient self-compassion so you can be a better friend to yourself.
-                  </p>
-                </div>
-              </div>
+          <div className="bg-white border border-[#E3ECE6] rounded-2xl p-6 sm:p-8 space-y-3.5 shadow-subtle hover:shadow-card hover:-translate-y-1 transition-all duration-300">
+            <div className="w-10 h-10 rounded-full bg-[#E8EFEA] text-[#527965] flex items-center justify-center">
+              <Compass className="w-5 h-5 text-[#527965]" />
             </div>
-          )}
+            <h3 className="font-serif text-xl sm:text-2xl text-[#1A2421]">
+              Looking at the Full Picture
+            </h3>
+            <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
+              We look at both your past foundations and current daily patterns to understand why you react the way you do, and what you would like to gently shift.
+            </p>
+          </div>
 
-          {/* TAB 2: Areas I Can Help With */}
-          {activeTab === 1 && (
-            <div className="space-y-6 sm:space-y-8 animate-fadeIn max-w-4xl">
-              <div className="space-y-1.5 sm:space-y-2">
-                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1E1A2B]">
-                  Areas I Can Help With
-                </h2>
-                <p className="font-sans text-xs sm:text-sm md:text-base text-[#1E1A2B] font-light">
-                  Tailored support across several key areas of personal and relational well-being:
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                <div className="p-5 sm:p-6 bg-[#FFFFFF] border border-[#1E1A2B]/15 rounded-xl space-y-2.5 shadow-sm text-[#1E1A2B]">
-                  <h3 className="font-serif text-xl sm:text-2xl text-[#1E1A2B]">Individual Therapy</h3>
-                  <p className="font-sans text-xs sm:text-sm text-[#3A3347] leading-relaxed font-light">
-                    A dedicated weekly space to talk through emotional struggles, untangle self-doubt, set healthier boundaries, and rediscover your confidence.
-                  </p>
-                </div>
-
-                <div className="p-5 sm:p-6 bg-[#FFFFFF] border border-[#1E1A2B]/15 rounded-xl space-y-2.5 shadow-sm text-[#1E1A2B]">
-                  <h3 className="font-serif text-xl sm:text-2xl text-[#1E1A2B]">Stress, Anxiety & Burnout</h3>
-                  <p className="font-sans text-xs sm:text-sm text-[#3A3347] leading-relaxed font-light">
-                    Helping high-achievers and overthinkers break free from constant worry, chronic fatigue, perfectionism, and work-related exhaustion.
-                  </p>
-                </div>
-
-                <div className="p-5 sm:p-6 bg-[#FFFFFF] border border-[#1E1A2B]/15 rounded-xl space-y-2.5 shadow-sm text-[#1E1A2B]">
-                  <h3 className="font-serif text-xl sm:text-2xl text-[#1E1A2B]">Relationships & Couples</h3>
-                  <p className="font-sans text-xs sm:text-sm text-[#3A3347] leading-relaxed font-light">
-                    Helping partners stop painful recurring arguments, heal old hurts, rebuild trust, and communicate with mutual honesty and warmth.
-                  </p>
-                </div>
-
-                <div className="p-5 sm:p-6 bg-[#FFFFFF] border border-[#1E1A2B]/15 rounded-xl space-y-2.5 shadow-sm text-[#1E1A2B]">
-                  <h3 className="font-serif text-xl sm:text-2xl text-[#1E1A2B]">Life Transitions & Grief</h3>
-                  <p className="font-sans text-xs sm:text-sm text-[#3A3347] leading-relaxed font-light">
-                    Support through major thresholds — changing careers, moving cities, navigating a breakup, or learning how to carry a deep loss.
-                  </p>
-                </div>
-              </div>
+          <div className="bg-white border border-[#E3ECE6] rounded-2xl p-6 sm:p-8 space-y-3.5 shadow-subtle hover:shadow-card hover:-translate-y-1 transition-all duration-300">
+            <div className="w-10 h-10 rounded-full bg-[#FAF3F0] text-[#C67D63] flex items-center justify-center">
+              <Heart className="w-5 h-5 text-[#C67D63]" />
             </div>
-          )}
+            <h3 className="font-serif text-xl sm:text-2xl text-[#1A2421]">
+              Calming Your Mind & Body
+            </h3>
+            <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
+              Stress lives in the nervous system. We use simple, somatic and mindfulness grounding practices to ease tension, slow down a racing heart, and feel centered.
+            </p>
+          </div>
+
+          <div className="bg-white border border-[#E3ECE6] rounded-2xl p-6 sm:p-8 space-y-3.5 shadow-subtle hover:shadow-card hover:-translate-y-1 transition-all duration-300">
+            <div className="w-10 h-10 rounded-full bg-[#E8F2F7] text-[#194B4E] flex items-center justify-center">
+              <Sparkles className="w-5 h-5 text-[#194B4E]" />
+            </div>
+            <h3 className="font-serif text-xl sm:text-2xl text-[#1A2421]">
+              Focusing on What Matters to You
+            </h3>
+            <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
+              Helping you make authentic life and relationship decisions grounded in your core personal values, rather than what others expect of you.
+            </p>
+          </div>
+
+          <div className="bg-white border border-[#E3ECE6] rounded-2xl p-6 sm:p-8 space-y-3.5 shadow-subtle hover:shadow-card hover:-translate-y-1 transition-all duration-300">
+            <div className="w-10 h-10 rounded-full bg-[#F4F7F5] text-[#436554] flex items-center justify-center">
+              <Smile className="w-5 h-5 text-[#436554]" />
+            </div>
+            <h3 className="font-serif text-xl sm:text-2xl text-[#1A2421]">
+              Being Kind to Yourself
+            </h3>
+            <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
+              Learning how to quiet the harsh inner critic that insists you are never doing enough, and nurturing real, sustainable self-compassion.
+            </p>
+          </div>
 
         </div>
+      </section>
 
-      </div>
+      {/* 4. WHO I WORK WITH */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8">
+        <div className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-3xl p-6 sm:p-10 md:p-14 shadow-subtle space-y-8">
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
+            <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
+              Client Focus
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl text-[#1A2421]">
+              Who I Typically <span className="font-serif italic font-normal text-[#527965]">Work With</span>
+            </h2>
+            <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
+              I specialize in helping adults and couples navigating these common challenges:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            {siteContent.about.whoIWorkWith.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-white border border-[#E3ECE6] rounded-2xl p-5 sm:p-6 flex items-start space-x-3.5 shadow-subtle"
+              >
+                <div className="w-5 h-5 rounded-full bg-[#EBF7F0] text-[#527965] flex items-center justify-center shrink-0 mt-0.5">
+                  <Check className="w-3 h-3 stroke-[2.5]" />
+                </div>
+                <p className="font-sans text-xs sm:text-sm text-[#46544E] leading-relaxed">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. TRAINING & CREDENTIALS TIMELINE */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8">
+        <div className="bg-white border border-[#E3ECE6] rounded-3xl p-6 sm:p-10 md:p-12 shadow-card space-y-8">
+          <div className="space-y-2">
+            <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
+              Qualifications
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1A2421]">
+              Education & Clinical Licensure
+            </h2>
+            <p className="font-sans text-xs sm:text-sm text-[#5B6D64]">
+              Rigorous academic grounding combined with continuous professional clinical supervision.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            {siteContent.about.training.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl p-6 space-y-2"
+              >
+                <span className="text-xs text-[#527965] font-medium font-sans">
+                  {item.year}
+                </span>
+                <h3 className="font-serif text-lg sm:text-xl text-[#1A2421]">
+                  {item.title}
+                </h3>
+                <p className="font-sans text-xs sm:text-sm text-[#5B6D64]">
+                  {item.place}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
     </div>
   );

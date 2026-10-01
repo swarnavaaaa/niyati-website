@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
-import { MosbyTab } from '../components/MosbyTab';
 import { siteContent } from '../data/content';
-import { CheckCircle2 } from 'lucide-react';
+import ContactForm from '../components/ContactForm';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Sparkles,
+  ChevronDown,
+  CheckCircle2,
+  ShieldCheck,
+  Star,
+  Quote,
+} from 'lucide-react';
 
 export default function ContactPage() {
-  const [activeTab, setActiveTab] = useState(0);
-
-  const tabs = [
-    { label: "Testimonials", bgHex: "#FFFFFF", textColor: "#1E1A2B" },
-    { label: "Direct Info & FAQ", bgHex: "#BBD0FF", textColor: "#1E1A2B" },
-  ];
+  const [openFaq, setOpenFaq] = useState(0);
 
   const testimonials = [
     {
@@ -39,143 +45,223 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-3 sm:px-8 py-4 sm:py-8 select-none">
+    <div className="w-full space-y-16 sm:space-y-24">
       
-      {/* Top Header */}
-      <div className="mb-6 sm:mb-10 max-w-3xl space-y-2.5 sm:space-y-3">
-        <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#1E1A2B] font-normal leading-[1.15] tracking-tight">
-          Client Reflections & Info
-        </h1>
-        <p className="font-sans text-sm sm:text-lg md:text-xl text-[#3A3347] font-medium leading-relaxed max-w-2xl">
-          Read what working together has felt like for others, along with direct contact details and answers to common questions.
-        </p>
-      </div>
+      {/* 1. HERO SECTION */}
+      <section className="relative overflow-hidden pt-4 pb-12 sm:pt-8 sm:pb-20">
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#FAF3F0] via-[#FAF8F5] to-[#E8F2F7] -z-10" />
+        <div className="absolute top-1/3 left-0 -ml-24 w-96 h-96 rounded-full bg-[#DF9C87]/15 blur-3xl pointer-events-none" />
 
-      {/* THE SINGLE CONTACT FOLDER */}
-      <div className="w-full flex flex-col shadow-xl rounded-t-xl overflow-hidden border border-[#1E1A2B]/15">
-        
-        {/* TABS ROW */}
-        <div className="flex items-end pl-0 overflow-x-auto no-scrollbar z-10 -space-x-1 sm:space-x-0">
-          {tabs.map((tab, idx) => (
-            <MosbyTab
-              key={tab.label}
-              label={tab.label}
-              isFirst={idx === 0}
-              isActive={activeTab === idx}
-              bgHex={tab.bgHex}
-              textColor={tab.textColor}
-              onClick={() => setActiveTab(idx)}
-            />
-          ))}
-        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+          <div className="max-w-3xl mx-auto text-center space-y-6 sm:space-y-8">
+            
+            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#D8E4DC] text-xs text-[#527965] font-medium shadow-subtle mx-auto">
+              <Sparkles className="w-3.5 h-3.5 text-[#527965]" />
+              <span>Get in Touch • Confidential & Unpressured</span>
+            </div>
 
-        {/* FOLDER COVER BAR */}
-        <div
-          className="px-3.5 sm:px-8 py-3 sm:py-3.5 flex items-center justify-between border-b border-[#1E1A2B]/15 transition-colors duration-200"
-          style={{ backgroundColor: tabs[activeTab]?.bgHex, color: tabs[activeTab]?.textColor }}
-        >
-          <div className="flex items-center space-x-2 sm:space-x-3">
-            <span className="font-mono text-[11px] sm:text-xs opacity-75 font-bold">03 //</span>
-            <span className="font-mono text-xs sm:text-sm uppercase tracking-wider font-bold">
-              {tabs[activeTab]?.label}
-            </span>
-          </div>
-          <div className="font-mono text-[11px] sm:text-sm tracking-wider uppercase opacity-90 font-medium">
-            <span>Experiences</span>
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#1A2421] font-normal leading-[1.18] tracking-tight">
+              Let's start a <span className="font-serif italic font-normal text-[#527965]">conversation</span>.
+            </h1>
+
+            <p className="font-sans text-base sm:text-lg md:text-xl text-[#46544E] font-normal leading-relaxed max-w-2xl mx-auto">
+              {siteContent.contact.hero.subtitle}
+            </p>
+
           </div>
         </div>
+      </section>
 
-        {/* FOLDER CONTENT */}
-        <div
-          className="px-4 sm:px-10 md:px-12 py-6 sm:py-12 space-y-8 transition-colors duration-200"
-          style={{ backgroundColor: tabs[activeTab]?.bgHex, color: tabs[activeTab]?.textColor }}
-        >
+      {/* 2. DIRECT CONTACT INFO + CONTACT FORM GRID */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* TAB 1: Testimonials */}
-          {activeTab === 0 && (
-            <div className="space-y-6 sm:space-y-8 animate-fadeIn max-w-5xl">
-              <div className="space-y-1.5 sm:space-y-2">
-                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1E1A2B]">
-                  Kind Words from Clients
-                </h2>
-                <p className="font-sans text-xs sm:text-sm md:text-base text-[#3A3347] font-light">
-                  A few reflections shared by individuals and couples I've worked alongside (names anonymized for privacy):
+          {/* Left Column: Direct Info Cards */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            <div className="bg-white border border-[#E3ECE6] rounded-3xl p-6 sm:p-8 shadow-card space-y-6">
+              <div>
+                <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
+                  Clinic Details
+                </span>
+                <h3 className="font-serif text-2xl text-[#1A2421] mt-1">
+                  Ways to Reach Me
+                </h3>
+                <p className="text-xs text-[#5B6D64] mt-1 leading-relaxed">
+                  {siteContent.practice.responseTime}
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                {testimonials.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="p-5 sm:p-6 bg-[#FFFFFF] text-[#1E1A2B] border border-[#1E1A2B]/15 rounded-xl space-y-3.5 shadow-sm flex flex-col justify-between"
-                  >
-                    <div className="space-y-2.5">
-                      <div className="flex items-center justify-between border-b border-[#1E1A2B]/10 pb-2 text-xs">
-                        <span className="font-mono font-bold text-[#1E1A2B] tracking-wider text-xs sm:text-sm">
-                          {item.initials}
-                        </span>
-                        <span className="text-[#3A3347]/75 font-sans text-[11px] sm:text-xs">{item.tag}</span>
-                      </div>
-
-                      <p className="font-serif text-xs sm:text-sm md:text-base text-[#1E1A2B] leading-relaxed italic">
-                        "{item.quote}"
-                      </p>
-                    </div>
-
-                    <div className="pt-1 flex items-center space-x-2 text-[11px] sm:text-xs font-sans text-[#1E1A2B] bg-[#FAF6FE] p-2 sm:p-2.5 rounded-lg border border-[#1E1A2B]/10">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#7C3AED] shrink-0" />
-                      <span>{item.takeaway}</span>
-                    </div>
+              <div className="space-y-4 pt-2 border-t border-[#E3ECE6] text-xs sm:text-sm text-[#46544E]">
+                
+                <div className="flex items-start space-x-3.5">
+                  <div className="w-8 h-8 rounded-full bg-[#E8EFEA] text-[#527965] flex items-center justify-center shrink-0 mt-0.5">
+                    <Mail className="w-4 h-4" />
                   </div>
-                ))}
+                  <div>
+                    <span className="text-[11px] text-[#697A72] block">Direct Email</span>
+                    <a
+                      href={`mailto:${siteContent.practice.email}`}
+                      className="font-medium text-[#1A2421] hover:text-[#527965] transition-colors break-all"
+                    >
+                      {siteContent.practice.email}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3.5">
+                  <div className="w-8 h-8 rounded-full bg-[#E8EFEA] text-[#527965] flex items-center justify-center shrink-0 mt-0.5">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] text-[#697A72] block">Phone / WhatsApp</span>
+                    <a
+                      href={`tel:${siteContent.practice.phone.replace(/\s+/g, '')}`}
+                      className="font-medium text-[#1A2421] hover:text-[#527965] transition-colors"
+                    >
+                      {siteContent.practice.phone}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3.5">
+                  <div className="w-8 h-8 rounded-full bg-[#E8EFEA] text-[#527965] flex items-center justify-center shrink-0 mt-0.5">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] text-[#697A72] block">Studio Location</span>
+                    <p className="text-[#1A2421]">{siteContent.practice.location}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3.5">
+                  <div className="w-8 h-8 rounded-full bg-[#E8EFEA] text-[#527965] flex items-center justify-center shrink-0 mt-0.5">
+                    <Clock className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] text-[#697A72] block">Office Hours</span>
+                    <p className="text-[#1A2421] whitespace-pre-line leading-relaxed">{siteContent.practice.officeHours}</p>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Status Banner */}
+              <div className="p-4 rounded-2xl bg-[#E8EFEA] border border-[#D2DFD6] flex items-center space-x-3 text-xs text-[#2A483B]">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#527965] animate-pulse shrink-0" />
+                <span>{siteContent.practice.status}</span>
               </div>
             </div>
-          )}
 
-          {/* TAB 2: Direct Info & FAQ */}
-          {activeTab === 1 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-4xl animate-fadeIn">
-              <div className="p-5 sm:p-6 bg-[#FFFFFF] text-[#1E1A2B] border border-[#1E1A2B]/15 rounded-xl space-y-3.5 text-xs font-sans shadow-sm">
-                <span className="font-bold uppercase font-mono block pb-2 border-b border-[#1E1A2B]/10">
-                  Ways to reach me
-                </span>
-                <div>
-                  <span className="text-[#3A3347] block text-[11px]">Email:</span>
-                  <a href={`mailto:${siteContent.practice.email}`} className="text-[#1E1A2B] text-xs sm:text-sm hover:underline font-bold break-all">
-                    {siteContent.practice.email}
-                  </a>
-                </div>
-                <div>
-                  <span className="text-[#3A3347] block text-[11px]">Phone:</span>
-                  <a href={`tel:${siteContent.practice.phone.replace(/\s+/g, '')}`} className="text-[#1E1A2B] text-xs sm:text-sm hover:underline font-bold">
-                    {siteContent.practice.phone}
-                  </a>
-                </div>
-                <div>
-                  <span className="text-[#3A3347] block text-[11px]">Hours:</span>
-                  <p className="text-[#1E1A2B] whitespace-pre-line mt-0.5 text-xs sm:text-sm leading-relaxed">{siteContent.practice.officeHours}</p>
-                </div>
-              </div>
+          </div>
 
-              <div className="p-5 sm:p-6 bg-[#FFFFFF] text-[#1E1A2B] border border-[#1E1A2B]/15 rounded-xl space-y-3.5 text-xs font-sans shadow-sm">
-                <span className="font-bold uppercase font-mono block pb-2 border-b border-[#1E1A2B]/10">
-                  Common questions
-                </span>
-                <div className="space-y-3">
-                  {siteContent.contact.faq.map((item) => (
-                    <div key={item.id} className="space-y-0.5">
-                      <p className="font-serif text-xs sm:text-sm text-[#1E1A2B] font-medium">{item.q}</p>
-                      <p className="text-xs text-[#3A3347] leading-relaxed font-light">{item.a}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
+          {/* Right Column: Contact Form */}
+          <div className="lg:col-span-7">
+            <ContactForm />
+          </div>
 
         </div>
+      </section>
 
-      </div>
+      {/* 3. KIND WORDS FROM CLIENTS / TESTIMONIALS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-8 space-y-10">
+        <div className="text-center space-y-3 max-w-2xl mx-auto">
+          <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
+            Client Reflections
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#1A2421]">
+            Kind Words from <span className="font-serif italic font-normal text-[#527965]">Clients</span>
+          </h2>
+          <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
+            A few reflections shared by individuals and couples I have worked alongside (names anonymized for privacy):
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {testimonials.map((item, idx) => (
+            <div
+              key={idx}
+              className="bg-white border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-5 shadow-subtle hover:shadow-card hover:-translate-y-1 transition-all duration-300"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2.5">
+                    <span className="font-serif text-base font-semibold text-[#1A2421] px-2.5 py-1 bg-[#FAF8F5] border border-[#E3ECE6] rounded-full">
+                      {item.initials}
+                    </span>
+                    <span className="text-xs text-[#697A72]">{item.tag}</span>
+                  </div>
+                  <div className="flex text-[#C67D63]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-[#C67D63]" />
+                    ))}
+                  </div>
+                </div>
+
+                <p className="font-serif italic text-sm sm:text-base text-[#1A2421] leading-relaxed">
+                  "{item.quote}"
+                </p>
+              </div>
+
+              <div className="pt-3 border-t border-[#E3ECE6] flex items-center space-x-2 text-xs text-[#344F41]">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#527965] shrink-0" />
+                <span>{item.takeaway}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 4. FREQUENTLY ASKED QUESTIONS (Accordion) */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-8 space-y-8">
+        <div className="text-center space-y-3">
+          <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
+            Common Inquiries
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl text-[#1A2421]">
+            Frequently Asked <span className="font-serif italic font-normal text-[#527965]">Questions</span>
+          </h2>
+          <p className="font-sans text-xs sm:text-sm text-[#5B6D64]">
+            Helpful answers to common questions about starting therapy.
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          {siteContent.contact.faq.map((item, idx) => {
+            const isOpen = openFaq === idx;
+            return (
+              <div
+                key={item.id}
+                className="bg-white border border-[#E3ECE6] rounded-2xl overflow-hidden shadow-subtle transition-colors"
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpenFaq(isOpen ? -1 : idx)}
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus-visible:outline-none"
+                  aria-expanded={isOpen}
+                >
+                  <span className="font-serif text-base sm:text-lg text-[#1A2421] font-medium">
+                    {item.q}
+                  </span>
+                  <div
+                    className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 border border-[#E3ECE6] transition-transform duration-200 ${
+                      isOpen ? 'bg-[#194B4E] text-white rotate-180' : 'bg-[#FAF8F5] text-[#527965]'
+                    }`}
+                  >
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </button>
+
+                {isOpen && (
+                  <div className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-[#5B6D64] leading-relaxed border-t border-[#E3ECE6]/50">
+                    <p>{item.a}</p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
 
     </div>
   );

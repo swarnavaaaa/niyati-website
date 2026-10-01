@@ -1,33 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, ShieldAlert, Mail, Phone, MapPin, Instagram, Linkedin, Youtube, Twitter, BookOpen } from 'lucide-react';
+import { ArrowUpRight, ShieldAlert, Mail, Phone, MapPin, Instagram, Linkedin, Youtube, Twitter, Heart } from 'lucide-react';
 import { siteContent } from '../data/content';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#FFFFFF] text-[#3A3347] border-t border-[#1E1A2B]/15 text-xs pt-8 sm:pt-12 pb-10 sm:pb-12 font-sans">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 space-y-8 sm:space-y-10">
+    <footer className="bg-[#FAF8F5] text-[#46544E] border-t border-[#E3ECE6] text-xs pt-12 sm:pt-16 pb-12 font-sans">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 space-y-12">
         
-        {/* Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 pb-6 sm:pb-8 border-b border-[#1E1A2B]/10">
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pb-10 border-b border-[#E3ECE6]">
           
-          {/* Col 1: Practice Name & Social Media Links */}
-          <div className="sm:col-span-2 md:col-span-4 space-y-2.5 sm:space-y-3">
-            <span className="font-serif font-medium text-[#1E1A2B] text-base sm:text-lg block">
-              {siteContent.practice.name}
-            </span>
-            <p className="text-xs sm:text-sm text-[#3A3347]/80 leading-relaxed">
-              A private counseling practice offering thoughtful, supportive therapy for individuals and couples in Pune and online.
+          {/* Col 1: Practice Name & Philosophy */}
+          <div className="md:col-span-5 space-y-4">
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 rounded-full bg-[#194B4E] text-[#FAF8F5] flex items-center justify-center font-serif text-xs font-semibold">
+                NB
+              </div>
+              <span className="font-serif font-medium text-[#1A2421] text-lg sm:text-xl">
+                {siteContent.practice.name}
+              </span>
+            </div>
+            
+            <p className="text-xs sm:text-sm text-[#5B6D64] leading-relaxed max-w-sm">
+              A private counseling and psychotherapy practice offering thoughtful, human, and grounded care for individuals and couples in Koregaon Park, Pune and secure online therapy nationwide.
             </p>
 
-            {/* Social Media Link Icons with touch friendly size */}
-            <div className="flex items-center space-x-3 pt-1.5">
+            {/* Social Media Link Icons */}
+            <div className="flex items-center space-x-2.5 pt-1">
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#1E1A2B]/20 bg-[#FAF6FE] hover:bg-[#E7C6FF] flex items-center justify-center text-[#1E1A2B] transition-colors shadow-sm"
+                className="w-8 h-8 rounded-full border border-[#D8E4DC] bg-white hover:bg-[#E8EFEA] hover:border-[#527965] flex items-center justify-center text-[#194B4E] transition-all shadow-subtle"
               >
                 <Instagram className="w-4 h-4" />
               </a>
@@ -36,7 +42,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#1E1A2B]/20 bg-[#FAF6FE] hover:bg-[#E7C6FF] flex items-center justify-center text-[#1E1A2B] transition-colors shadow-sm"
+                className="w-8 h-8 rounded-full border border-[#D8E4DC] bg-white hover:bg-[#E8EFEA] hover:border-[#527965] flex items-center justify-center text-[#194B4E] transition-all shadow-subtle"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
@@ -45,7 +51,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#1E1A2B]/20 bg-[#FAF6FE] hover:bg-[#E7C6FF] flex items-center justify-center text-[#1E1A2B] transition-colors shadow-sm"
+                className="w-8 h-8 rounded-full border border-[#D8E4DC] bg-white hover:bg-[#E8EFEA] hover:border-[#527965] flex items-center justify-center text-[#194B4E] transition-all shadow-subtle"
               >
                 <Youtube className="w-4 h-4" />
               </a>
@@ -54,7 +60,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter / X"
-                className="w-9 h-9 sm:w-8 sm:h-8 rounded-full border border-[#1E1A2B]/20 bg-[#FAF6FE] hover:bg-[#E7C6FF] flex items-center justify-center text-[#1E1A2B] transition-colors shadow-sm"
+                className="w-8 h-8 rounded-full border border-[#D8E4DC] bg-white hover:bg-[#E8EFEA] hover:border-[#527965] flex items-center justify-center text-[#194B4E] transition-all shadow-subtle"
               >
                 <Twitter className="w-4 h-4" />
               </a>
@@ -62,85 +68,72 @@ export default function Footer() {
           </div>
 
           {/* Col 2: Navigation Links */}
-          <div className="md:col-span-2 space-y-2.5 sm:space-y-3">
-            <span className="text-[#1E1A2B] font-bold text-[11px] sm:text-xs uppercase tracking-wider block font-mono">
-              Explore
+          <div className="md:col-span-3 space-y-3">
+            <span className="text-[#194B4E] font-medium text-xs uppercase tracking-wider block font-sans">
+              Navigation
             </span>
             <ul className="space-y-2 text-xs sm:text-sm">
               {siteContent.navigation.map((item) => (
                 <li key={item.name}>
                   <Link
                     to={item.href}
-                    className="hover:text-[#7C3AED] transition-colors flex items-center justify-between text-[#1E1A2B] py-0.5"
+                    className="hover:text-[#194B4E] transition-colors flex items-center justify-between text-[#5B6D64] py-0.5 group"
                   >
-                    <span>{item.name}</span>
-                    <ArrowUpRight className="w-3 h-3 opacity-60" />
+                    <span className="group-hover:translate-x-0.5 transition-transform">{item.name}</span>
+                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#527965]" />
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Col 3: Direct Contact Details */}
-          <div className="md:col-span-3 space-y-2.5 sm:space-y-3">
-            <span className="text-[#1E1A2B] font-bold text-[11px] sm:text-xs uppercase tracking-wider block font-mono">
-              Get in Touch
+          {/* Col 3: Direct Contact & Office Details */}
+          <div className="md:col-span-4 space-y-3">
+            <span className="text-[#194B4E] font-medium text-xs uppercase tracking-wider block font-sans">
+              Studio & Contact
             </span>
-            <div className="space-y-2 text-xs sm:text-sm text-[#3A3347]">
+            <div className="space-y-2.5 text-xs sm:text-sm text-[#5B6D64]">
+              <div className="flex items-start space-x-2.5">
+                <MapPin className="w-4 h-4 text-[#527965] shrink-0 mt-0.5" />
+                <span>{siteContent.practice.location}</span>
+              </div>
               <div className="flex items-center space-x-2.5">
-                <Mail className="w-4 h-4 text-[#7C3AED] shrink-0" />
-                <a href={`mailto:${siteContent.practice.email}`} className="hover:text-[#7C3AED] transition-colors font-medium text-[#1E1A2B] break-all">
+                <Mail className="w-4 h-4 text-[#527965] shrink-0" />
+                <a href={`mailto:${siteContent.practice.email}`} className="hover:text-[#194B4E] transition-colors font-medium text-[#1A2421] break-all">
                   {siteContent.practice.email}
                 </a>
               </div>
               <div className="flex items-center space-x-2.5">
-                <Phone className="w-4 h-4 text-[#7C3AED] shrink-0" />
-                <a href={`tel:${siteContent.practice.phone.replace(/\s+/g, '')}`} className="hover:text-[#7C3AED] transition-colors font-medium text-[#1E1A2B]">
+                <Phone className="w-4 h-4 text-[#527965] shrink-0" />
+                <a href={`tel:${siteContent.practice.phone.replace(/\s+/g, '')}`} className="hover:text-[#194B4E] transition-colors font-medium text-[#1A2421]">
                   {siteContent.practice.phone}
                 </a>
               </div>
-              <div className="flex items-start space-x-2.5 text-xs text-[#3A3347]/80">
-                <MapPin className="w-4 h-4 text-[#7C3AED] shrink-0 mt-0.5" />
-                <span>Koregaon Park, Pune & Video</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Col 4: Articles Button */}
-          <div className="md:col-span-3 space-y-2.5 sm:space-y-3">
-            <span className="text-[#1E1A2B] font-bold text-[11px] sm:text-xs uppercase tracking-wider block font-mono">
-              Articles
-            </span>
-            <div className="space-y-2">
-              <p className="text-xs text-[#3A3347]/80 leading-relaxed">
-                Short essays and gentle thoughts on mental health, relationships, and well-being.
+              <p className="text-[11px] text-[#788B81] pt-1 whitespace-pre-line">
+                {siteContent.practice.officeHours}
               </p>
-              <a
-                href="#articles"
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert("Articles & Writing section coming soon!");
-                }}
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-4 py-2.5 bg-[#C8B6FF] hover:bg-[#BBD0FF] text-[#1E1A2B] font-mono text-xs uppercase tracking-wider font-bold border border-[#1E1A2B] rounded transition-colors shadow-sm min-h-[40px]"
-              >
-                <BookOpen className="w-3.5 h-3.5 text-[#1E1A2B]" />
-                <span>Read Articles</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
             </div>
           </div>
 
         </div>
 
-        {/* Caring Emergency Disclaimer & Copyright */}
-        <div className="space-y-3 sm:space-y-4 pt-1">
-          <div className="p-3.5 sm:p-4 border border-[#C8B6FF] bg-[#FAF6FE] rounded-lg text-xs text-[#1E1A2B] flex items-start space-x-2.5 sm:space-x-3 leading-relaxed">
-            <ShieldAlert className="w-4 h-4 text-[#7C3AED] shrink-0 mt-0.5" />
-            <span>{siteContent.footer.disclaimer}</span>
+        {/* Crisis Helpline Disclaimer Card */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E3ECE6] shadow-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px] sm:text-xs text-[#5B6D64]">
+          <div className="flex items-start sm:items-center space-x-3">
+            <div className="w-7 h-7 rounded-full bg-[#FAF3F0] text-[#C67D63] flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
+              <ShieldAlert className="w-4 h-4" />
+            </div>
+            <p className="leading-relaxed">
+              <strong className="text-[#1A2421] font-medium">Crisis Support Notice:</strong> {siteContent.footer.disclaimer}
+            </p>
           </div>
+        </div>
 
-          <div className="text-xs text-[#3A3347]/60 pt-1 text-center sm:text-left">
-            <p>{siteContent.footer.copyright}</p>
+        {/* Bottom Bar */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[#788B81] pt-2">
+          <p>{siteContent.footer.copyright}</p>
+          <div className="flex items-center space-x-1">
+            <span>Clinical psychotherapy practice rooted in empathy & evidence</span>
           </div>
         </div>
 
