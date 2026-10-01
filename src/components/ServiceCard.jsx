@@ -14,21 +14,21 @@ export default function ServiceCard({ code, title, desc, points, index }) {
 
   return (
     <div
-      className={`group bg-white border border-[#E3ECE6] ${accent.border} rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-subtle hover:shadow-card hover:-translate-y-1 transition-all duration-300`}
+      className={`group bg-white border border-[#E3ECE6] ${accent.border} rounded-2xl sm:rounded-3xl p-5 sm:p-8 flex flex-col justify-between shadow-subtle hover:shadow-card hover:-translate-y-1 transition-all duration-300`}
     >
-      <div className="space-y-4">
+      <div className="space-y-3.5 sm:space-y-4">
         {/* Top Code Badge */}
         <div className="flex items-center justify-between">
-          <span className={`w-8 h-8 rounded-full ${accent.badgeBg} ${accent.badgeText} text-xs font-semibold flex items-center justify-center font-serif`}>
+          <span className={`w-8 h-8 rounded-full ${accent.badgeBg} ${accent.badgeText} text-xs font-semibold flex items-center justify-center font-serif shrink-0`}>
             {code || `0${index + 1}`}
           </span>
-          <span className="text-[11px] text-[#889B92] tracking-wider uppercase">
+          <span className="text-[10px] sm:text-[11px] text-[#889B92] tracking-wider uppercase">
             Specialized Care
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="font-serif text-xl sm:text-2xl text-[#1A2421] group-hover:text-[#194B4E] transition-colors">
+        <h3 className="font-serif text-lg sm:text-2xl text-[#1A2421] group-hover:text-[#194B4E] transition-colors leading-snug">
           {title}
         </h3>
 
@@ -39,7 +39,7 @@ export default function ServiceCard({ code, title, desc, points, index }) {
 
         {/* Bullet Points */}
         {points && points.length > 0 && (
-          <div className="pt-2 border-t border-[#E3ECE6]/70 space-y-2">
+          <div className="pt-2.5 border-t border-[#E3ECE6]/70 space-y-2">
             {points.map((pt, i) => (
               <div key={i} className="flex items-center space-x-2 text-xs text-[#46544E]">
                 <div className="w-4 h-4 rounded-full bg-[#EBF7F0] text-[#527965] flex items-center justify-center shrink-0">
@@ -52,13 +52,13 @@ export default function ServiceCard({ code, title, desc, points, index }) {
         )}
       </div>
 
-      <div className="pt-6 mt-4">
+      <div className="pt-5 mt-2">
         <Link
           to="/contact"
-          className="inline-flex items-center space-x-1.5 text-xs font-medium text-[#194B4E] hover:text-[#527965] transition-colors group-hover:translate-x-1 duration-200"
+          className="inline-flex items-center space-x-1.5 text-xs font-medium text-[#194B4E] hover:text-[#527965] transition-colors group-hover:translate-x-1 duration-200 min-h-[44px] py-1"
         >
-          <span>Inquire about this</span>
-          <ArrowRight className="w-3.5 h-3.5 ml-1" />
+          <span>Inquire about this focus area</span>
+          <ArrowRight className="w-3.5 h-3.5 ml-0.5" />
         </Link>
       </div>
     </div>
