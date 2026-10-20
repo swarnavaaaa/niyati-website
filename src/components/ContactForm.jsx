@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle2, Shield, AlertCircle, Sparkles } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Sparkles, Video } from 'lucide-react';
 import { siteContent } from '../data/content';
 
 export default function ContactForm() {
@@ -7,26 +7,23 @@ export default function ContactForm() {
     name: '',
     email: '',
     phone: '',
-    format: 'In-person in Pune',
-    topic: 'Individual Therapy',
+    location: 'India',
+    topic: 'Stress and burnout',
+    slidingScaleInterest: 'No',
     message: '',
   });
 
   const [status, setStatus] = useState('idle');
   const [errorMsg, setErrorMsg] = useState('');
 
-  const formatOptions = [
-    'In-person in Pune',
-    'Online video call',
-    'Either works for me',
-  ];
-
   const topicOptions = [
-    'Individual Therapy',
-    'Stress, Burnout & Anxiety',
-    'Relationships & Family',
-    'Big Life Changes',
-    'General question',
+    'Stress and burnout',
+    'Anxiety, OCD and overthinking',
+    'Fears, doubts and chronic worry',
+    'Self-doubt and self-confidence',
+    'Attachment and relationship conflicts',
+    'Life transitions, change and adjustment',
+    'General question / 15-minute consultation',
   ];
 
   const handleChange = (e) => {
@@ -62,8 +59,9 @@ export default function ContactForm() {
       name: '',
       email: '',
       phone: '',
-      format: 'In-person in Pune',
-      topic: 'Individual Therapy',
+      location: 'India',
+      topic: 'Stress and burnout',
+      slidingScaleInterest: 'No',
       message: '',
     });
     setStatus('idle');
@@ -82,7 +80,7 @@ export default function ContactForm() {
             Thank you for reaching out, {formData.name.split(' ')[0] || 'friend'}.
           </h3>
           <p className="font-sans text-[#5B6D64] text-xs sm:text-base leading-relaxed max-w-lg">
-            I've received your note with care. I personally read every inquiry and will reply to <span className="font-medium text-[#1A2421]">{formData.email}</span> within one or two days.
+            I’ve received your enquiry note with care. I personally read every enquiry and will reach out to you at <span className="font-medium text-[#1A2421]">{formData.email}</span> to schedule our 15-minute consultation call.
           </p>
         </div>
 
@@ -92,7 +90,7 @@ export default function ContactForm() {
             onClick={handleReset}
             className="text-xs font-sans font-medium text-[#194B4E] hover:text-[#527965] underline underline-offset-4 transition-colors min-h-[44px] inline-flex items-center"
           >
-            Send another message
+            Send another enquiry
           </button>
         </div>
       </div>
@@ -100,13 +98,17 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="bg-white border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-5 sm:p-10 shadow-card">
+    <div id="enquiry-form" className="bg-white border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-5 sm:p-10 shadow-card">
       <div className="mb-5 sm:mb-6 space-y-1.5 sm:space-y-2">
+        <div className="inline-flex items-center space-x-1.5 text-xs text-[#527965] font-semibold uppercase tracking-wider">
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>Option 2 · Reach Out First</span>
+        </div>
         <h3 className="font-serif text-xl sm:text-3xl text-[#1A2421]">
-          Send a Gentle Note
+          Fill the Enquiry Form
         </h3>
         <p className="text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
-          Tell me a little about what you're seeking. There is no right or wrong way to write this.
+          If you’d rather share a little about yourself or ask a question before booking, fill out the short form and I’ll reach out to you to schedule a 15-minute consultation call.
         </p>
       </div>
 
@@ -130,7 +132,7 @@ export default function ContactForm() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="e.g. Radhika Sharma"
+              placeholder="e.g. Radhika"
               className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] transition-all min-h-[46px]"
             />
           </div>
@@ -151,11 +153,11 @@ export default function ContactForm() {
           </div>
         </div>
 
-        {/* Phone & Topic */}
+        {/* Phone & Location */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
           <div className="space-y-1.5">
             <label htmlFor="phone" className="block text-xs font-medium text-[#1A2421]">
-              Phone Number <span className="text-[#889B92] font-normal">(optional)</span>
+              Phone / WhatsApp <span className="text-[#889B92] font-normal">(optional)</span>
             </label>
             <input
               type="tel"
@@ -163,64 +165,52 @@ export default function ContactForm() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="e.g. +91 98765 43210"
+              placeholder="+91 98..."
               className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] transition-all min-h-[46px]"
             />
           </div>
 
           <div className="space-y-1.5">
-            <label htmlFor="topic" className="block text-xs font-medium text-[#1A2421]">
-              Area of Focus
+            <label htmlFor="location" className="block text-xs font-medium text-[#1A2421]">
+              Where are you based?
             </label>
             <select
-              id="topic"
-              name="topic"
-              value={formData.topic}
+              id="location"
+              name="location"
+              value={formData.location}
               onChange={handleChange}
               className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] focus:bg-white focus:border-[#527965] transition-all min-h-[46px]"
             >
-              {topicOptions.map((opt) => (
-                <option key={opt} value={opt}>
-                  {opt}
-                </option>
-              ))}
+              <option value="India">Client based in India (₹1,750 / session)</option>
+              <option value="International">Client based outside India (₹4,750 / session)</option>
             </select>
           </div>
         </div>
 
-        {/* Preferred Format */}
+        {/* Focus Area / Topic */}
         <div className="space-y-1.5">
-          <label className="block text-xs font-medium text-[#1A2421]">
-            Preferred Format
+          <label htmlFor="topic" className="block text-xs font-medium text-[#1A2421]">
+            What is currently on your mind?
           </label>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-            {formatOptions.map((opt) => (
-              <label
-                key={opt}
-                className={`flex items-center space-x-2.5 p-3 rounded-xl border text-xs cursor-pointer transition-all min-h-[44px] ${
-                  formData.format === opt
-                    ? 'bg-[#E8EFEA] border-[#527965] text-[#194B4E] font-medium shadow-subtle'
-                    : 'bg-[#FAF8F5] border-[#E3ECE6] text-[#5B6D64] hover:bg-white hover:border-[#D8E4DC]'
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="format"
-                  value={opt}
-                  checked={formData.format === opt}
-                  onChange={handleChange}
-                  className="accent-[#527965] w-4 h-4"
-                />
-                <span className="truncate">{opt}</span>
-              </label>
+          <select
+            id="topic"
+            name="topic"
+            value={formData.topic}
+            onChange={handleChange}
+            className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] focus:bg-white focus:border-[#527965] transition-all min-h-[46px]"
+          >
+            {topicOptions.map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
             ))}
-          </div>
+          </select>
         </div>
 
         {/* Message */}
         <div className="space-y-1.5">
           <label htmlFor="message" className="block text-xs font-medium text-[#1A2421]">
-            How can I help? <span className="text-[#C67D63]">*</span>
+            Share a little about yourself or what brings you here <span className="text-[#C67D63]">*</span>
           </label>
           <textarea
             id="message"
@@ -228,27 +218,50 @@ export default function ContactForm() {
             rows={4}
             value={formData.message}
             onChange={handleChange}
-            placeholder="Share whatever feels comfortable — e.g. what you're feeling, what you hope therapy might bring, or any questions about sessions."
-            className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] transition-all resize-none"
+            placeholder="You don't need the perfect words or a neat explanation. Start wherever you are..."
+            className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] transition-all resize-y min-h-[100px]"
           />
         </div>
 
-        {/* Submit (Full width on mobile) */}
-        <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3.5">
-          <div className="flex items-center space-x-2 text-xs text-[#697A72] self-start sm:self-auto">
-            <Shield className="w-4 h-4 text-[#527965] shrink-0" />
-            <span>Strictly confidential communication</span>
-          </div>
-
-          <button
-            type="submit"
-            disabled={status === 'submitting'}
-            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-xs font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all min-h-[48px]"
-          >
-            <Send className="w-4 h-4 text-[#BDDBE7]" />
-            <span>{status === 'submitting' ? 'Sending...' : 'Send Message'}</span>
-          </button>
+        {/* Sliding Scale Checkbox note */}
+        <div className="p-3 bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl text-xs text-[#5B6D64] flex items-start space-x-2.5">
+          <input
+            type="checkbox"
+            id="slidingScaleInterest"
+            name="slidingScaleInterest"
+            checked={formData.slidingScaleInterest === 'Yes'}
+            onChange={(e) =>
+              setFormData((prev) => ({
+                ...prev,
+                slidingScaleInterest: e.target.checked ? 'Yes' : 'No',
+              }))
+            }
+            className="mt-0.5 rounded border-[#D8E4DC] text-[#194B4E] focus:ring-[#527965]"
+          />
+          <label htmlFor="slidingScaleInterest" className="cursor-pointer leading-relaxed">
+            I am a student or experiencing financial constraints and would like to inquire about sliding-scale space.
+          </label>
         </div>
+
+        {/* Submit */}
+        <button
+          type="submit"
+          disabled={status === 'submitting'}
+          className="w-full inline-flex items-center justify-center space-x-2 px-6 py-4 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-xs sm:text-sm font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all min-h-[50px] disabled:opacity-70"
+        >
+          {status === 'submitting' ? (
+            <span>Sending your enquiry...</span>
+          ) : (
+            <>
+              <Send className="w-4 h-4 mr-1 text-[#BDDBE7]" />
+              <span>Submit enquiry for 15-min consultation</span>
+            </>
+          )}
+        </button>
+
+        <p className="text-[11px] text-center text-[#788B81]">
+          Sessions are conducted online via Google Meet or Zoom. 100% confidential.
+        </p>
       </form>
     </div>
   );

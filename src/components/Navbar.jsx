@@ -42,53 +42,69 @@ export default function Navbar() {
           <Link
             to="/"
             className="flex items-center space-x-2.5 sm:space-x-3.5 group focus-visible:outline-none min-h-[44px]"
-            aria-label={`${siteContent.practice.name} Home`}
+            aria-label={`${siteContent.practice.brandName} Home`}
           >
             <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#194B4E] text-[#FAF8F5] flex items-center justify-center shadow-subtle group-hover:bg-[#527965] transition-colors duration-300 shrink-0">
-              <span className="font-serif text-xs sm:text-sm font-semibold tracking-wider">NB</span>
+              <span className="font-serif text-xs sm:text-sm font-semibold tracking-wider">LF</span>
             </div>
             <div className="flex flex-col min-w-0">
               <span className="font-serif text-base sm:text-xl font-medium tracking-tight text-[#1A2421] group-hover:text-[#194B4E] transition-colors truncate">
-                {siteContent.practice.name}
+                {siteContent.practice.brandName}
               </span>
               <span className="font-sans text-[10px] sm:text-[11px] text-[#697A72] tracking-wide font-normal truncate">
-                {siteContent.practice.subBrand}
+                Therapy with {siteContent.practice.therapistName}
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-7 lg:space-x-8 text-sm font-sans" aria-label="Main Navigation">
-            {siteContent.navigation.map((item) => (
-              <NavLink
-                key={item.name}
-                to={item.href}
-                className={({ isActive }) =>
-                  `transition-all duration-200 py-2 font-medium relative text-[13px] tracking-wide min-h-[44px] flex items-center ${
-                    isActive
-                      ? 'text-[#194B4E] font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#527965] after:rounded-full'
-                      : 'text-[#46544E] hover:text-[#194B4E]'
-                  }`
-                }
-              >
-                {item.name}
-              </NavLink>
-            ))}
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-7 text-sm font-sans" aria-label="Main Navigation">
+            {siteContent.navigation.map((item) => {
+              const isHash = item.href.includes('#');
+              if (isHash) {
+                return (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="transition-all duration-200 py-2 font-medium text-[13px] tracking-wide min-h-[44px] flex items-center text-[#46544E] hover:text-[#194B4E]"
+                  >
+                    {item.name}
+                  </a>
+                );
+              }
+              return (
+                <NavLink
+                  key={item.name}
+                  to={item.href}
+                  className={({ isActive }) =>
+                    `transition-all duration-200 py-2 font-medium relative text-[13px] tracking-wide min-h-[44px] flex items-center ${
+                      isActive
+                        ? 'text-[#194B4E] font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#527965] after:rounded-full'
+                        : 'text-[#46544E] hover:text-[#194B4E]'
+                    }`
+                  }
+                >
+                  {item.name}
+                </NavLink>
+              );
+            })}
 
-            <Link
-              to="/contact"
+            <a
+              href={siteContent.practice.topmateUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 px-5 py-2.5 bg-[#194B4E] hover:bg-[#133A3C] text-[#FFFFFF] font-sans font-medium text-xs tracking-wide rounded-full shadow-subtle hover:shadow transition-all duration-200 min-h-[44px]"
             >
               <Calendar className="w-3.5 h-3.5 text-[#BDDBE7]" />
-              <span>Book a Consultation</span>
-            </Link>
+              <span>Book a session</span>
+            </a>
           </nav>
 
-          {/* Mobile menu toggle button (Touch-friendly 44x44px minimum) */}
+          {/* Mobile menu toggle button */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden w-11 h-11 text-[#1A2421] bg-white border border-[#E3ECE6] rounded-full shadow-subtle hover:bg-[#F2F7F4] active:bg-[#E8EFEA] flex items-center justify-center transition-colors focus-visible:outline-none"
+            className="lg:hidden w-11 h-11 text-[#1A2421] bg-white border border-[#E3ECE6] rounded-full shadow-subtle hover:bg-[#F2F7F4] active:bg-[#E8EFEA] flex items-center justify-center transition-colors focus-visible:outline-none"
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={mobileMenuOpen}
           >
@@ -99,7 +115,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50">
+        <div className="lg:hidden fixed inset-0 z-50">
           {/* Backdrop with touch tap to close */}
           <div
             className="fixed inset-0 bg-[#1A2421]/45 backdrop-blur-sm transition-opacity"
@@ -119,44 +135,64 @@ export default function Navbar() {
                 <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
                   Menu
                 </span>
-                <span className="text-xs text-[#697A72]">Koregaon Park & Online</span>
+                <span className="text-xs text-[#697A72]">Online Therapy for Adults</span>
               </div>
 
-              {siteContent.navigation.map((item, idx) => (
-                <NavLink
-                  key={item.name}
-                  to={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={({ isActive }) =>
-                    `flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border transition-all min-h-[52px] ${
-                      isActive
-                        ? 'bg-[#E8EFEA] text-[#194B4E] border-[#527965] font-semibold shadow-subtle'
-                        : 'bg-white text-[#1A2421] border-[#E3ECE6] active:bg-[#F2F7F4]'
-                    }`
-                  }
-                >
-                  <span className="font-serif text-lg">{item.name}</span>
-                  <span className="text-[11px] font-sans font-medium px-2 py-0.5 bg-[#FAF8F5] text-[#697A72] border border-[#E3ECE6] rounded-full">
-                    0{idx + 1}
-                  </span>
-                </NavLink>
-              ))}
+              {siteContent.navigation.map((item, idx) => {
+                const isHash = item.href.includes('#');
+                if (isHash) {
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border transition-all min-h-[52px] bg-white text-[#1A2421] border-[#E3ECE6] active:bg-[#F2F7F4]"
+                    >
+                      <span className="font-serif text-base sm:text-lg">{item.name}</span>
+                      <span className="text-[11px] font-sans font-medium px-2 py-0.5 bg-[#FAF8F5] text-[#697A72] border border-[#E3ECE6] rounded-full">
+                        0{idx + 1}
+                      </span>
+                    </a>
+                  );
+                }
+                return (
+                  <NavLink
+                    key={item.name}
+                    to={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={({ isActive }) =>
+                      `flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border transition-all min-h-[52px] ${
+                        isActive
+                          ? 'bg-[#E8EFEA] text-[#194B4E] border-[#527965] font-semibold shadow-subtle'
+                          : 'bg-white text-[#1A2421] border-[#E3ECE6] active:bg-[#F2F7F4]'
+                      }`
+                    }
+                  >
+                    <span className="font-serif text-base sm:text-lg">{item.name}</span>
+                    <span className="text-[11px] font-sans font-medium px-2 py-0.5 bg-[#FAF8F5] text-[#697A72] border border-[#E3ECE6] rounded-full">
+                      0{idx + 1}
+                    </span>
+                  </NavLink>
+                );
+              })}
             </div>
 
             <div className="pt-4 border-t border-[#E3ECE6] flex flex-col space-y-3 bg-white p-4 sm:p-5 rounded-2xl border border-[#E3ECE6] mt-4 shadow-subtle">
               <div>
-                <p className="text-[#194B4E] font-medium text-xs">Private Practice Studio</p>
-                <p className="text-xs text-[#697A72] mt-0.5">{siteContent.practice.location}</p>
+                <p className="text-[#194B4E] font-medium text-xs">Lost & Found Therapy</p>
+                <p className="text-xs text-[#697A72] mt-0.5">{siteContent.practice.mode}</p>
               </div>
-              <Link
-                to="/contact"
+              <a
+                href={siteContent.practice.topmateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full text-center py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white font-sans text-xs font-medium rounded-full shadow-subtle flex items-center justify-center space-x-2 min-h-[48px]"
               >
                 <Calendar className="w-4 h-4 text-[#BDDBE7]" />
-                <span>Book a Consultation</span>
+                <span>Book a session</span>
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

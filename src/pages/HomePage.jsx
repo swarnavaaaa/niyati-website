@@ -1,92 +1,106 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { siteContent } from '../data/content';
-import ServiceCard from '../components/ServiceCard';
 import {
   Sparkles,
   Calendar,
   ArrowRight,
   ShieldCheck,
-  MapPin,
   Video,
   Clock,
   Heart,
   MessageCircle,
-  GraduationCap,
-  Award,
-  CheckCircle,
   CheckCircle2,
   Instagram,
   Linkedin,
-  Youtube,
   Compass,
-  Smile,
-  Coffee,
+  Map,
+  ChevronDown,
+  Info,
+  BadgeIndianRupee,
+  Globe,
+  HelpCircle,
+  Sparkle
 } from 'lucide-react';
 
 export default function HomePage() {
-  const [credentialTab, setCredentialTab] = useState('credentials'); // 'credentials' | 'experience'
+  const [openFaq, setOpenFaq] = useState(0);
+  const { hero, landedHere, aboutSnapshot, therapyExperience, whatWeWorkOn, sessions, faqs } = siteContent.home;
 
   return (
-    <div className="w-full space-y-12 sm:space-y-20 md:space-y-24">
+    <div className="w-full space-y-16 sm:space-y-24 md:space-y-32">
       
-      {/* 1. HERO SECTION (Humraahi & Being Brave aesthetic) */}
-      <section className="relative overflow-hidden pt-2 pb-8 sm:pt-8 sm:pb-20">
+      {/* 1. HERO SECTION */}
+      <section className="relative overflow-hidden pt-4 pb-12 sm:pt-10 sm:pb-24">
         {/* Soft background ambient gradient */}
         <div className="absolute inset-0 bg-gradient-to-tr from-[#FAF3F0] via-[#FAF8F5] to-[#E8F2F7] -z-10" />
-        <div className="absolute top-1/4 right-0 -mr-24 w-72 sm:w-96 h-72 sm:h-96 rounded-full bg-[#BDDBE7]/20 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 left-0 -ml-24 w-72 sm:w-96 h-72 sm:h-96 rounded-full bg-[#DF9C87]/15 blur-3xl pointer-events-none" />
+        <div className="absolute top-1/4 right-0 -mr-24 w-72 sm:w-96 h-72 sm:h-96 rounded-full bg-[#BDDBE7]/25 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 left-0 -ml-24 w-72 sm:w-96 h-72 sm:h-96 rounded-full bg-[#DF9C87]/20 blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-5 sm:space-y-8">
+          <div className="max-w-3xl mx-auto text-center space-y-6 sm:space-y-8">
             
-            {/* Trust Pill Badge */}
-            <div className="inline-flex items-center space-x-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/90 border border-[#D8E4DC] text-[11px] sm:text-xs text-[#527965] font-medium shadow-subtle mx-auto max-w-full text-left sm:text-center">
+            {/* Online Therapy Pill Badge */}
+            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#D8E4DC] text-xs sm:text-sm text-[#527965] font-medium shadow-subtle mx-auto">
               <Sparkles className="w-3.5 h-3.5 text-[#527965] shrink-0" />
-              <span className="truncate">10+ Years Experience • Koregaon Park & Online</span>
+              <span>{hero.badge}</span>
             </div>
 
-            {/* Editorial Headline with italic accent */}
+            {/* Editorial Headline */}
             <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#1A2421] font-normal leading-[1.2] sm:leading-[1.18] tracking-tight">
-              Healing <span className="font-serif italic font-normal text-[#527965]">Hearts</span>, Nurturing Minds
+              Therapy that feels <span className="font-serif italic font-normal text-[#527965]">warm, human</span> and at-home – for when things feel difficult.
             </h1>
 
-            {/* Reassuring Subtitle */}
-            <p className="font-sans text-sm sm:text-lg md:text-xl text-[#46544E] font-normal leading-relaxed max-w-2xl mx-auto">
-              {siteContent.home.hero.subtitle}
-            </p>
+            {/* Reassuring Subtitles */}
+            <div className="space-y-3 font-sans text-sm sm:text-base md:text-lg text-[#46544E] font-normal leading-relaxed max-w-2xl mx-auto">
+              <p>{hero.subtitles[0]}</p>
+              <p className="text-xs sm:text-base text-[#5B6D64]">{hero.subtitles[1]}</p>
+            </div>
 
-            {/* Dual CTA Buttons (Stack on mobile, row on tablet+) */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link
-                to="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-xs font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all duration-300 min-h-[48px]"
+            {/* Dual CTA Buttons */}
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+              <a
+                href={siteContent.practice.topmateUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-xs sm:text-sm font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all duration-300 min-h-[48px]"
               >
                 <Calendar className="w-4 h-4 text-[#BDDBE7]" />
-                <span>Book a Discovery Call</span>
+                <span>{hero.ctaPrimary}</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
-              </Link>
-              <a
-                href="#services"
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 bg-white hover:bg-[#F2F7F4] active:bg-[#E8EFEA] text-[#194B4E] border border-[#D8E4DC] text-xs font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all duration-300 min-h-[48px]"
-              >
-                <span>Explore Services</span>
               </a>
+              <Link
+                to="/about"
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 bg-white hover:bg-[#F2F7F4] active:bg-[#E8EFEA] text-[#194B4E] border border-[#D8E4DC] text-xs sm:text-sm font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all duration-300 min-h-[48px]"
+              >
+                <span>{hero.ctaSecondary}</span>
+                <ArrowRight className="w-4 h-4 ml-0.5 opacity-70" />
+              </Link>
+            </div>
+
+            {/* Gentle Reminder Card */}
+            <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-white/80 backdrop-blur-sm border border-[#D8E4DC] shadow-subtle max-w-2xl mx-auto text-left flex items-start space-x-3.5">
+              <div className="w-8 h-8 rounded-full bg-[#E8EFEA] text-[#527965] flex items-center justify-center shrink-0 mt-0.5">
+                <Heart className="w-4 h-4" />
+              </div>
+              <p className="font-sans text-xs sm:text-sm text-[#46544E] leading-relaxed">
+                <strong className="text-[#194B4E] font-medium">A little reminder:</strong> You can come as you are. You don’t need the right words, a perfect explanation, or everything figured out before you begin.
+              </p>
             </div>
 
             {/* Trust Chips Bar */}
-            <div className="pt-5 sm:pt-6 border-t border-[#E3ECE6]/80 flex flex-wrap items-center justify-center gap-3 sm:gap-8 text-xs text-[#5B6D64]">
+            <div className="pt-5 sm:pt-6 border-t border-[#E3ECE6]/80 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs text-[#5B6D64]">
               <div className="flex items-center space-x-1.5">
                 <ShieldCheck className="w-4 h-4 text-[#527965] shrink-0" />
                 <span>100% Confidential</span>
               </div>
               <div className="flex items-center space-x-1.5">
-                <MapPin className="w-4 h-4 text-[#527965] shrink-0" />
-                <span>Koregaon Park Studio</span>
+                <Video className="w-4 h-4 text-[#527965] shrink-0" />
+                <span>Google Meet & Zoom</span>
               </div>
               <div className="flex items-center space-x-1.5">
-                <Video className="w-4 h-4 text-[#527965] shrink-0" />
-                <span>Pan-India Telehealth</span>
+                <Heart className="w-4 h-4 text-[#527965] shrink-0" />
+                <span>Trauma-Informed & Relational</span>
               </div>
             </div>
 
@@ -94,42 +108,104 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. THERAPIST WELCOME NOTE & PROFILE SPOTLIGHT */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="bg-white border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-5 sm:p-10 md:p-14 shadow-card">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 md:gap-12 items-center">
+      {/* 2. IF YOU’VE LANDED HERE */}
+      <section id="landed-here" className="max-w-5xl mx-auto px-4 sm:px-8 scroll-mt-24">
+        <div className="bg-white border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-16 shadow-card space-y-8 sm:space-y-10">
+          
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
+            <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
+              {landedHere.tag}
+            </span>
+            <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#1A2421] leading-tight font-normal">
+              Maybe things <span className="font-serif italic text-[#527965]">haven’t felt quite right</span>.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 text-xs sm:text-sm text-[#46544E] leading-relaxed">
+            <div className="space-y-4">
+              <p>{landedHere.paragraphs[0]}</p>
+              <p>{landedHere.paragraphs[1]}</p>
+              <p>{landedHere.paragraphs[2]}</p>
+            </div>
+            <div className="space-y-4">
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#FAF8F5] border border-[#E3ECE6] text-[#1A2421] font-medium leading-relaxed">
+                {landedHere.paragraphs[3]}
+              </div>
+              <p>{landedHere.paragraphs[4]}</p>
+              <p>{landedHere.paragraphs[5]}</p>
+            </div>
+          </div>
+
+          <div className="pt-2 text-xs sm:text-sm text-[#46544E] leading-relaxed max-w-3xl mx-auto text-center border-t border-[#E3ECE6]">
+            <p className="pt-4">{landedHere.paragraphs[6]}</p>
+          </div>
+
+          {/* Reassurance Callout Card */}
+          <div className="bg-[#FAF3F0] border border-[#ECCDC0] rounded-2xl p-5 sm:p-7 text-center max-w-xl mx-auto shadow-subtle">
+            <p className="font-serif italic text-base sm:text-xl text-[#8A4834]">
+              “{landedHere.closingReassurance}”
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 3. A LITTLE ABOUT ME (Spotlight on Niyati) */}
+      <section id="about" className="max-w-7xl mx-auto px-4 sm:px-8 scroll-mt-24">
+        <div className="bg-white border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-14 shadow-card">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 md:gap-12 items-start">
             
             {/* Left Col: Therapist Bio Card */}
-            <div className="lg:col-span-5 bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl p-5 sm:p-8 text-center space-y-4 shadow-subtle">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full bg-gradient-to-tr from-[#194B4E] to-[#527965] text-[#FAF8F5] flex items-center justify-center shadow-subtle border-4 border-white">
+            <div className="lg:col-span-5 bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl p-6 sm:p-8 text-center space-y-5 shadow-subtle lg:sticky lg:top-28">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 mx-auto rounded-full bg-gradient-to-tr from-[#194B4E] to-[#527965] text-[#FAF8F5] flex items-center justify-center shadow-subtle border-4 border-white">
                 <span className="font-serif text-2xl sm:text-3xl font-medium tracking-wider">NB</span>
               </div>
 
               <div>
-                <h3 className="font-serif text-xl sm:text-2xl text-[#1A2421] font-medium">
+                <h3 className="font-serif text-2xl sm:text-3xl text-[#1A2421] font-medium">
                   {siteContent.practice.therapistName}
                 </h3>
                 <p className="font-sans text-xs text-[#527965] font-medium mt-1">
-                  Psychotherapist & Counselor
+                  {siteContent.practice.title}
                 </p>
-                <p className="font-sans text-[11px] text-[#697A72] mt-0.5">
-                  {siteContent.practice.credentials}
-                </p>
+                <div className="flex flex-wrap items-center justify-center gap-1.5 mt-2">
+                  {aboutSnapshot.credentials.map((cred, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2.5 py-1 rounded-full bg-white border border-[#D8E4DC] text-[11px] text-[#46544E]"
+                    >
+                      {cred}
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              {/* Social icons (44px touch targets) */}
-              <div className="flex items-center justify-center space-x-3 pt-1">
+              <p className="font-sans text-xs text-[#5B6D64] leading-relaxed pt-2 border-t border-[#E3ECE6]">
+                {aboutSnapshot.intro}
+              </p>
+
+              {/* Social icons */}
+              <div className="flex items-center justify-center space-x-3 pt-2">
                 <a
-                  href="https://instagram.com"
+                  href={`https://wa.me/${siteContent.practice.whatsappNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  className="w-11 h-11 rounded-full border border-[#D8E4DC] bg-white hover:bg-[#EBF7F0] hover:border-[#1EBE5D] flex items-center justify-center text-[#1EBE5D] transition-all shadow-subtle"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                </a>
+                <a
+                  href={siteContent.practice.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  className="w-11 h-11 rounded-full border border-[#D8E4DC] bg-white hover:bg-[#E8EFEA] hover:border-[#527965] flex items-center justify-center text-[#194B4E] transition-all shadow-subtle"
+                  className="w-11 h-11 rounded-full border border-[#D8E4DC] bg-white hover:bg-[#FAF3F0] hover:border-[#C67D63] flex items-center justify-center text-[#C67D63] transition-all shadow-subtle"
                 >
                   <Instagram className="w-4 h-4" />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href={siteContent.practice.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
@@ -137,65 +213,52 @@ export default function HomePage() {
                 >
                   <Linkedin className="w-4 h-4" />
                 </a>
-                <a
-                  href="https://youtube.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="YouTube"
-                  className="w-11 h-11 rounded-full border border-[#D8E4DC] bg-white hover:bg-[#E8EFEA] hover:border-[#527965] flex items-center justify-center text-[#194B4E] transition-all shadow-subtle"
-                >
-                  <Youtube className="w-4 h-4" />
-                </a>
               </div>
 
-              <div className="text-xs text-left space-y-2 pt-4 border-t border-[#E3ECE6] text-[#5B6D64]">
+              <div className="pt-2 text-left space-y-2 border-t border-[#E3ECE6] text-xs text-[#5B6D64]">
                 <p className="flex items-center space-x-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#527965] shrink-0"></span>
-                  <span>In-person in Koregaon Park, Pune</span>
+                  <span className="w-2 h-2 rounded-full bg-[#527965] shrink-0" />
+                  <span>{siteContent.practice.mode}</span>
                 </p>
                 <p className="flex items-center space-x-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#527965] shrink-0"></span>
-                  <span>Secure video sessions nationwide</span>
+                  <span className="w-2 h-2 rounded-full bg-[#527965] shrink-0" />
+                  <span>Duration: 50-60 mins per session</span>
                 </p>
               </div>
             </div>
 
-            {/* Right Col: Personal Welcome Letter */}
-            <div className="lg:col-span-7 space-y-4 sm:space-y-5">
-              <div className="inline-flex items-center space-x-1.5 text-xs text-[#527965] font-medium uppercase tracking-wider">
+            {/* Right Col: Personal Philosophy & Words */}
+            <div className="lg:col-span-7 space-y-5 sm:space-y-6">
+              <div className="inline-flex items-center space-x-1.5 text-xs text-[#527965] font-semibold uppercase tracking-wider">
                 <Heart className="w-3.5 h-3.5" />
-                <span>A Warm Welcome</span>
+                <span>{aboutSnapshot.tag}</span>
               </div>
 
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1A2421] leading-tight">
-                A warm note from me to <span className="font-serif italic font-normal text-[#527965]">you</span>
+              <h2 className="font-serif text-3xl sm:text-4xl text-[#1A2421] leading-tight font-normal">
+                {aboutSnapshot.headline}
               </h2>
 
-              <div className="font-sans text-sm sm:text-base text-[#46544E] space-y-3 sm:space-y-3.5 leading-relaxed font-normal">
-                <p>
-                  Hello and welcome. Taking the first step toward therapy can feel a little daunting, but you don't have to carry everything by yourself.
-                </p>
-                <p>
-                  In our work together, there is no pressure to perform or have all the answers. We create a calm, unhurried space where you can speak honestly, untangle what's been weighing on you, and move forward at your own pace.
-                </p>
-                <p>
-                  Whether you're feeling burned out by daily demands, wrestling with self-doubt, or navigating a difficult relationship, you are warmly invited to reach out.
-                </p>
+              <div className="font-sans text-xs sm:text-sm md:text-base text-[#46544E] space-y-4 leading-relaxed font-normal">
+                {aboutSnapshot.paragraphs.map((para, idx) => (
+                  <p key={idx}>{para}</p>
+                ))}
               </div>
 
-              <div className="pt-2 flex flex-col sm:flex-row gap-3">
+              <div className="pt-4 flex flex-col sm:flex-row gap-3">
+                <a
+                  href={siteContent.practice.topmateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-xs font-medium tracking-wide rounded-full shadow-subtle transition-colors min-h-[44px]"
+                >
+                  <Calendar className="w-4 h-4 text-[#BDDBE7]" />
+                  <span>Book a session</span>
+                </a>
                 <Link
                   to="/about"
                   className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 py-3.5 bg-[#E8EFEA] hover:bg-[#D8E4DC] active:bg-[#C2D7CB] text-[#194B4E] text-xs font-medium tracking-wide rounded-full transition-colors min-h-[44px]"
                 >
-                  <span>Learn About My Approach</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-                <Link
-                  to="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-xs font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-colors min-h-[44px]"
-                >
-                  <span>Get in Touch</span>
+                  <span>More about my background</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -205,317 +268,235 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. INTRO / PHILOSOPHY */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="bg-[#F2F7F4] border border-[#D8E4DC] rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-16 text-center max-w-4xl mx-auto space-y-3.5 sm:space-y-4">
-          <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
-            Our Philosophy
-          </span>
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1A2421] leading-snug">
-            {siteContent.home.intro.heading}
-          </h2>
-          <p className="font-sans text-sm sm:text-base text-[#46544E] leading-relaxed max-w-2xl mx-auto">
-            {siteContent.home.intro.p1}
-          </p>
-          <p className="font-sans text-sm sm:text-base text-[#46544E] leading-relaxed max-w-2xl mx-auto">
-            {siteContent.home.intro.p2}
-          </p>
+      {/* 4. WHAT THERAPY CAN BE LIKE (Unfolding the Map) */}
+      <section id="therapy-experience" className="max-w-7xl mx-auto px-4 sm:px-8 scroll-mt-24">
+        <div className="bg-gradient-to-tr from-[#FAF8F5] via-white to-[#E8F2F7] border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-16 shadow-card space-y-8 sm:space-y-10">
+          
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#E8EFEA] text-xs text-[#527965] font-medium">
+              <Map className="w-3.5 h-3.5" />
+              <span>{therapyExperience.tag}</span>
+            </div>
+            <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#1A2421] leading-tight font-normal">
+              {therapyExperience.subheading}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            
+            <div className="bg-white/90 border border-[#E3ECE6] rounded-2xl p-6 sm:p-8 space-y-4 shadow-subtle">
+              <div className="w-10 h-10 rounded-full bg-[#FAF3F0] text-[#C67D63] flex items-center justify-center shrink-0">
+                <Compass className="w-5 h-5" />
+              </div>
+              <h3 className="font-serif text-xl sm:text-2xl text-[#1A2421]">
+                Unfolding the map together
+              </h3>
+              <p className="font-sans text-xs sm:text-sm text-[#46544E] leading-relaxed">
+                {therapyExperience.paragraphs[0]}
+              </p>
+              <p className="font-sans text-xs sm:text-sm text-[#46544E] leading-relaxed">
+                {therapyExperience.paragraphs[1]}
+              </p>
+            </div>
+
+            <div className="bg-white/90 border border-[#E3ECE6] rounded-2xl p-6 sm:p-8 space-y-4 shadow-subtle flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-10 h-10 rounded-full bg-[#E8F2F7] text-[#194B4E] flex items-center justify-center shrink-0">
+                  <Map className="w-5 h-5" />
+                </div>
+                <h3 className="font-serif text-xl sm:text-2xl text-[#1A2421]">
+                  Discovering new pathways
+                </h3>
+                <p className="font-sans text-xs sm:text-sm text-[#46544E] leading-relaxed">
+                  {therapyExperience.paragraphs[2]}
+                </p>
+                <p className="font-sans text-xs sm:text-sm text-[#46544E] leading-relaxed">
+                  {therapyExperience.paragraphs[3]}
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-[#E3ECE6] text-xs text-[#527965] font-medium">
+                <span>Relational, Trauma-Informed, Collaborative</span>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </section>
 
-      {/* 4. SERVICES SECTION */}
-      <section id="services" className="max-w-7xl mx-auto px-4 sm:px-8 scroll-mt-20 space-y-8 sm:space-y-10">
-        <div className="text-center space-y-2.5 max-w-2xl mx-auto">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#E8EFEA] text-xs text-[#527965] font-medium">
-            <Compass className="w-3.5 h-3.5" />
-            <span>How We Can Work Together</span>
-          </div>
-          <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#1A2421] leading-tight">
-            Thoughtful Support for <span className="font-serif italic font-normal text-[#527965]">Every Stage</span>
+      {/* 5. WHAT WE CAN WORK ON (22 topics) */}
+      <section id="what-we-work-on" className="max-w-7xl mx-auto px-4 sm:px-8 scroll-mt-24 space-y-8 sm:space-y-10">
+        
+        <div className="text-center space-y-3 max-w-3xl mx-auto">
+          <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
+            {whatWeWorkOn.tag}
+          </span>
+          <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#1A2421] leading-tight font-normal">
+            {whatWeWorkOn.headline}
           </h2>
-          <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
-            Tailored psychotherapy designed to help you untangle stress, rebuild confidence, and foster meaningful connections.
+          <p className="font-sans text-sm sm:text-base text-[#5B6D64] leading-relaxed">
+            {whatWeWorkOn.subheading}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-          {siteContent.home.services.map((service, idx) => (
-            <ServiceCard
-              key={service.id}
-              code={service.code}
-              title={service.title}
-              desc={service.desc}
-              points={service.points}
-              index={idx}
-            />
+        {/* 22 Topics Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+          {whatWeWorkOn.topics.map((topic, idx) => (
+            <div
+              key={idx}
+              className="bg-white border border-[#E3ECE6] hover:border-[#527965]/40 rounded-2xl p-4 sm:p-5 flex items-center space-x-3 shadow-subtle hover:shadow-card hover:-translate-y-0.5 transition-all duration-200"
+            >
+              <div className="w-6 h-6 rounded-full bg-[#EBF7F0] text-[#527965] flex items-center justify-center shrink-0">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+              </div>
+              <span className="font-sans text-xs sm:text-sm font-medium text-[#1A2421]">
+                {topic}
+              </span>
+            </div>
           ))}
         </div>
+
+        {/* Non-exhaustive closing note */}
+        <div className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl p-4 sm:p-6 text-center max-w-2xl mx-auto shadow-subtle">
+          <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
+            <Info className="w-4 h-4 inline-block mr-1.5 text-[#527965] -mt-0.5" />
+            {whatWeWorkOn.closingNote}
+          </p>
+        </div>
+
       </section>
 
-      {/* 5. MODES OF CARE (Humraahi Signature Section) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="bg-gradient-to-tr from-[#FAF3F0] via-white to-[#E8F2F7] border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-5 sm:p-10 md:p-14 shadow-card space-y-6 sm:space-y-10">
-          <div className="max-w-2xl space-y-2">
+      {/* 6. ABOUT THE SESSIONS (Duration, Fees, Sliding scale, Online Mode) */}
+      <section id="sessions" className="max-w-7xl mx-auto px-4 sm:px-8 scroll-mt-24">
+        <div className="bg-white border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-12 shadow-card space-y-8 sm:space-y-10">
+          
+          <div className="text-center space-y-2.5 max-w-2xl mx-auto">
             <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
-              Modes of Therapy
+              {sessions.tag}
             </span>
-            <h2 className="font-serif text-2xl sm:text-4xl text-[#1A2421]">
-              Choose the care that's <span className="font-serif italic font-normal text-[#527965]">best for you</span>
+            <h2 className="font-serif text-2xl sm:text-4xl text-[#1A2421] font-normal">
+              Session Format & Fees
             </h2>
-            <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
-              We know that beginning therapy can be both a hopeful and vulnerable step. Whether you prefer meeting face-to-face or connecting from the comfort of your home, choose the setting where you feel safest.
+            <p className="font-sans text-xs sm:text-sm text-[#5B6D64]">
+              Clear, transparent details so you know exactly what to expect.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             
-            {/* Mode 1: In-Person */}
-            <div className="bg-white border border-[#E3ECE6] rounded-2xl p-5 sm:p-8 space-y-4 shadow-subtle flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="w-10 h-10 rounded-full bg-[#FAF3F0] text-[#C67D63] flex items-center justify-center shrink-0">
-                  <Coffee className="w-5 h-5 text-[#C67D63]" />
-                </div>
-                <h3 className="font-serif text-xl sm:text-2xl text-[#1A2421]">
-                  In-Person Therapy Sessions
-                </h3>
-                <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
-                  If you find comfort in face-to-face connection, you are warmly invited to our quiet, thoughtfully designed studio in Koregaon Park, Pune. Settle in over a warm cup of tea in a grounded physical space that supports deep, unhurried emotional reflection.
-                </p>
-              </div>
-
-              <div className="pt-4 border-t border-[#E3ECE6] flex items-center justify-between text-xs text-[#527965] font-medium min-h-[44px]">
-                <span>Koregaon Park, Pune</span>
-                <Link to="/contact" className="hover:underline flex items-center py-2">
-                  Book In-Person <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Mode 2: Online Telehealth */}
-            <div className="bg-white border border-[#E3ECE6] rounded-2xl p-5 sm:p-8 space-y-4 shadow-subtle flex flex-col justify-between">
+            {/* Card 1: Duration & Mode */}
+            <div className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl p-6 sm:p-8 space-y-4 shadow-subtle flex flex-col justify-between">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-full bg-[#E8F2F7] text-[#194B4E] flex items-center justify-center shrink-0">
-                  <Video className="w-5 h-5 text-[#194B4E]" />
+                  <Clock className="w-5 h-5 text-[#194B4E]" />
                 </div>
-                <h3 className="font-serif text-xl sm:text-2xl text-[#1A2421]">
-                  Secure Online Video Sessions
+                <h3 className="font-serif text-lg sm:text-xl text-[#1A2421]">
+                  Duration & Mode
                 </h3>
-                <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
-                  Connect from the privacy and comfort of your own home anywhere in India or internationally. Video therapy is conducted via a secure, HIPAA-compliant platform, giving you flexibility without compromising confidentiality or connection.
+                <div className="space-y-2 text-xs sm:text-sm text-[#46544E] leading-relaxed">
+                  <p className="font-medium text-[#194B4E]">{sessions.duration}</p>
+                  <p>{sessions.mode}</p>
+                </div>
+              </div>
+              <div className="pt-4 border-t border-[#E3ECE6] text-xs text-[#527965]">
+                <span>Weekly or bi-weekly cadence</span>
+              </div>
+            </div>
+
+            {/* Card 2: Session Fees */}
+            <div className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl p-6 sm:p-8 space-y-4 shadow-subtle flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-full bg-[#FAF3F0] text-[#C67D63] flex items-center justify-center shrink-0">
+                  <BadgeIndianRupee className="w-5 h-5 text-[#C67D63]" />
+                </div>
+                <h3 className="font-serif text-lg sm:text-xl text-[#1A2421]">
+                  Session Investment
+                </h3>
+                <div className="space-y-2 text-xs sm:text-sm text-[#46544E] leading-relaxed">
+                  <p className="font-medium text-[#1A2421]">{sessions.feesIndia}</p>
+                  <p className="text-[#5B6D64]">{sessions.feesInternational}</p>
+                </div>
+              </div>
+              <div className="pt-4 border-t border-[#E3ECE6] text-xs text-[#527965]">
+                <span>Paid securely online prior to session</span>
+              </div>
+            </div>
+
+            {/* Card 3: Sliding Scale */}
+            <div className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl p-6 sm:p-8 space-y-4 shadow-subtle flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-full bg-[#EBF7F0] text-[#527965] flex items-center justify-center shrink-0">
+                  <Heart className="w-5 h-5 text-[#527965]" />
+                </div>
+                <h3 className="font-serif text-lg sm:text-xl text-[#1A2421]">
+                  Sliding Scale
+                </h3>
+                <p className="font-sans text-xs sm:text-sm text-[#46544E] leading-relaxed">
+                  {sessions.slidingScale}
                 </p>
               </div>
-
-              <div className="pt-4 border-t border-[#E3ECE6] flex items-center justify-between text-xs text-[#194B4E] font-medium min-h-[44px]">
-                <span>Across India & Worldwide</span>
-                <Link to="/contact" className="hover:underline flex items-center py-2">
-                  Book Online <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                </Link>
+              <div className="pt-4 border-t border-[#E3ECE6] text-xs text-[#527965]">
+                <span>Mention in enquiry form if needed</span>
               </div>
             </div>
 
           </div>
+
         </div>
       </section>
 
-      {/* 6. THE THERAPY EXPERIENCE / HOW SESSIONS FEEL */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8 space-y-8 sm:space-y-10">
-        <div className="text-center space-y-2.5 max-w-2xl mx-auto">
+      {/* 7. BEFORE WE BEGIN (FAQs accordion) */}
+      <section id="faqs" className="max-w-4xl mx-auto px-4 sm:px-8 scroll-mt-24 space-y-6 sm:space-y-8">
+        
+        <div className="text-center space-y-2 max-w-2xl mx-auto">
           <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
-            Session Culture
+            {faqs.tag}
           </span>
-          <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#1A2421]">
-            What Working Together <span className="font-serif italic font-normal text-[#527965]">Feels Like</span>
+          <h2 className="font-serif text-2xl sm:text-4xl text-[#1A2421] font-normal">
+            {faqs.heading}
           </h2>
-          <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
-            Therapy is not an exam, nor is it clinical interrogation. Here is what you can expect each week:
+          <p className="font-sans text-xs sm:text-sm text-[#5B6D64]">
+            Helpful answers to common questions about starting therapy.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {siteContent.home.experience.map((item, idx) => (
-            <div
-              key={item.num}
-              className="bg-white border border-[#E3ECE6] rounded-2xl p-5 sm:p-8 space-y-2.5 sm:space-y-3 shadow-subtle"
-            >
-              <span className="font-serif text-2xl text-[#527965] font-semibold block">
-                {item.num}
-              </span>
-              <h3 className="font-serif text-lg sm:text-xl text-[#1A2421]">
-                {item.title}
-              </h3>
-              <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
-                {item.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 7. CREDENTIALS & WORK EXPERIENCE TIMELINE */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="bg-white border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-5 sm:p-10 md:p-12 shadow-card space-y-6 sm:space-y-8">
-          
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-5 border-b border-[#E3ECE6]">
-            <div>
-              <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
-                Clinical Background
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#1A2421] mt-1">
-                Training & Experience
-              </h2>
-            </div>
-
-            {/* Toggle Tabs (Responsive grid on mobile, inline on desktop) */}
-            <div className="w-full sm:w-auto grid grid-cols-2 sm:inline-flex p-1 bg-[#F2F7F4] border border-[#D8E4DC] rounded-full">
-              <button
-                type="button"
-                onClick={() => setCredentialTab('credentials')}
-                className={`py-2 px-3 sm:px-4 rounded-full text-xs font-medium transition-all text-center min-h-[40px] flex items-center justify-center ${
-                  credentialTab === 'credentials'
-                    ? 'bg-[#194B4E] text-white shadow-subtle'
-                    : 'text-[#46544E] hover:text-[#194B4E]'
-                }`}
+        <div className="space-y-3">
+          {faqs.items.map((item, idx) => {
+            const isOpen = openFaq === idx;
+            return (
+              <div
+                key={item.id}
+                className="bg-white border border-[#E3ECE6] rounded-2xl overflow-hidden shadow-subtle transition-colors"
               >
-                Education
-              </button>
-              <button
-                type="button"
-                onClick={() => setCredentialTab('experience')}
-                className={`py-2 px-3 sm:px-4 rounded-full text-xs font-medium transition-all text-center min-h-[40px] flex items-center justify-center ${
-                  credentialTab === 'experience'
-                    ? 'bg-[#194B4E] text-white shadow-subtle'
-                    : 'text-[#46544E] hover:text-[#194B4E]'
-                }`}
-              >
-                Work History
-              </button>
-            </div>
-          </div>
+                <button
+                  type="button"
+                  onClick={() => setOpenFaq(isOpen ? -1 : idx)}
+                  className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-3 focus-visible:outline-none min-h-[52px]"
+                  aria-expanded={isOpen}
+                >
+                  <span className="font-serif text-sm sm:text-lg text-[#1A2421] font-medium">
+                    {item.q.replace(/^[“”"]/g, '').replace(/[“”"]$/g, '')}
+                  </span>
+                  <div
+                    className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 border border-[#E3ECE6] transition-transform duration-200 ${
+                      isOpen ? 'bg-[#194B4E] text-white rotate-180' : 'bg-[#FAF8F5] text-[#527965]'
+                    }`}
+                  >
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </button>
 
-          {/* TAB 1: Credentials */}
-          {credentialTab === 'credentials' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 animate-fadeIn">
-              
-              <div className="p-4 sm:p-6 bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl space-y-2">
-                <div className="w-8 h-8 rounded-full bg-[#E8EFEA] text-[#527965] flex items-center justify-center shrink-0">
-                  <GraduationCap className="w-4 h-4" />
-                </div>
-                <h3 className="font-serif text-base sm:text-xl text-[#1A2421]">Master of Arts in Clinical Psychology</h3>
-                <p className="font-sans text-xs text-[#527965] font-medium">SNDT Women's University, Mumbai (2013 – 2015)</p>
-                <p className="font-sans text-xs text-[#5B6D64] leading-relaxed pt-1">
-                  Specialized clinical training in adult psychotherapy, cognitive modalities, and ethical counseling protocols.
-                </p>
+                {isOpen && (
+                  <div className="px-4 sm:px-6 pb-5 pt-1 text-xs sm:text-sm text-[#5B6D64] leading-relaxed border-t border-[#E3ECE6]/50">
+                    <p>{item.a}</p>
+                  </div>
+                )}
               </div>
-
-              <div className="p-4 sm:p-6 bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl space-y-2">
-                <div className="w-8 h-8 rounded-full bg-[#E8EFEA] text-[#527965] flex items-center justify-center shrink-0">
-                  <Award className="w-4 h-4" />
-                </div>
-                <h3 className="font-serif text-base sm:text-xl text-[#1A2421]">Licensed Marriage & Family Therapist (LMFT)</h3>
-                <p className="font-sans text-xs text-[#527965] font-medium">Licensed Clinical Practice (2015 – Present)</p>
-                <p className="font-sans text-xs text-[#5B6D64] leading-relaxed pt-1">
-                  Certified for independent psychotherapy with individuals, couples, and systemic relational dynamics.
-                </p>
-              </div>
-
-              <div className="p-4 sm:p-6 bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl space-y-2">
-                <div className="w-8 h-8 rounded-full bg-[#E8EFEA] text-[#527965] flex items-center justify-center shrink-0">
-                  <CheckCircle className="w-4 h-4" />
-                </div>
-                <h3 className="font-serif text-base sm:text-xl text-[#1A2421]">Bachelor of Arts in Psychology (Honors)</h3>
-                <p className="font-sans text-xs text-[#527965] font-medium">Fergusson College, Pune (2010 – 2013)</p>
-                <p className="font-sans text-xs text-[#5B6D64] leading-relaxed pt-1">
-                  Strong foundation in behavioral psychology, personality theory, and psychometric principles.
-                </p>
-              </div>
-
-              <div className="p-4 sm:p-6 bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl space-y-2">
-                <div className="w-8 h-8 rounded-full bg-[#E8EFEA] text-[#527965] flex items-center justify-center shrink-0">
-                  <Sparkles className="w-4 h-4" />
-                </div>
-                <h3 className="font-serif text-base sm:text-xl text-[#1A2421]">Advanced Professional Certifications</h3>
-                <p className="font-sans text-xs text-[#527965] font-medium">Ongoing Continuing Clinical Education</p>
-                <p className="font-sans text-xs text-[#5B6D64] leading-relaxed pt-1">
-                  Trained in Acceptance & Commitment Therapy (ACT), Somatic grounding, and Emotion-Focused Couples Therapy.
-                </p>
-              </div>
-
-            </div>
-          )}
-
-          {/* TAB 2: Work Experience */}
-          {credentialTab === 'experience' && (
-            <div className="space-y-4 divide-y divide-[#E3ECE6] animate-fadeIn">
-              
-              <div className="pt-4 first:pt-0 space-y-1">
-                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                  <h3 className="font-serif text-base sm:text-lg text-[#1A2421]">
-                    Private Psychotherapy Practice — Founder & Lead Therapist
-                  </h3>
-                  <span className="text-xs text-[#527965] font-medium">2015 – Present</span>
-                </div>
-                <p className="text-xs text-[#697A72]">Pune Studio & Nationwide Telehealth</p>
-                <p className="text-xs sm:text-sm text-[#5B6D64] leading-relaxed pt-1">
-                  Providing ongoing weekly therapy for adults and couples dealing with anxiety, burnout, relationship friction, and life transitions.
-                </p>
-              </div>
-
-              <div className="pt-4 space-y-1">
-                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                  <h3 className="font-serif text-base sm:text-lg text-[#1A2421]">
-                    Hospital Outpatient Mental Health Unit — Clinical Counselor
-                  </h3>
-                  <span className="text-xs text-[#527965] font-medium">2014 – 2015</span>
-                </div>
-                <p className="text-xs text-[#697A72]">Pune, India</p>
-                <p className="text-xs sm:text-sm text-[#5B6D64] leading-relaxed pt-1">
-                  Conducted diagnostic intakes, supportive crisis counseling, and structured anxiety reduction sessions for outpatient clients.
-                </p>
-              </div>
-
-              <div className="pt-4 space-y-1">
-                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                  <h3 className="font-serif text-base sm:text-lg text-[#1A2421]">
-                    University Counseling Center — Graduate Counselor
-                  </h3>
-                  <span className="text-xs text-[#527965] font-medium">2013 – 2014</span>
-                </div>
-                <p className="text-xs text-[#697A72]">Mumbai, India</p>
-                <p className="text-xs sm:text-sm text-[#5B6D64] leading-relaxed pt-1">
-                  Supported students and young adults managing academic stress, perfectionism, self-esteem questions, and family challenges.
-                </p>
-              </div>
-
-              <div className="pt-4 space-y-1">
-                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                  <h3 className="font-serif text-base sm:text-lg text-[#1A2421]">
-                    Community Mental Health & Wellness Workshops — Facilitator
-                  </h3>
-                  <span className="text-xs text-[#527965] font-medium">2015 – Present</span>
-                </div>
-                <p className="text-xs text-[#697A72]">Corporate & Community Settings</p>
-                <p className="text-xs sm:text-sm text-[#5B6D64] leading-relaxed pt-1">
-                  Designed and facilitated interactive workshops on preventing burnout, setting healthy boundaries, and managing workplace stress.
-                </p>
-              </div>
-
-            </div>
-          )}
-
+            );
+          })}
         </div>
-      </section>
 
-      {/* 8. CARL ROGERS QUOTE SECTION */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-8 text-center">
-        <div className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-14 shadow-subtle space-y-3.5">
-          <span className="font-serif text-3xl sm:text-4xl text-[#BDDBE7]">“</span>
-          <p className="font-serif italic text-base sm:text-2xl md:text-3xl text-[#1A2421] leading-relaxed max-w-2xl mx-auto -mt-2">
-            {siteContent.home.quote.statement.replace(/[“”]/g, '')}
-          </p>
-          <p className="font-sans text-[11px] sm:text-xs text-[#527965] font-medium uppercase tracking-widest pt-1">
-            — {siteContent.home.quote.citation}
-          </p>
-        </div>
       </section>
 
     </div>
