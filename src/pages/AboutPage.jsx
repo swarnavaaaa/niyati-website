@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { siteContent } from '../data/content';
 import {
@@ -18,6 +18,14 @@ import {
 
 export default function AboutPage() {
   const { about } = siteContent;
+
+  useEffect(() => {
+    document.title = "About Niyati Bagla — Lost & Found Therapy";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", "Meet Niyati Bagla, Counselling Psychologist & Psychotherapist with a Master's degree in Clinical Psychology. Human-first, relational & trauma-informed online therapy for adults.");
+    }
+  }, []);
 
   return (
     <div className="w-full space-y-16 sm:space-y-24 md:space-y-32">

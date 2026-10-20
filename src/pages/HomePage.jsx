@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { siteContent } from '../data/content';
 import {
@@ -26,6 +26,14 @@ import {
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState(0);
   const { hero, landedHere, aboutSnapshot, therapyExperience, whatWeWorkOn, sessions, faqs } = siteContent.home;
+
+  useEffect(() => {
+    document.title = "Lost & Found Therapy — Therapy with Niyati Bagla";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", "Therapy that feels warm, human and at-home – for when things feel difficult. Online therapy for adults with Niyati Bagla, Counselling Psychologist & Psychotherapist.");
+    }
+  }, []);
 
   return (
     <div className="w-full space-y-16 sm:space-y-24 md:space-y-32">

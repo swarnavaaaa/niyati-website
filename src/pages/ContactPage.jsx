@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { siteContent } from '../data/content';
 import ContactForm from '../components/ContactForm';
 import {
@@ -20,6 +20,14 @@ import {
 export default function ContactPage() {
   const [openFaq, setOpenFaq] = useState(0);
   const { faqs, sessions } = siteContent.home;
+
+  useEffect(() => {
+    document.title = "Getting Started & Appointments — Lost & Found Therapy";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", "Book an online therapy session directly or submit an enquiry to schedule a free 15-minute consultation with Niyati Bagla.");
+    }
+  }, []);
 
   return (
     <div className="w-full space-y-16 sm:space-y-24 md:space-y-32">

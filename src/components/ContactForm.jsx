@@ -130,10 +130,11 @@ export default function ContactForm() {
               type="text"
               id="name"
               name="name"
+              autoComplete="name"
               value={formData.name}
               onChange={handleChange}
               placeholder="e.g. Radhika"
-              className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] transition-all min-h-[46px]"
+              className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all min-h-[48px]"
             />
           </div>
 
@@ -145,10 +146,11 @@ export default function ContactForm() {
               type="email"
               id="email"
               name="email"
+              autoComplete="email"
               value={formData.email}
               onChange={handleChange}
               placeholder="e.g. radhika@example.com"
-              className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] transition-all min-h-[46px]"
+              className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all min-h-[48px]"
             />
           </div>
         </div>
@@ -163,10 +165,12 @@ export default function ContactForm() {
               type="tel"
               id="phone"
               name="phone"
+              autoComplete="tel"
+              inputMode="tel"
               value={formData.phone}
               onChange={handleChange}
               placeholder="+91 98..."
-              className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] transition-all min-h-[46px]"
+              className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all min-h-[48px]"
             />
           </div>
 
@@ -179,7 +183,7 @@ export default function ContactForm() {
               name="location"
               value={formData.location}
               onChange={handleChange}
-              className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] focus:bg-white focus:border-[#527965] transition-all min-h-[46px]"
+              className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all min-h-[48px]"
             >
               <option value="India">Client based in India (₹1,750 / session)</option>
               <option value="International">Client based outside India (₹4,750 / session)</option>
@@ -197,7 +201,7 @@ export default function ContactForm() {
             name="topic"
             value={formData.topic}
             onChange={handleChange}
-            className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] focus:bg-white focus:border-[#527965] transition-all min-h-[46px]"
+            className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all min-h-[48px]"
           >
             {topicOptions.map((opt) => (
               <option key={opt} value={opt}>
@@ -219,7 +223,7 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             placeholder="You don't need the perfect words or a neat explanation. Start wherever you are..."
-            className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] transition-all resize-y min-h-[100px]"
+            className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all resize-y min-h-[110px]"
           />
         </div>
 
