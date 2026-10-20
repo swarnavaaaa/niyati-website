@@ -26,9 +26,7 @@ export const siteContent = {
 
   navigation: [
     { name: "Home", href: "/" },
-    { name: "If You've Landed Here", href: "/#landed-here" },
     { name: "About Me", href: "/about" },
-    { name: "What Therapy Is Like", href: "/#therapy-experience" },
     { name: "What We Work On", href: "/#what-we-work-on" },
     { name: "Sessions & Fees", href: "/#sessions" },
     { name: "FAQs", href: "/#faqs" },

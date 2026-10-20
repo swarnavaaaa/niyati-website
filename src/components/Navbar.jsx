@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowUpRight, Calendar } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { siteContent } from '../data/content';
 
 export default function Navbar() {
@@ -36,18 +36,18 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#E3ECE6] transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
           
           {/* Brand Logo & Name */}
           <Link
             to="/"
-            className="flex items-center space-x-2.5 sm:space-x-3.5 group focus-visible:outline-none min-h-[44px]"
+            className="flex items-center space-x-2.5 sm:space-x-3.5 group focus-visible:outline-none min-h-[44px] shrink-0"
             aria-label={`${siteContent.practice.brandName} Home`}
           >
             <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#194B4E] text-[#FAF8F5] flex items-center justify-center shadow-subtle group-hover:bg-[#527965] transition-colors duration-300 shrink-0">
               <span className="font-serif text-xs sm:text-sm font-semibold tracking-wider">LF</span>
             </div>
-            <div className="flex flex-col min-w-0">
+            <div className="flex flex-col min-w-0 whitespace-nowrap">
               <span className="font-serif text-base sm:text-xl font-medium tracking-tight text-[#1A2421] group-hover:text-[#194B4E] transition-colors truncate">
                 {siteContent.practice.brandName}
               </span>
@@ -57,8 +57,8 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-7 text-sm font-sans" aria-label="Main Navigation">
+          {/* Desktop Navigation - All items in a single line without wrapping */}
+          <nav className="hidden md:flex items-center space-x-5 lg:space-x-7 text-sm font-sans flex-nowrap whitespace-nowrap" aria-label="Main Navigation">
             {siteContent.navigation.map((item) => {
               const isHash = item.href.includes('#');
               if (isHash) {
@@ -66,7 +66,7 @@ export default function Navbar() {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="transition-all duration-200 py-2 font-medium text-[13px] tracking-wide min-h-[44px] flex items-center text-[#46544E] hover:text-[#194B4E]"
+                    className="transition-all duration-200 py-2 font-medium text-[13px] tracking-wide min-h-[44px] flex items-center text-[#46544E] hover:text-[#194B4E] whitespace-nowrap"
                   >
                     {item.name}
                   </a>
@@ -77,7 +77,7 @@ export default function Navbar() {
                   key={item.name}
                   to={item.href}
                   className={({ isActive }) =>
-                    `transition-all duration-200 py-2 font-medium relative text-[13px] tracking-wide min-h-[44px] flex items-center ${
+                    `transition-all duration-200 py-2 font-medium relative text-[13px] tracking-wide min-h-[44px] flex items-center whitespace-nowrap ${
                       isActive
                         ? 'text-[#194B4E] font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#527965] after:rounded-full'
                         : 'text-[#46544E] hover:text-[#194B4E]'
@@ -89,14 +89,14 @@ export default function Navbar() {
               );
             })}
 
+            {/* Book a session as a text link instead of a button, keeping all text in one line */}
             <a
               href={siteContent.practice.topmateUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 px-5 py-2.5 bg-[#194B4E] hover:bg-[#133A3C] text-[#FFFFFF] font-sans font-medium text-xs tracking-wide rounded-full shadow-subtle hover:shadow transition-all duration-200 min-h-[44px]"
+              className="transition-all duration-200 py-2 font-medium text-[13px] tracking-wide min-h-[44px] flex items-center text-[#194B4E] hover:text-[#527965] whitespace-nowrap"
             >
-              <Calendar className="w-3.5 h-3.5 text-[#BDDBE7]" />
-              <span>Book a session</span>
+              Book a session
             </a>
           </nav>
 
@@ -104,7 +104,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden w-11 h-11 text-[#1A2421] bg-white border border-[#E3ECE6] rounded-full shadow-subtle hover:bg-[#F2F7F4] active:bg-[#E8EFEA] flex items-center justify-center transition-colors focus-visible:outline-none"
+            className="md:hidden w-11 h-11 text-[#1A2421] bg-white border border-[#E3ECE6] rounded-full shadow-subtle hover:bg-[#F2F7F4] active:bg-[#E8EFEA] flex items-center justify-center transition-colors focus-visible:outline-none"
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={mobileMenuOpen}
           >
@@ -115,7 +115,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-50">
+        <div className="md:hidden fixed inset-0 z-50">
           {/* Backdrop with touch tap to close */}
           <div
             className="fixed inset-0 bg-[#1A2421]/45 backdrop-blur-sm transition-opacity"
@@ -146,7 +146,7 @@ export default function Navbar() {
                       key={item.name}
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border transition-all min-h-[52px] bg-white text-[#1A2421] border-[#E3ECE6] active:bg-[#F2F7F4]"
+                      className="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border transition-all min-h-[52px] bg-white text-[#1A2421] border-[#E3ECE6] active:bg-[#F2F7F4] whitespace-nowrap"
                     >
                       <span className="font-serif text-base sm:text-lg">{item.name}</span>
                       <span className="text-[11px] font-sans font-medium px-2 py-0.5 bg-[#FAF8F5] text-[#697A72] border border-[#E3ECE6] rounded-full">
@@ -161,7 +161,7 @@ export default function Navbar() {
                     to={item.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={({ isActive }) =>
-                      `flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border transition-all min-h-[52px] ${
+                      `flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border transition-all min-h-[52px] whitespace-nowrap ${
                         isActive
                           ? 'bg-[#E8EFEA] text-[#194B4E] border-[#527965] font-semibold shadow-subtle'
                           : 'bg-white text-[#1A2421] border-[#E3ECE6] active:bg-[#F2F7F4]'
@@ -187,9 +187,8 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white font-sans text-xs font-medium rounded-full shadow-subtle flex items-center justify-center space-x-2 min-h-[48px]"
+                className="w-full text-center py-3 text-[#194B4E] hover:text-[#527965] font-sans text-xs font-medium transition-colors flex items-center justify-center space-x-1.5 whitespace-nowrap border border-[#D8E4DC] rounded-full bg-[#FAF8F5]"
               >
-                <Calendar className="w-4 h-4 text-[#BDDBE7]" />
                 <span>Book a session</span>
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
               </a>
