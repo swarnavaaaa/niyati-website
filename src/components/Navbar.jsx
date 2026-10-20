@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { siteContent } from '../data/content';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const location = useLocation();
+  const navigate = useNavigate();
 
+  // Close mobile drawer on route changes
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  // Lock body scroll when mobile drawer is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -33,6 +37,122 @@ export default function Navbar() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [mobileMenuOpen]);
 
+  // Sync active section on initial load or hash changes
+  useEffect(() => {
+    if (location.pathname === '/') {
+      if (location.hash) {
+        const id = location.hash.replace('#', '');
+        if (['what-we-work-on', 'sessions', 'faqs'].includes(id)) {
+          setActiveSection(id);
+          return;
+        }
+      }
+      if (window.scrollY < 300) {
+        setActiveSection('home');
+      }
+    }
+  }, [location.pathname, location.hash]);
+
+  // Scroll spy to highlight the correct section on the homepage
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      return;
+    }
+
+    const handleScroll = () => {
+      // If user reaches near the bottom of the page, FAQ or footer is in view
+      const isBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80;
+      if (isBottom) {
+        setActiveSection('faqs');
+        return;
+      }
+
+      // If near the top
+      if (window.scrollY < 300) {
+        setActiveSection('home');
+        return;
+      }
+
+      // Check sections from bottom to top order
+      const sections = ['faqs', 'sessions', 'what-we-work-on'];
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          // Header is ~80px, threshold 180px gives natural triggering as section scrolls in
+          if (rect.top <= 180) {
+            setActiveSection(id);
+            return;
+          }
+        }
+      }
+
+      setActiveSection('home');
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location.pathname]);
+
+  // Determine whether a nav link is active
+  const isItemActive = (item) => {
+    if (location.pathname === '/about') {
+      return item.href === '/about';
+    }
+    if (location.pathname === '/contact') {
+      return item.href === '/contact';
+    }
+    if (location.pathname === '/') {
+      if (item.href === '/') {
+        return activeSection === 'home';
+      }
+      if (item.href.includes('#what-we-work-on')) {
+        return activeSection === 'what-we-work-on';
+      }
+      if (item.href.includes('#sessions')) {
+        return activeSection === 'sessions';
+      }
+      if (item.href.includes('#faqs')) {
+        return activeSection === 'faqs';
+      }
+    }
+    return false;
+  };
+
+  // Smooth scroll and navigation click handler
+  const handleNavClick = (e, href) => {
+    setMobileMenuOpen(false);
+
+    if (href.includes('#')) {
+      const hash = href.substring(href.indexOf('#'));
+      const targetId = hash.replace('#', '');
+
+      if (location.pathname === '/') {
+        e.preventDefault();
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', href);
+          setActiveSection(targetId);
+        }
+      } else {
+        navigate(href);
+      }
+    } else if (href === '/') {
+      if (location.pathname === '/') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.history.pushState(null, '', '/');
+        setActiveSection('home');
+      } else {
+        navigate('/');
+      }
+    } else {
+      navigate(href);
+    }
+  };
+
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#E3ECE6] transition-all duration-300">
@@ -41,6 +161,7 @@ export default function Navbar() {
           {/* Brand Logo & Name */}
           <Link
             to="/"
+            onClick={(e) => handleNavClick(e, '/')}
             className="flex items-center space-x-2.5 sm:space-x-3.5 group focus-visible:outline-none min-h-[44px] shrink-0"
             aria-label={`${siteContent.practice.brandName} Home`}
           >
@@ -57,39 +178,27 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Navigation - All items in a single line without wrapping */}
+          {/* Desktop Navigation - Clean single line with active highlighting */}
           <nav className="hidden md:flex items-center space-x-5 lg:space-x-7 text-sm font-sans flex-nowrap whitespace-nowrap" aria-label="Main Navigation">
             {siteContent.navigation.map((item) => {
-              const isHash = item.href.includes('#');
-              if (isHash) {
-                return (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="transition-all duration-200 py-2 font-medium text-[13px] tracking-wide min-h-[44px] flex items-center text-[#46544E] hover:text-[#194B4E] whitespace-nowrap"
-                  >
-                    {item.name}
-                  </a>
-                );
-              }
+              const active = isItemActive(item);
               return (
-                <NavLink
+                <a
                   key={item.name}
-                  to={item.href}
-                  className={({ isActive }) =>
-                    `transition-all duration-200 py-2 font-medium relative text-[13px] tracking-wide min-h-[44px] flex items-center whitespace-nowrap ${
-                      isActive
-                        ? 'text-[#194B4E] font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#527965] after:rounded-full'
-                        : 'text-[#46544E] hover:text-[#194B4E]'
-                    }`
-                  }
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className={`transition-all duration-200 py-2 font-medium relative text-[13px] tracking-wide min-h-[44px] flex items-center whitespace-nowrap cursor-pointer ${
+                    active
+                      ? 'text-[#194B4E] font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#527965] after:rounded-full'
+                      : 'text-[#46544E] hover:text-[#194B4E]'
+                  }`}
                 >
                   {item.name}
-                </NavLink>
+                </a>
               );
             })}
 
-            {/* Book a session as a text link instead of a button, keeping all text in one line */}
+            {/* Book a session as a text link in the same line */}
             <a
               href={siteContent.practice.topmateUrl}
               target="_blank"
@@ -139,40 +248,29 @@ export default function Navbar() {
               </div>
 
               {siteContent.navigation.map((item, idx) => {
-                const isHash = item.href.includes('#');
-                if (isHash) {
-                  return (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border transition-all min-h-[52px] bg-white text-[#1A2421] border-[#E3ECE6] active:bg-[#F2F7F4] whitespace-nowrap"
-                    >
-                      <span className="font-serif text-base sm:text-lg">{item.name}</span>
-                      <span className="text-[11px] font-sans font-medium px-2 py-0.5 bg-[#FAF8F5] text-[#697A72] border border-[#E3ECE6] rounded-full">
-                        0{idx + 1}
-                      </span>
-                    </a>
-                  );
-                }
+                const active = isItemActive(item);
                 return (
-                  <NavLink
+                  <a
                     key={item.name}
-                    to={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={({ isActive }) =>
-                      `flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border transition-all min-h-[52px] whitespace-nowrap ${
-                        isActive
-                          ? 'bg-[#E8EFEA] text-[#194B4E] border-[#527965] font-semibold shadow-subtle'
-                          : 'bg-white text-[#1A2421] border-[#E3ECE6] active:bg-[#F2F7F4]'
-                      }`
-                    }
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className={`flex items-center justify-between p-3.5 sm:p-4 rounded-2xl border transition-all min-h-[52px] whitespace-nowrap cursor-pointer ${
+                      active
+                        ? 'bg-[#E8EFEA] text-[#194B4E] border-[#527965] font-semibold shadow-subtle'
+                        : 'bg-white text-[#1A2421] border-[#E3ECE6] active:bg-[#F2F7F4]'
+                    }`}
                   >
                     <span className="font-serif text-base sm:text-lg">{item.name}</span>
-                    <span className="text-[11px] font-sans font-medium px-2 py-0.5 bg-[#FAF8F5] text-[#697A72] border border-[#E3ECE6] rounded-full">
+                    <span
+                      className={`text-[11px] font-sans font-medium px-2 py-0.5 rounded-full border ${
+                        active
+                          ? 'bg-[#527965] text-white border-[#527965]'
+                          : 'bg-[#FAF8F5] text-[#697A72] border-[#E3ECE6]'
+                      }`}
+                    >
                       0{idx + 1}
                     </span>
-                  </NavLink>
+                  </a>
                 );
               })}
             </div>
