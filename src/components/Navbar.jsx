@@ -42,7 +42,7 @@ export default function Navbar() {
     if (location.pathname === '/') {
       if (location.hash) {
         const id = location.hash.replace('#', '');
-        if (['what-we-work-on', 'sessions', 'faqs'].includes(id)) {
+        if (['what-we-can-work-on', 'what-we-work-on', 'about-the-work', 'sessions', 'faqs'].includes(id)) {
           setActiveSection(id);
           return;
         }
@@ -74,7 +74,7 @@ export default function Navbar() {
       }
 
       // Check sections from bottom to top order
-      const sections = ['faqs', 'sessions', 'what-we-work-on'];
+      const sections = ['faqs', 'about-the-work', 'sessions', 'what-we-can-work-on', 'what-we-work-on'];
       for (const id of sections) {
         const el = document.getElementById(id);
         if (el) {
@@ -107,11 +107,11 @@ export default function Navbar() {
       if (item.href === '/') {
         return activeSection === 'home';
       }
-      if (item.href.includes('#what-we-work-on')) {
-        return activeSection === 'what-we-work-on';
+      if (item.href.includes('#what-we-can-work-on') || item.href.includes('#what-we-work-on')) {
+        return activeSection === 'what-we-can-work-on' || activeSection === 'what-we-work-on';
       }
-      if (item.href.includes('#sessions')) {
-        return activeSection === 'sessions';
+      if (item.href.includes('#about-the-work') || item.href.includes('#sessions')) {
+        return activeSection === 'about-the-work' || activeSection === 'sessions';
       }
       if (item.href.includes('#faqs')) {
         return activeSection === 'faqs';
@@ -158,21 +158,18 @@ export default function Navbar() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#FAF8F5]/95 backdrop-blur-md border-b border-[#E3ECE6] transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
           
-          {/* Brand Logo & Name */}
+          {/* Brand Name (Text only, logo removed as requested) */}
           <Link
             to="/"
             onClick={(e) => handleNavClick(e, '/')}
-            className="flex items-center space-x-2.5 sm:space-x-3.5 group focus-visible:outline-none min-h-[44px] shrink-0"
+            className="flex items-center space-x-2 group focus-visible:outline-none min-h-[44px] shrink-0"
             aria-label={`${siteContent.practice.brandName} Home`}
           >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#194B4E] text-[#FAF8F5] flex items-center justify-center shadow-subtle group-hover:bg-[#527965] transition-colors duration-300 shrink-0">
-              <span className="font-serif text-xs sm:text-sm font-semibold tracking-wider">LF</span>
-            </div>
             <div className="flex flex-col min-w-0 whitespace-nowrap">
-              <span className="font-serif text-base sm:text-xl font-medium tracking-tight text-[#1A2421] group-hover:text-[#194B4E] transition-colors truncate">
-                {siteContent.practice.brandName}
+              <span className="font-serif text-lg sm:text-2xl font-medium tracking-tight text-[#1A2421] group-hover:text-[#194B4E] transition-colors">
+                Lost <span className="text-[#8A4834] font-normal">&</span> Found Therapy
               </span>
-              <span className="font-sans text-[10px] sm:text-[11px] text-[#697A72] tracking-wide font-normal truncate">
+              <span className="font-sans text-[10px] sm:text-[11px] text-[#697A72] tracking-wide font-normal">
                 Therapy with {siteContent.practice.therapistName}
               </span>
             </div>

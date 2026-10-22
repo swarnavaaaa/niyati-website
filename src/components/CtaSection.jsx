@@ -31,7 +31,7 @@ export default function CtaSection() {
         {/* 2 DISTINCT PATHWAYS */}
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto">
           
-          {/* Pathway 1: Book directly */}
+          {/* Pathway 1: Book a session directly */}
           <div className="bg-white/95 backdrop-blur-sm border border-[#E3ECE6] rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-5 shadow-subtle hover:border-[#194B4E]/40 hover:shadow-card transition-all duration-300">
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
@@ -39,9 +39,6 @@ export default function CtaSection() {
                   <Calendar className="w-5 h-5 text-[#194B4E]" />
                 </div>
                 <div>
-                  <span className="text-[11px] uppercase tracking-wider text-[#527965] font-semibold block">
-                    Option 01
-                  </span>
                   <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1A2421]">
                     {gettingStarted.option1.title}
                   </h3>
@@ -63,13 +60,10 @@ export default function CtaSection() {
                 <span>{gettingStarted.option1.buttonText}</span>
                 <ArrowRight className="w-4 h-4 ml-0.5 shrink-0" />
               </a>
-              <span className="block text-center text-[11px] text-[#697A72] mt-2">
-                Topmate calendar booking
-              </span>
             </div>
           </div>
 
-          {/* Pathway 2: Reach out first */}
+          {/* Pathway 2: Book a consultation call first */}
           <div className="bg-white/95 backdrop-blur-sm border border-[#E3ECE6] rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-5 shadow-subtle hover:border-[#527965]/40 hover:shadow-card transition-all duration-300">
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
@@ -77,9 +71,6 @@ export default function CtaSection() {
                   <FileText className="w-5 h-5 text-[#C67D63]" />
                 </div>
                 <div>
-                  <span className="text-[11px] uppercase tracking-wider text-[#527965] font-semibold block">
-                    Option 02
-                  </span>
                   <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#1A2421]">
                     {gettingStarted.option2.title}
                   </h3>
@@ -99,9 +90,6 @@ export default function CtaSection() {
                 <span>{gettingStarted.option2.buttonText}</span>
                 <ArrowRight className="w-4 h-4 ml-0.5 shrink-0" />
               </Link>
-              <span className="block text-center text-[11px] text-[#697A72] mt-2">
-                15-minute consultation enquiry
-              </span>
             </div>
           </div>
 
@@ -116,13 +104,16 @@ export default function CtaSection() {
 
       </div>
 
-      {/* 2. SURFING WAVES QUOTE & MORE ABOUT ME SECTION */}
+      {/* 2. CARL ROGERS QUOTE & MORE ABOUT ME SECTION */}
       <div className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-10 text-center space-y-6 shadow-subtle max-w-4xl mx-auto">
         <div className="space-y-2">
           <span className="font-serif text-3xl sm:text-4xl text-[#BDDBE7]">“</span>
           <p className="font-serif italic text-lg sm:text-2xl text-[#1A2421] leading-relaxed max-w-2xl mx-auto -mt-2">
-            {quote.statement.replace(/[“”]/g, '')}
+            The curious paradox is that when I accept myself just as I am, then I can change.
           </p>
+          <span className="font-sans text-xs sm:text-sm text-[#697A72] block pt-1 font-medium">
+            — Carl Rogers
+          </span>
         </div>
 
         {/* MORE ABOUT ME BUTTONS */}

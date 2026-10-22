@@ -2,30 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { siteContent } from '../data/content';
 import ContactForm from '../components/ContactForm';
 import {
-  Mail,
-  Phone,
   Video,
   Clock,
   Sparkles,
   ChevronDown,
   Calendar,
   ArrowRight,
-  ShieldCheck,
-  BadgeIndianRupee,
-  Heart,
-  MessageCircle,
-  FileText
+  BadgeIndianRupee
 } from 'lucide-react';
 
 export default function ContactPage() {
-  const [openFaq, setOpenFaq] = useState(0);
+  // FAQs closed by default per request
+  const [openFaq, setOpenFaq] = useState(-1);
   const { faqs, sessions } = siteContent.home;
 
   useEffect(() => {
     document.title = "Getting Started & Appointments — Lost & Found Therapy";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Book an online therapy session directly or submit an enquiry to schedule a free 15-minute consultation with Niyati Bagla.");
+      metaDesc.setAttribute("content", "Book an online therapy session directly or submit an enquiry to schedule a 15-minute consultation with Niyati Bagla.");
     }
   }, []);
 
@@ -64,23 +59,20 @@ export default function ContactPage() {
           {/* Left Column: Direct Info & Booking Options */}
           <div className="lg:col-span-5 space-y-6">
             
-            {/* Pathway 1 Quick Card */}
+            {/* Direct Booking Card (Option label removed, heading updated) */}
             <div className="bg-white border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-card space-y-4">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 rounded-full bg-[#E8F2F7] text-[#194B4E] flex items-center justify-center shrink-0">
                   <Calendar className="w-5 h-5 text-[#194B4E]" />
                 </div>
                 <div>
-                  <span className="text-[11px] uppercase tracking-wider text-[#527965] font-semibold block">
-                    Option 01
-                  </span>
                   <h3 className="font-serif text-xl sm:text-2xl text-[#1A2421]">
-                    Book directly
+                    Book a session directly
                   </h3>
                 </div>
               </div>
               <p className="text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
-                If you already know you’d like to begin, you can choose a convenient slot right away.
+                If you already know you’d like to begin, you can choose a convenient slot.
               </p>
               <a
                 href={siteContent.practice.topmateUrl}
@@ -89,55 +81,49 @@ export default function ContactPage() {
                 className="w-full inline-flex items-center justify-center space-x-2 px-6 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-xs font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all min-h-[46px]"
               >
                 <Calendar className="w-4 h-4 text-[#BDDBE7]" />
-                <span>Book a session on Topmate</span>
+                <span>Book session</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </a>
             </div>
 
-            {/* Practice Details & Session Fees */}
+            {/* About The Work (Format, Mode & Fees) */}
             <div className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-subtle space-y-5">
               <div>
                 <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
-                  ABOUT THE SESSIONS
+                  {sessions.tag}
                 </span>
                 <h3 className="font-serif text-xl sm:text-2xl text-[#1A2421] mt-1">
-                  Format, Mode & Fees
+                  {sessions.sectionHeading}
                 </h3>
               </div>
 
-              <div className="space-y-3.5 pt-2 border-t border-[#E3ECE6] text-xs sm:text-sm text-[#46544E]">
+              <div className="space-y-4 pt-2 border-t border-[#E3ECE6] text-xs sm:text-sm text-[#46544E]">
                 
-                <div className="flex items-start space-x-3">
-                  <Clock className="w-4 h-4 text-[#527965] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-medium text-[#1A2421] block">Session Duration</span>
-                    <p className="text-[#5B6D64]">{sessions.duration}</p>
+                {/* Duration and Mode */}
+                <div className="p-4 rounded-xl bg-white border border-[#E3ECE6] space-y-2">
+                  <div className="flex items-center space-x-2.5">
+                    <Clock className="w-4 h-4 text-[#194B4E]" />
+                    <span className="font-serif text-lg font-medium text-[#1A2421]">{sessions.duration}</span>
+                  </div>
+                  <p className="text-[#5B6D64]">{sessions.durationSubtext}</p>
+                  <div className="pt-2 border-t border-[#E3ECE6]/60 flex items-center space-x-2 text-[#46544E]">
+                    <Video className="w-3.5 h-3.5 text-[#527965]" />
+                    <span>{sessions.mode}</span>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-3">
-                  <Video className="w-4 h-4 text-[#527965] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-medium text-[#1A2421] block">Mode</span>
-                    <p className="text-[#5B6D64]">{sessions.mode}</p>
+                {/* Fees with consistent styling */}
+                <div className="p-4 rounded-xl bg-white border border-[#E3ECE6] space-y-2">
+                  <div className="flex items-center space-x-2.5">
+                    <BadgeIndianRupee className="w-4 h-4 text-[#C67D63]" />
+                    <span className="font-serif text-lg font-medium text-[#1A2421]">{sessions.feesDisplay}</span>
                   </div>
+                  <p className="text-[#5B6D64]">{sessions.feesSubtext}</p>
                 </div>
 
-                <div className="flex items-start space-x-3">
-                  <BadgeIndianRupee className="w-4 h-4 text-[#527965] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-medium text-[#1A2421] block">Fees</span>
-                    <p className="text-[#5B6D64]">{sessions.feesIndia}</p>
-                    <p className="text-[#5B6D64]">{sessions.feesInternational}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <Heart className="w-4 h-4 text-[#527965] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-medium text-[#1A2421] block">Sliding Scale</span>
-                    <p className="text-[#5B6D64] leading-relaxed">{sessions.slidingScale}</p>
-                  </div>
+                {/* Sliding scale subtext */}
+                <div className="p-3.5 rounded-xl bg-white/70 border border-[#E3ECE6] text-[#5B6D64] leading-relaxed text-xs">
+                  {sessions.slidingScale}
                 </div>
 
               </div>

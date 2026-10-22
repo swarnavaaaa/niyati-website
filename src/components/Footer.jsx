@@ -13,20 +13,15 @@ export default function Footer() {
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pb-8 sm:pb-10 border-b border-[#E3ECE6]">
           
-          {/* Col 1: Brand & Subtitle */}
+          {/* Col 1: Brand & Subtitle (LF logo removed) */}
           <div className="md:col-span-5 space-y-3.5 sm:space-y-4">
-            <div className="flex items-center space-x-3">
-              <div className="w-9 h-9 rounded-full bg-[#194B4E] text-[#FAF8F5] flex items-center justify-center font-serif text-xs font-semibold shrink-0">
-                LF
-              </div>
-              <div>
-                <span className="font-serif font-medium text-[#1A2421] text-lg sm:text-xl block leading-tight">
-                  {siteContent.practice.brandName}
-                </span>
-                <span className="text-[11px] text-[#697A72]">
-                  {siteContent.practice.fullTitle}
-                </span>
-              </div>
+            <div className="flex flex-col space-y-1">
+              <span className="font-serif font-medium text-[#1A2421] text-lg sm:text-2xl block leading-tight">
+                Lost <span className="text-[#8A4834] font-normal">&</span> Found Therapy
+              </span>
+              <span className="text-[11px] text-[#697A72]">
+                {siteContent.practice.fullTitle}
+              </span>
             </div>
             
             <p className="text-xs sm:text-sm text-[#5B6D64] leading-relaxed max-w-sm">
@@ -101,16 +96,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3: Online Practice Details */}
+          {/* Col 3: Contact Info (Practice information & duration removed) */}
           <div className="md:col-span-4 space-y-3">
             <span className="text-[#194B4E] font-medium text-xs uppercase tracking-wider block font-sans">
-              Practice Information
+              Contact Info
             </span>
             <div className="space-y-3 text-xs sm:text-sm text-[#5B6D64]">
-              <div className="flex items-start space-x-3">
-                <Video className="w-4 h-4 text-[#527965] shrink-0 mt-0.5" />
-                <span>{siteContent.practice.mode}</span>
-              </div>
               <div className="flex items-center space-x-3 min-h-[44px]">
                 <Mail className="w-4 h-4 text-[#527965] shrink-0" />
                 <a href={`mailto:${siteContent.practice.email}`} className="hover:text-[#194B4E] transition-colors font-medium text-[#1A2421] break-all py-1">
@@ -123,9 +114,6 @@ export default function Footer() {
                   {siteContent.practice.phone}
                 </a>
               </div>
-              <p className="text-[11px] text-[#788B81] pt-1 leading-relaxed">
-                Duration: 50-60 minutes per session · Google Meet or Zoom
-              </p>
             </div>
           </div>
 
