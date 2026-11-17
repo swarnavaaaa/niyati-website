@@ -441,7 +441,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="pt-3 border-t border-[#E3ECE6] text-sm text-[#527965]">
-                <span>Standard individual session</span>
+                <span>Limited sliding-scale spaces are available</span>
               </div>
             </div>
 
