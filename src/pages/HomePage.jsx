@@ -496,8 +496,12 @@ export default function HomePage() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 sm:px-6 pb-5 pt-1 text-base sm:text-lg text-[#5B6D64] leading-relaxed border-t border-[#E3ECE6]/50">
-                    <p>{item.a}</p>
+                  <div className="px-4 sm:px-6 pb-5 pt-3 text-base sm:text-lg text-[#5B6D64] leading-relaxed border-t border-[#E3ECE6]/50 space-y-3.5">
+                    {Array.isArray(item.a) ? (
+                      item.a.map((paragraph, pIdx) => <p key={pIdx}>{paragraph}</p>)
+                    ) : (
+                      <p>{item.a}</p>
+                    )}
                   </div>
                 )}
               </div>

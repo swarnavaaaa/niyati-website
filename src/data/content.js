@@ -157,43 +157,87 @@ export const siteContent = {
       items: [
         {
           id: "01",
-          q: "“Is therapy confidential?”",
-          a: "Yes, completely. Everything shared in our sessions is strictly confidential. The only exceptions are rare and ethically mandated situations where there is an immediate risk of harm to yourself or someone else, or as required by law. We will also discuss this clearly in our first session so you feel completely safe and informed."
+          q: "Is therapy confidential?",
+          a: [
+            "Yes. Your privacy is an important part of the therapeutic relationship. What you share in our sessions stays between us, and I will not share information about you or your therapy with anyone without your consent.",
+            "There are, however, a few important exceptions: If there is a serious or immediate risk of harm to you or someone else, suspected abuse or neglect of a child or vulnerable adult, or a legal requirement to disclose information, I may need to share relevant information with the appropriate people or authorities. In such situations, I will share only what is necessary.",
+            "Additionally, as part of responsible clinical practice, I may occasionally discuss aspects of my work with a professional supervisor or through peer consultation. This helps me reflect on the work, consider different perspectives, and ensure that I'm providing thoughtful and ethical care. Your identity and personally identifying information will remain confidential. Only information relevant to the clinical discussion will be shared, without identifying details.",
+            "We can always talk about any questions or concerns you have around confidentiality."
+          ]
         },
         {
           id: "02",
-          q: "“I don’t know what to talk about. Is that okay?”",
-          a: "Absolutely. You don’t need a neatly organised story, a clear diagnosis, or a list of things you want to work on before your first session. We can start with whatever feels easiest to say, even “I don’t really know why I’m here” or “I just know that something doesn’t feel right.” Part of our work together can be figuring out what is important to you and where we might begin."
+          q: "How often will we meet?",
+          a: "Sessions are typically scheduled weekly. Having a regular rhythm allows us to build a therapeutic relationship, create continuity, and give the work the time and consistency it needs. As therapy progresses, we can periodically revisit the frequency of our sessions and make adjustments based on your needs and how the process is unfolding."
         },
         {
           id: "03",
-          q: "“Do I need to have a diagnosis?”",
-          a: "No. You don’t need a diagnosis or a particular label to seek therapy. People come to therapy for many different reasons: something may feel difficult or confusing, you may feel stuck in a pattern, a relationship may be hurting, or you may simply want a deeper understanding of yourself. We can start with what’s happening for you without needing to fit your experience into a box first."
+          q: "Are sessions only online?",
+          a: "Yes, I currently offer therapy sessions online through Google Meet only. It's important to join from somewhere private, quiet and comfortable, where you can speak freely without worrying about being overheard or interrupted."
         },
         {
           id: "04",
-          q: "“What if I’m not sure therapy is for me?”",
-          a: "That’s completely okay. Getting in touch doesn’t mean you have to commit to long-term therapy. The first conversation can simply be a chance to meet, understand what you’re looking for, and get a sense of whether working together feels comfortable and useful. It’s okay to take your time with that decision."
+          q: "What is your cancellation and rescheduling policy?",
+          a: [
+            "I understand that plans can change and unexpected things come up. If you need to reschedule a session, you can do so up to 8 hours before your scheduled appointment, subject to availability. Cancellations made less than 8 hours before the session, or failure to join within the first 10 minutes without prior communication, will be considered a late cancellation or no-show, and the full session fee will be applicable.",
+            "If I ever need to cancel or reschedule a session, I'll do my best to inform you as early as possible and arrange an alternative time that works for both of us."
+          ]
         },
         {
           id: "05",
-          q: "“Will you tell me what I should do?”",
-          a: "Therapy is collaborative rather than advice-giving. I won’t pretend to know your life better than you do or tell you what choices you should make. Instead, we’ll explore what is happening, understand the patterns and needs underneath it, and think together about what feels possible. You remain the expert on your own life and the decisions that belong to you."
+          q: "I don't exactly know what to talk about. Is that okay?",
+          a: "Absolutely. You don't need a neatly organised story, a clear diagnosis, or a list of things you want to work on before your first session. We can start with whatever feels easiest to say, even \"I don't really know why I'm here\" or \"I just know that something doesn't feel right.\" We can take our time making sense of what's coming up for you and figuring out what feels important to explore, together."
         },
         {
           id: "06",
-          q: "“How often will we meet?”",
-          a: "We can talk about what frequency makes sense for you based on what you’re looking for and what feels manageable. Many people begin with regular (weekly) sessions so there is enough continuity to build a therapeutic relationship and make space for the work. We can revisit what is working for you as therapy progresses."
+          q: "Do I need a diagnosis?",
+          a: "Not at all. You don't need a diagnosis or a particular label to seek therapy. People come to therapy for all kinds of reasons – something may feel difficult or confusing; you may feel stuck in a pattern, a relationship may be hurting; or you may simply want to understand yourself a little better. We can start with what's happening in your life without needing to fit your experience into a box."
         },
         {
           id: "07",
-          q: "“Are sessions only online?”",
-          a: "Yes. Sessions are conducted online through Google Meet or Zoom. It is important to join from somewhere you can speak privately and feel comfortable and undisturbed."
+          q: "What happens in the first few sessions?",
+          a: [
+            "The first few sessions are usually about getting to know you and understanding what brings you to therapy. We might explore your current concerns, personal history, relationships, experiences, and what you hope to get out of therapy. It's also an opportunity for you to understand how I work and get a sense of whether this feels like a space where you can be yourself. There's no pressure to share everything at once. We can take things at a pace that feels comfortable for you.",
+            "Having the first session doesn't mean you have to commit to long-term therapy. Our initial sessions can be an opportunity to get to know each other, understand what you're looking for, and see whether working together feels comfortable and useful. You can take your time figuring out whether this is the right space for you."
+          ]
         },
         {
           id: "08",
-          q: "“What if I’m having a really difficult day?”",
-          a: "You are welcome to bring difficult days here. Therapy can be a space to talk about intense emotions, difficult experiences, and moments when things feel especially hard. At the same time, online therapy is NOT an emergency or crisis service. If you are in immediate danger, feel unable to keep yourself safe, or need urgent support, please contact your local emergency or crisis service or go to the nearest emergency department rather than waiting for a therapy appointment."
+          q: "Do you record our therapy sessions? Do you maintain notes?",
+          a: [
+            "No, I do not audio or video-record our sessions. Recording or capturing any part of a therapy session (by both the therapist and client) is strictly not permitted. This includes audio or video recordings, photographs, screenshots, or sharing any part of our sessions without explicit mutual consent. This boundary applies throughout our work together and is important for protecting the privacy, trust, and confidentiality of the therapeutic space.",
+            "Yes. I maintain brief, secure clinical notes as part of professional record-keeping and to support continuity in our work. These notes are stored securely and are accessible only to me, unless disclosure is legally or ethically required."
+          ]
+        },
+        {
+          id: "09",
+          q: "Will you tell me what I should do?",
+          a: [
+            "Therapy is collaborative rather than advice-giving. My approach to therapy is more about exploring and understanding than prescribing solutions. I won't pretend to know your life better than you do; rather than telling you what choices to make, we'll take time to understand what's happening, explore the feelings, needs and patterns underneath it, and consider what different possibilities might look like for you.",
+            "There may be times when I offer a perspective, ask questions, or introduce a different way of looking at something, but the intention is always to help you arrive at a greater understanding of yourself and what feels right for you. You don't need someone to make your decisions for you; you deserve a space where you can feel more confident making them yourself."
+          ]
+        },
+        {
+          id: "10",
+          q: "What if I feel uncomfortable, overwhelmed, or don't agree with something during therapy?",
+          a: [
+            "You can always tell me. Therapy isn't always easy or comfortable. Sometimes, exploring difficult experiences, emotions, or patterns can bring up sadness, anxiety, anger, grief, or discomfort. There may also be moments when you feel uncertain, stuck, or unsure about what we're working towards or where things are going. Therapy isn't a linear process. There can be periods of progress alongside moments of difficulty. We'll make room for all of it, at a pace that feels manageable for you.",
+            "It's important that you feel able to express your thoughts, needs, boundaries, and even disagreements openly in our sessions. If something I say or do doesn't sit well with you, or if an aspect of our work feels uncomfortable or unhelpful, I encourage you to bring it up. We can pause, talk about it, and figure things out together. You don't have to agree with me all the time or pretend that you're okay when you're not."
+          ]
+        },
+        {
+          id: "11",
+          q: "Can I message you between sessions?",
+          a: "You're welcome to reach out over WhatsApp or email for scheduling, payments, or other practical matters. You can also briefly share a thought, feeling, or experience that you'd like us to (re)visit in our next session. However, messaging isn't a substitute for therapy or immediate emotional support. Deeper conversations are best held within our scheduled sessions, where we have the time and space to explore them properly. I'll do my best to respond within a reasonable timeframe, but I may not always be immediately available, particularly outside working hours, on weekends, or during leave periods."
+        },
+        {
+          id: "12",
+          q: "What should I do if I'm in crisis or need immediate support?",
+          a: [
+            "You are welcome to bring your difficult days, overwhelming emotions, and painful experiences into our sessions. Together, we can work through these experiences and help you make sense of what you're going through.",
+            "However, online therapy is not an emergency or crisis support service. Please note that I am not available for immediate or round-the-clock support outside scheduled sessions.",
+            "If you are in immediate danger, feel unable to keep yourself safe, are at risk of harming yourself or someone else, or require urgent psychological or medical assistance, please contact your local emergency or crisis services or visit the nearest emergency department. Please do not wait for your next session or for a response from me on WhatsApp, email, or any other platform."
+          ]
         }
       ]
     },
