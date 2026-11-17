@@ -140,8 +140,14 @@ export const siteContent = {
       duration: "50–60 min",
       durationSubtext: "Each therapy session",
       mode: "Sessions are only online via Google Meet or Zoom.",
-      feesDisplay: "₹1,750 / ₹4,750",
-      feesSubtext: "Per session · India / outside India",
+      feesIndia: "₹1,750",
+      feesIndiaLabel: "/ session (India)",
+      feesInternational: "₹4,750",
+      feesInternationalLabel: "/ session (outside India)",
+      fees: [
+        { amount: "₹1,750", label: "/ session (India)" },
+        { amount: "₹4,750", label: "/ session (outside India)" }
+      ],
       slidingScale: "Sessions are only online, via Google Meet or Zoom. Limited sliding-scale spaces are available for students and for those experiencing financial constraints. If cost is a barrier, you’re welcome to mention this when you reach out.",
     },
 

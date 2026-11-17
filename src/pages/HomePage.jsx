@@ -425,17 +425,21 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Box 2: Fees (consistent font colour and size for Indian and international fees) */}
+            {/* Box 2: Fees (one line each for India and outside India) */}
             <div className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl p-6 sm:p-8 space-y-4 shadow-subtle flex flex-col justify-center text-center">
               <div className="w-12 h-12 rounded-full bg-[#FAF3F0] text-[#C67D63] flex items-center justify-center mx-auto">
                 <BadgeIndianRupee className="w-6 h-6 text-[#C67D63]" />
               </div>
-              <h3 className="font-serif text-2xl sm:text-3xl text-[#1A2421] font-medium">
-                {sessions.feesDisplay}
-              </h3>
-              <p className="font-sans text-sm sm:text-base text-[#5B6D64]">
-                {sessions.feesSubtext}
-              </p>
+              <div className="space-y-2.5">
+                <div className="flex items-baseline justify-center gap-2">
+                  <span className="font-serif text-2xl sm:text-3xl text-[#1A2421] font-medium">{sessions.feesIndia}</span>
+                  <span className="font-sans text-sm sm:text-base text-[#5B6D64]">{sessions.feesIndiaLabel}</span>
+                </div>
+                <div className="flex items-baseline justify-center gap-2">
+                  <span className="font-serif text-2xl sm:text-3xl text-[#1A2421] font-medium">{sessions.feesInternational}</span>
+                  <span className="font-sans text-sm sm:text-base text-[#5B6D64]">{sessions.feesInternationalLabel}</span>
+                </div>
+              </div>
               <div className="pt-3 border-t border-[#E3ECE6] text-sm text-[#527965]">
                 <span>Standard individual session</span>
               </div>

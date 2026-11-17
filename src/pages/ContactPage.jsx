@@ -110,12 +110,21 @@ export default function ContactPage() {
                 </div>
 
                 {/* Fees with consistent styling */}
-                <div className="p-4 rounded-xl bg-white border border-[#E3ECE6] space-y-2">
+                <div className="p-4 rounded-xl bg-white border border-[#E3ECE6] space-y-2.5">
                   <div className="flex items-center space-x-2.5">
                     <BadgeIndianRupee className="w-4 h-4 text-[#C67D63]" />
-                    <span className="font-serif text-xl font-medium text-[#1A2421]">{sessions.feesDisplay}</span>
+                    <span className="font-serif text-lg font-medium text-[#1A2421]">Session Fees</span>
                   </div>
-                  <p className="text-[#5B6D64] text-sm sm:text-base">{sessions.feesSubtext}</p>
+                  <div className="space-y-1.5 pt-1 border-t border-[#E3ECE6]/60 text-sm text-[#46544E]">
+                    <div className="flex items-baseline justify-between">
+                      <span className="font-serif text-base font-medium text-[#1A2421]">{sessions.feesIndia}</span>
+                      <span className="text-xs sm:text-sm text-[#5B6D64]">{sessions.feesIndiaLabel}</span>
+                    </div>
+                    <div className="flex items-baseline justify-between">
+                      <span className="font-serif text-base font-medium text-[#1A2421]">{sessions.feesInternational}</span>
+                      <span className="text-xs sm:text-sm text-[#5B6D64]">{sessions.feesInternationalLabel}</span>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Sliding scale subtext */}
