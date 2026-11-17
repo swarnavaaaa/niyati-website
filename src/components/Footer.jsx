@@ -7,7 +7,7 @@ export default function Footer() {
   const whatsappUrl = `https://wa.me/${siteContent.practice.whatsappNumber}?text=${encodeURIComponent("Hi Niyati, I visited your website and would like to learn more about starting therapy.")}`;
 
   return (
-    <footer className="bg-[#FAF8F5] text-[#46544E] border-t border-[#E3ECE6] text-xs pt-10 sm:pt-16 pb-12 font-sans">
+    <footer className="bg-[#FAF8F5] text-[#46544E] border-t border-[#E3ECE6] text-sm pt-10 sm:pt-16 pb-12 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 space-y-10 sm:space-y-12">
         
         {/* Main Grid */}
@@ -16,15 +16,15 @@ export default function Footer() {
           {/* Col 1: Brand & Subtitle (LF logo removed) */}
           <div className="md:col-span-5 space-y-3.5 sm:space-y-4">
             <div className="flex flex-col space-y-1">
-              <span className="font-serif font-medium text-[#1A2421] text-lg sm:text-2xl block leading-tight">
-                Lost <span className="text-[#8A4834] font-normal">&</span> Found Therapy
+              <span className="font-serif font-medium text-[#1A2421] text-xl sm:text-2xl md:text-3xl block leading-tight">
+                Therapy with Niyati Bagla
               </span>
-              <span className="text-[11px] text-[#697A72]">
-                {siteContent.practice.fullTitle}
+              <span className="text-xs sm:text-sm text-[#697A72]">
+                {siteContent.practice.title}
               </span>
             </div>
             
-            <p className="text-xs sm:text-sm text-[#5B6D64] leading-relaxed max-w-sm">
+            <p className="text-sm sm:text-base text-[#5B6D64] leading-relaxed max-w-sm">
               {siteContent.practice.tagline}
             </p>
 
@@ -62,10 +62,10 @@ export default function Footer() {
 
           {/* Col 2: Navigation Links */}
           <div className="md:col-span-3 space-y-3">
-            <span className="text-[#194B4E] font-medium text-xs uppercase tracking-wider block font-sans">
+            <span className="text-[#194B4E] font-semibold text-sm uppercase tracking-wider block font-sans">
               Navigation
             </span>
-            <ul className="space-y-1 text-xs sm:text-sm">
+            <ul className="space-y-1 text-sm sm:text-base">
               {siteContent.navigation.map((item) => {
                 const isHash = item.href.includes('#');
                 if (isHash) {
@@ -76,7 +76,7 @@ export default function Footer() {
                         className="hover:text-[#194B4E] transition-colors flex items-center justify-between text-[#5B6D64] min-h-[44px] py-1 group"
                       >
                         <span className="group-hover:translate-x-0.5 transition-transform">{item.name}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#527965]" />
+                        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-[#527965]" />
                       </a>
                     </li>
                   );
@@ -88,7 +88,7 @@ export default function Footer() {
                       className="hover:text-[#194B4E] transition-colors flex items-center justify-between text-[#5B6D64] min-h-[44px] py-1 group"
                     >
                       <span className="group-hover:translate-x-0.5 transition-transform">{item.name}</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#527965]" />
+                      <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-[#527965]" />
                     </Link>
                   </li>
                 );
@@ -98,10 +98,10 @@ export default function Footer() {
 
           {/* Col 3: Contact Info (Practice information & duration removed) */}
           <div className="md:col-span-4 space-y-3">
-            <span className="text-[#194B4E] font-medium text-xs uppercase tracking-wider block font-sans">
+            <span className="text-[#194B4E] font-semibold text-sm uppercase tracking-wider block font-sans">
               Contact Info
             </span>
-            <div className="space-y-3 text-xs sm:text-sm text-[#5B6D64]">
+            <div className="space-y-3 text-sm sm:text-base text-[#5B6D64]">
               <div className="flex items-center space-x-3 min-h-[44px]">
                 <Mail className="w-4 h-4 text-[#527965] shrink-0" />
                 <a href={`mailto:${siteContent.practice.email}`} className="hover:text-[#194B4E] transition-colors font-medium text-[#1A2421] break-all py-1">
@@ -120,7 +120,7 @@ export default function Footer() {
         </div>
 
         {/* Crisis Helpline Disclaimer Card */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E3ECE6] shadow-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[11px] sm:text-xs text-[#5B6D64]">
+        <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E3ECE6] shadow-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs sm:text-sm text-[#5B6D64]">
           <div className="flex items-start sm:items-center space-x-3">
             <div className="w-7 h-7 rounded-full bg-[#FAF3F0] text-[#C67D63] flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
               <ShieldAlert className="w-4 h-4" />
@@ -137,7 +137,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-[#788B81] pt-1 text-center sm:text-left">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-[#788B81] pt-1 text-center sm:text-left">
           <p>{siteContent.footer.copyright}</p>
           <div className="flex items-center space-x-1">
             <span>{siteContent.practice.fullTitle}</span>

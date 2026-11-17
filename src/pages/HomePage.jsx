@@ -23,7 +23,7 @@ export default function HomePage() {
   const { hero, landedHere, aboutSnapshot, therapyExperience, whatWeWorkOn, sessions, faqs } = siteContent.home;
 
   useEffect(() => {
-    document.title = "Lost & Found Therapy — Therapy with Niyati Bagla";
+    document.title = "Therapy with Niyati Bagla — Counselling Psychologist & Psychotherapist";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute("content", "Therapy that feels human. Your safe, judgement-free corner for support, growth and healing. Online therapy for adults with Niyati Bagla, Counselling Psychologist & Psychotherapist.");
@@ -45,7 +45,7 @@ export default function HomePage() {
           {/* Top Hero Text */}
           <div className="max-w-3xl mx-auto text-center space-y-6 sm:space-y-8">
             {/* Pill Badge */}
-            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#D8E4DC] text-xs sm:text-sm text-[#527965] font-medium shadow-subtle mx-auto">
+            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#D8E4DC] text-sm sm:text-base text-[#527965] font-medium shadow-subtle mx-auto">
               <Sparkles className="w-3.5 h-3.5 text-[#527965] shrink-0" />
               <span>{hero.badge}</span>
             </div>
@@ -56,7 +56,7 @@ export default function HomePage() {
             </h1>
 
             {/* Subtext */}
-            <p className="font-sans text-base sm:text-lg md:text-xl text-[#46544E] font-normal leading-relaxed max-w-2xl mx-auto">
+            <p className="font-sans text-lg sm:text-xl md:text-2xl text-[#46544E] font-normal leading-relaxed max-w-2xl mx-auto">
               {hero.subtext}
             </p>
 
@@ -66,7 +66,7 @@ export default function HomePage() {
                 href={siteContent.practice.topmateUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-xs sm:text-sm font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all duration-300 min-h-[48px]"
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-sm sm:text-base font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all duration-300 min-h-[48px]"
               >
                 <Calendar className="w-4 h-4 text-[#BDDBE7]" />
                 <span>{hero.ctaPrimary}</span>
@@ -74,7 +74,7 @@ export default function HomePage() {
               </a>
               <Link
                 to="/about"
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 bg-white hover:bg-[#F2F7F4] active:bg-[#E8EFEA] text-[#194B4E] border border-[#D8E4DC] text-xs sm:text-sm font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all duration-300 min-h-[48px]"
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 bg-white hover:bg-[#F2F7F4] active:bg-[#E8EFEA] text-[#194B4E] border border-[#D8E4DC] text-sm sm:text-base font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all duration-300 min-h-[48px]"
               >
                 <span>{hero.ctaSecondary}</span>
                 <ArrowRight className="w-4 h-4 ml-0.5 opacity-70" />
@@ -82,19 +82,19 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Visual Showcase: Therapy Room Image + "A Little Reminder" Card */}
+          {/* Visual Showcase: Image + "A Little Reminder" Card */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto pt-4">
             
-            {/* Therapy Room Image & Subtext */}
+            {/* Section 1 Image & Subtext */}
             <div className="lg:col-span-7 space-y-3">
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E3ECE6] shadow-card bg-white">
                 <img
                   src={hero.image}
-                  alt="A quiet, warm and welcoming therapy room corner"
-                  className="w-full h-72 sm:h-96 object-cover"
+                  alt="A warm, safe and welcoming space - you can come as you are"
+                  className="w-full h-auto aspect-[16/9] object-cover"
                 />
               </div>
-              <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed italic text-center px-4">
+              <p className="font-sans text-sm sm:text-base text-[#5B6D64] leading-relaxed italic text-center px-4">
                 {hero.imageSubtext}
               </p>
             </div>
@@ -122,7 +122,7 @@ export default function HomePage() {
 
                 {/* Floating Reminder Inner Card */}
                 <div className="relative z-10 w-full bg-white/95 backdrop-blur-sm border border-[#EADFD6] rounded-2xl p-6 sm:p-8 shadow-card space-y-4">
-                  <span className="text-[10px] sm:text-xs text-[#8A4834] font-semibold uppercase tracking-[0.2em] block">
+                  <span className="text-xs sm:text-sm text-[#8A4834] font-semibold uppercase tracking-[0.2em] block">
                     {hero.reminder.tag}
                   </span>
                   
@@ -130,7 +130,7 @@ export default function HomePage() {
                     {hero.reminder.title}
                   </h3>
 
-                  <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed max-w-xs mx-auto">
+                  <p className="font-sans text-sm sm:text-base text-[#5B6D64] leading-relaxed max-w-xs mx-auto">
                     {hero.reminder.subtext}
                   </p>
                 </div>
@@ -149,7 +149,7 @@ export default function HomePage() {
           
           {/* Left-aligned Heading per instructions */}
           <div className="space-y-3 max-w-3xl">
-            <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider block">
+            <span className="text-sm text-[#527965] font-semibold uppercase tracking-wider block">
               {landedHere.tag}
             </span>
             {/* Period matches the exact colour of the last word */}
@@ -162,13 +162,13 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             
             {/* Narrative text (7 cols on desktop) */}
-            <div className="lg:col-span-7 space-y-5 text-xs sm:text-sm text-[#46544E] leading-relaxed">
+            <div className="lg:col-span-7 space-y-5 text-base sm:text-lg text-[#46544E] leading-relaxed">
               <p>{landedHere.paragraphs[0]}</p>
               <p>{landedHere.paragraphs[1]}</p>
               <p>{landedHere.paragraphs[2]}</p>
 
               {/* In the box - Welcome callout */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#FAF8F5] border-l-4 border-[#194B4E] border-y border-r border-[#E3ECE6] text-[#1A2421] font-medium leading-relaxed shadow-subtle my-2">
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#FAF8F5] border-l-4 border-[#194B4E] border-y border-r border-[#E3ECE6] text-[#1A2421] font-medium leading-relaxed shadow-subtle my-2 text-base sm:text-lg">
                 {landedHere.calloutBox}
               </div>
 
@@ -177,12 +177,12 @@ export default function HomePage() {
             </div>
 
             {/* Added image in this section (5 cols on desktop) */}
-            <div className="lg:col-span-5 space-y-3">
-              <div className="rounded-2xl overflow-hidden border border-[#E3ECE6] shadow-card bg-[#FAF8F5]">
+            <div className="lg:col-span-5 space-y-3 lg:sticky lg:top-28">
+              <div className="rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E3ECE6] shadow-card bg-[#FAF8F5]">
                 <img
                   src={landedHere.image}
-                  alt="A tranquil, peaceful space to pause"
-                  className="w-full h-80 sm:h-96 object-cover"
+                  alt="A tranquil, peaceful space - If you've landed here"
+                  className="w-full h-80 sm:h-[480px] object-cover"
                 />
               </div>
             </div>
@@ -191,7 +191,7 @@ export default function HomePage() {
 
           {/* Last box */}
           <div className="bg-[#FAF3F0] border border-[#ECCDC0] rounded-2xl p-5 sm:p-7 text-center max-w-xl mx-auto shadow-subtle">
-            <p className="font-serif italic text-base sm:text-xl text-[#8A4834]">
+            <p className="font-serif italic text-lg sm:text-2xl text-[#8A4834]">
               “{landedHere.closingReassurance}”
             </p>
           </div>
@@ -218,10 +218,10 @@ export default function HomePage() {
                   {siteContent.practice.therapistName}
                 </h3>
                 <div className="space-y-1">
-                  <p className="font-sans text-xs sm:text-sm text-[#527965] font-semibold">
+                  <p className="font-sans text-sm sm:text-base text-[#527965] font-semibold">
                     Counselling Psychologist & Psychotherapist
                   </p>
-                  <p className="font-sans text-xs text-[#697A72]">
+                  <p className="font-sans text-sm text-[#697A72]">
                     MSc in Clinical Psychology
                   </p>
                 </div>
@@ -261,7 +261,7 @@ export default function HomePage() {
 
             {/* Right Col: Personal Philosophy & Words */}
             <div className="lg:col-span-7 space-y-5 sm:space-y-6">
-              <div className="inline-flex items-center space-x-1.5 text-xs text-[#527965] font-semibold uppercase tracking-wider">
+              <div className="inline-flex items-center space-x-1.5 text-sm text-[#527965] font-semibold uppercase tracking-wider">
                 <Heart className="w-3.5 h-3.5" />
                 <span>{aboutSnapshot.tag}</span>
               </div>
@@ -273,13 +273,13 @@ export default function HomePage() {
 
               {/* Intro text - bigger and bold per request */}
               <div className="p-4 sm:p-5 rounded-2xl bg-[#FAF8F5] border border-[#E3ECE6]">
-                <p className="font-sans text-sm sm:text-base font-medium text-[#1A2421] leading-relaxed">
+                <p className="font-sans text-base sm:text-lg font-medium text-[#1A2421] leading-relaxed">
                   {aboutSnapshot.intro}
                 </p>
               </div>
 
               {/* Narrative paragraphs with crisp revised text and bold accents */}
-              <div className="font-sans text-xs sm:text-sm text-[#46544E] space-y-4 leading-relaxed font-normal">
+              <div className="font-sans text-base sm:text-lg text-[#46544E] space-y-4 leading-relaxed font-normal">
                 <p>{aboutSnapshot.paragraphs[0]}</p>
                 <p>{aboutSnapshot.paragraphs[1]}</p>
                 <p>{aboutSnapshot.paragraphs[2]}</p>
@@ -291,7 +291,7 @@ export default function HomePage() {
                 </p>
 
                 {/* Paragraph 6 */}
-                <p className="p-3.5 rounded-xl bg-[#F6F8F7] border border-[#E1ECE6] font-medium text-[#1A2421]">
+                <p className="p-4 rounded-xl bg-[#F6F8F7] border border-[#E1ECE6] font-medium text-[#1A2421] text-base sm:text-lg">
                   Therapy is a space where you feel seen, heard, and supported as you work towards building a life that feels more true to YOU.
                 </p>
 
@@ -304,7 +304,7 @@ export default function HomePage() {
                   href={siteContent.practice.topmateUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-xs font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-colors min-h-[46px]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-sm sm:text-base font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-colors min-h-[46px]"
                 >
                   <Calendar className="w-4 h-4 text-[#BDDBE7]" />
                   <span>Book a session</span>
@@ -316,12 +316,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. WHAT THERAPY CAN BE LIKE (The Map Metaphor) */}
+      {/* 4. The map that leads to "YOU" (The Map Metaphor) */}
       <section id="therapy-experience" className="max-w-7xl mx-auto px-4 sm:px-8 scroll-mt-24">
         <div className="bg-gradient-to-tr from-[#FAF8F5] via-white to-[#E8F2F7] border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-16 shadow-card space-y-8 sm:space-y-10">
           
           <div className="space-y-3 max-w-3xl">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#E8EFEA] text-xs text-[#527965] font-medium">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#E8EFEA] text-sm text-[#527965] font-medium">
               <MapIcon className="w-3.5 h-3.5" />
               <span>{therapyExperience.tag}</span>
             </div>
@@ -341,7 +341,7 @@ export default function HomePage() {
           </div>
 
           {/* Single clean text format (boxes and subheadings removed per request) */}
-          <div className="max-w-3xl mx-auto space-y-4 text-xs sm:text-sm text-[#46544E] leading-relaxed font-normal">
+          <div className="max-w-3xl mx-auto space-y-4 text-base sm:text-lg text-[#46544E] leading-relaxed font-normal">
             {therapyExperience.paragraphs.map((para, idx) => (
               <p key={idx}>{para}</p>
             ))}
@@ -354,14 +354,14 @@ export default function HomePage() {
       <section id="what-we-can-work-on" className="max-w-7xl mx-auto px-4 sm:px-8 scroll-mt-24 space-y-8 sm:space-y-10">
         
         <div className="text-center space-y-3 max-w-3xl mx-auto">
-          <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
+          <span className="text-sm text-[#527965] font-semibold uppercase tracking-wider">
             {whatWeWorkOn.tag}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#1A2421] leading-tight font-normal">
             {whatWeWorkOn.headline}
           </h2>
           <div className="inline-block p-3 px-5 rounded-2xl bg-[#FAF8F5] border border-[#E3ECE6]">
-            <p className="font-serif italic text-base sm:text-lg text-[#5B6D64]">
+            <p className="font-serif italic text-lg sm:text-xl text-[#5B6D64]">
               {whatWeWorkOn.subheading}
             </p>
           </div>
@@ -375,7 +375,7 @@ export default function HomePage() {
               className="bg-white border border-[#E3ECE6] hover:border-[#527965]/40 rounded-2xl p-4 sm:p-5 flex items-center space-x-3.5 shadow-subtle hover:shadow-card hover:-translate-y-0.5 transition-all duration-200"
             >
               <div className="w-2.5 h-2.5 rounded-full bg-[#527965] shrink-0" />
-              <span className="font-sans text-xs sm:text-sm font-medium text-[#1A2421]">
+              <span className="font-sans text-sm sm:text-base font-medium text-[#1A2421]">
                 {topic}
               </span>
             </div>
@@ -384,7 +384,7 @@ export default function HomePage() {
 
         {/* Non-exhaustive closing note */}
         <div className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl p-4 sm:p-6 text-center max-w-2xl mx-auto shadow-subtle">
-          <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
+          <p className="font-sans text-sm sm:text-base text-[#5B6D64] leading-relaxed">
             <Info className="w-4 h-4 inline-block mr-1.5 text-[#527965] -mt-0.5" />
             {whatWeWorkOn.closingNote}
           </p>
@@ -399,10 +399,7 @@ export default function HomePage() {
         
         <div className="bg-white border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-12 shadow-card space-y-8 sm:space-y-10">
           
-          <div className="text-center space-y-2 max-w-2xl mx-auto">
-            <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
-              {sessions.tag}
-            </span>
+          <div className="text-center max-w-2xl mx-auto">
             <h2 className="font-serif text-3xl sm:text-4xl text-[#1A2421] font-normal">
               {sessions.sectionHeading}
             </h2>
@@ -419,10 +416,10 @@ export default function HomePage() {
               <h3 className="font-serif text-2xl sm:text-3xl text-[#1A2421] font-medium">
                 {sessions.duration}
               </h3>
-              <p className="font-sans text-xs sm:text-sm text-[#5B6D64]">
+              <p className="font-sans text-sm sm:text-base text-[#5B6D64]">
                 {sessions.durationSubtext}
               </p>
-              <div className="pt-3 border-t border-[#E3ECE6] text-xs text-[#46544E] flex items-center justify-center space-x-1.5">
+              <div className="pt-3 border-t border-[#E3ECE6] text-sm text-[#46544E] flex items-center justify-center space-x-1.5">
                 <Video className="w-3.5 h-3.5 text-[#527965]" />
                 <span>Online via Google Meet or Zoom</span>
               </div>
@@ -436,10 +433,10 @@ export default function HomePage() {
               <h3 className="font-serif text-2xl sm:text-3xl text-[#1A2421] font-medium">
                 {sessions.feesDisplay}
               </h3>
-              <p className="font-sans text-xs sm:text-sm text-[#5B6D64]">
+              <p className="font-sans text-sm sm:text-base text-[#5B6D64]">
                 {sessions.feesSubtext}
               </p>
-              <div className="pt-3 border-t border-[#E3ECE6] text-xs text-[#527965]">
+              <div className="pt-3 border-t border-[#E3ECE6] text-sm text-[#527965]">
                 <span>Standard individual session</span>
               </div>
             </div>
@@ -448,7 +445,7 @@ export default function HomePage() {
 
           {/* Sliding scale mentioned as subtext in the same section */}
           <div className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl p-5 sm:p-6 text-center max-w-3xl mx-auto shadow-subtle">
-            <p className="font-sans text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
+            <p className="font-sans text-sm sm:text-base text-[#5B6D64] leading-relaxed">
               {sessions.slidingScale}
             </p>
           </div>
@@ -460,7 +457,7 @@ export default function HomePage() {
       <section id="faqs" className="max-w-4xl mx-auto px-4 sm:px-8 scroll-mt-24 space-y-6 sm:space-y-8">
         
         <div className="text-center space-y-2 max-w-2xl mx-auto">
-          <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
+          <span className="text-sm text-[#527965] font-semibold uppercase tracking-wider">
             {faqs.tag}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl text-[#1A2421] font-normal">
@@ -482,7 +479,7 @@ export default function HomePage() {
                   className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-3 focus-visible:outline-none min-h-[52px]"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-serif text-sm sm:text-lg text-[#1A2421] font-medium">
+                  <span className="font-serif text-base sm:text-xl text-[#1A2421] font-medium">
                     {item.q.replace(/^[“”"]/g, '').replace(/[“”"]$/g, '')}
                   </span>
                   <div
@@ -495,7 +492,7 @@ export default function HomePage() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 sm:px-6 pb-5 pt-1 text-xs sm:text-sm text-[#5B6D64] leading-relaxed border-t border-[#E3ECE6]/50">
+                  <div className="px-4 sm:px-6 pb-5 pt-1 text-base sm:text-lg text-[#5B6D64] leading-relaxed border-t border-[#E3ECE6]/50">
                     <p>{item.a}</p>
                   </div>
                 )}

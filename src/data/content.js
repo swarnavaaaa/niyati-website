@@ -1,6 +1,6 @@
 export const siteContent = {
   practice: {
-    brandName: "Lost & Found Therapy",
+    brandName: "Therapy with Niyati Bagla",
     subBrand: "Online Therapy for Adults",
     therapistName: "Niyati Bagla",
     title: "Counselling Psychologist & Psychotherapist",
@@ -42,7 +42,7 @@ export const siteContent = {
       badge: "Online therapy for adults",
       title: "Therapy that feels human.",
       subtext: "Your safe, judgement-free corner for support, growth and healing – through the ups and downs of life and adulting.",
-      image: "/therapy-room.jpg",
+      image: "/you-can-come-as-you-are.png",
       imageSubtext: "A space to slow down, understand yourself better, make sense of what you’re carrying, and come a little closer to yourself.",
       ctaPrimary: "Book a session",
       ctaSecondary: "About me",
@@ -56,7 +56,7 @@ export const siteContent = {
     landedHere: {
       tag: "IF YOU’VE LANDED HERE",
       heading: "Maybe things don’t feel quite right.",
-      image: "/calm-space.jpg",
+      image: "/section2-landed-here.png",
       paragraphs: [
         "Maybe life has felt heavier lately. Maybe your mind won’t switch off. Maybe you’ve been holding everything together for so long that you’re not quite sure what you need anymore.",
         "Maybe relationships feel confusing, overwhelming, or emotionally draining. Maybe you’ve been feeling stuck, disconnected, or overwhelmed. Or maybe nothing feels particularly “wrong”, but you just feel unlike yourself.",
@@ -90,9 +90,9 @@ export const siteContent = {
     },
 
     therapyExperience: {
-      tag: "WHAT THERAPY CAN BE LIKE",
+      tag: 'The map that leads to "YOU"',
       headline: "Sometimes, therapy is about finding the map.",
-      image: "/map-illustration.png",
+      image: "/section4-map.png",
       paragraphs: [
         "Sometimes, life can feel like finding yourself in a place you don’t quite recognise, with no clear map to tell you where you are or how to find your way. You might feel unhappy, overwhelmed, exhausted, stuck, lost, or simply not like yourself. But you can’t quite put your finger on why – why certain things keep happening, why you get stuck in the same situations, or which way to go next.",
         "Therapy can be a space to unfold that map together.",
@@ -243,9 +243,9 @@ export const siteContent = {
       "My approach is relational and trauma-informed. I aim to create a space that is inclusive, affirming, and respectful of different identities, relationships, cultures, and lived experiences – a space where you can speak openly, take up space, and feel respected."
     ],
     mapMetaphor: {
-      tag: "WHAT THERAPY CAN BE LIKE",
+      tag: 'The map that leads to "YOU"',
       headline: "Sometimes, therapy is about finding the map.",
-      image: "/map-illustration.png",
+      image: "/section4-map.png",
       paragraphs: [
         "Sometimes, life can feel like finding yourself in a place you don’t quite recognise, with no clear map to tell you where you are or how to find your way. You might feel unhappy, overwhelmed, exhausted, stuck, lost, or simply not like yourself. But you can’t quite put your finger on why – why certain things keep happening, why you get stuck in the same situations, or which way to go next.",
         "Therapy can be a space to unfold that map together.",
@@ -279,10 +279,10 @@ export const siteContent = {
   },
 
   footer: {
-    brandName: "Lost & Found Therapy",
+    brandName: "Therapy with Niyati Bagla",
     tagline: "Therapy with Niyati Bagla · Counselling Psychologist & Psychotherapist",
     disclaimer: "This website is for information and appointment enquiries; it is not a substitute for emergency care.",
     emergencyNotice: "If you are in immediate danger, feel unable to keep yourself safe, or need urgent support, please contact your local emergency or crisis service or go to the nearest emergency department rather than waiting for a therapy appointment.",
-    copyright: "© 2026 Lost & Found Therapy · Therapy with Niyati Bagla. All rights reserved."
+    copyright: "© 2026 Therapy with Niyati Bagla. All rights reserved."
   }
 };

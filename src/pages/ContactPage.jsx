@@ -17,7 +17,7 @@ export default function ContactPage() {
   const { faqs, sessions } = siteContent.home;
 
   useEffect(() => {
-    document.title = "Getting Started & Appointments — Lost & Found Therapy";
+    document.title = "Getting Started & Appointments — Therapy with Niyati Bagla";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute("content", "Book an online therapy session directly or submit an enquiry to schedule a 15-minute consultation with Niyati Bagla.");
@@ -35,7 +35,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-6 sm:space-y-8">
             
-            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#D8E4DC] text-xs sm:text-sm text-[#527965] font-medium shadow-subtle mx-auto">
+            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#D8E4DC] text-sm sm:text-base text-[#527965] font-medium shadow-subtle mx-auto">
               <Sparkles className="w-3.5 h-3.5 text-[#527965] shrink-0" />
               <span>GETTING STARTED</span>
             </div>
@@ -44,7 +44,7 @@ export default function ContactPage() {
               If you’d like to begin, here are <span className="font-serif italic font-normal text-[#527965]">two ways</span> to reach me.
             </h1>
 
-            <p className="font-sans text-sm sm:text-lg md:text-xl text-[#46544E] font-normal leading-relaxed max-w-2xl mx-auto italic">
+            <p className="font-sans text-base sm:text-xl md:text-2xl text-[#46544E] font-normal leading-relaxed max-w-2xl mx-auto italic">
               And if you’re still unsure, that’s okay. You don’t have to make a big decision today. You can simply start a conversation.
             </p>
 
@@ -71,14 +71,14 @@ export default function ContactPage() {
                   </h3>
                 </div>
               </div>
-              <p className="text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
+              <p className="text-sm sm:text-base text-[#5B6D64] leading-relaxed">
                 If you already know you’d like to begin, you can choose a convenient slot.
               </p>
               <a
                 href={siteContent.practice.topmateUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center space-x-2 px-6 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-xs font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all min-h-[46px]"
+                className="w-full inline-flex items-center justify-center space-x-2 px-6 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-sm sm:text-base font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all min-h-[46px]"
               >
                 <Calendar className="w-4 h-4 text-[#BDDBE7]" />
                 <span>Book session</span>
@@ -89,24 +89,21 @@ export default function ContactPage() {
             {/* About The Work (Format, Mode & Fees) */}
             <div className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-subtle space-y-5">
               <div>
-                <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
-                  {sessions.tag}
-                </span>
-                <h3 className="font-serif text-xl sm:text-2xl text-[#1A2421] mt-1">
+                <h3 className="font-serif text-xl sm:text-2xl text-[#1A2421]">
                   {sessions.sectionHeading}
                 </h3>
               </div>
 
-              <div className="space-y-4 pt-2 border-t border-[#E3ECE6] text-xs sm:text-sm text-[#46544E]">
+              <div className="space-y-4 pt-2 border-t border-[#E3ECE6] text-sm sm:text-base text-[#46544E]">
                 
                 {/* Duration and Mode */}
                 <div className="p-4 rounded-xl bg-white border border-[#E3ECE6] space-y-2">
                   <div className="flex items-center space-x-2.5">
                     <Clock className="w-4 h-4 text-[#194B4E]" />
-                    <span className="font-serif text-lg font-medium text-[#1A2421]">{sessions.duration}</span>
+                    <span className="font-serif text-xl font-medium text-[#1A2421]">{sessions.duration}</span>
                   </div>
-                  <p className="text-[#5B6D64]">{sessions.durationSubtext}</p>
-                  <div className="pt-2 border-t border-[#E3ECE6]/60 flex items-center space-x-2 text-[#46544E]">
+                  <p className="text-[#5B6D64] text-sm sm:text-base">{sessions.durationSubtext}</p>
+                  <div className="pt-2 border-t border-[#E3ECE6]/60 flex items-center space-x-2 text-[#46544E] text-sm sm:text-base">
                     <Video className="w-3.5 h-3.5 text-[#527965]" />
                     <span>{sessions.mode}</span>
                   </div>
@@ -116,20 +113,20 @@ export default function ContactPage() {
                 <div className="p-4 rounded-xl bg-white border border-[#E3ECE6] space-y-2">
                   <div className="flex items-center space-x-2.5">
                     <BadgeIndianRupee className="w-4 h-4 text-[#C67D63]" />
-                    <span className="font-serif text-lg font-medium text-[#1A2421]">{sessions.feesDisplay}</span>
+                    <span className="font-serif text-xl font-medium text-[#1A2421]">{sessions.feesDisplay}</span>
                   </div>
-                  <p className="text-[#5B6D64]">{sessions.feesSubtext}</p>
+                  <p className="text-[#5B6D64] text-sm sm:text-base">{sessions.feesSubtext}</p>
                 </div>
 
                 {/* Sliding scale subtext */}
-                <div className="p-3.5 rounded-xl bg-white/70 border border-[#E3ECE6] text-[#5B6D64] leading-relaxed text-xs">
+                <div className="p-3.5 rounded-xl bg-white/70 border border-[#E3ECE6] text-[#5B6D64] leading-relaxed text-sm sm:text-base">
                   {sessions.slidingScale}
                 </div>
 
               </div>
 
               {/* Status Banner */}
-              <div className="p-3.5 rounded-xl bg-[#E8EFEA] border border-[#D2DFD6] flex items-center space-x-3 text-xs text-[#2A483B]">
+              <div className="p-3.5 rounded-xl bg-[#E8EFEA] border border-[#D2DFD6] flex items-center space-x-3 text-sm text-[#2A483B]">
                 <div className="w-2.5 h-2.5 rounded-full bg-[#527965] animate-pulse shrink-0" />
                 <span>{siteContent.practice.status}</span>
               </div>

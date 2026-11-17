@@ -14,7 +14,7 @@ export default function AboutPage() {
   const { about } = siteContent;
 
   useEffect(() => {
-    document.title = "About Niyati Bagla — Lost & Found Therapy";
+    document.title = "About Niyati Bagla — Therapy with Niyati Bagla";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute("content", "Meet Niyati Bagla, Counselling Psychologist & Psychotherapist with a Master's degree in Clinical Psychology. Human first, therapist later.");
@@ -32,7 +32,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           <div className="max-w-3xl mx-auto text-center space-y-6 sm:space-y-8">
             
-            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#D8E4DC] text-xs sm:text-sm text-[#527965] font-medium shadow-subtle mx-auto">
+            <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/90 border border-[#D8E4DC] text-sm sm:text-base text-[#527965] font-medium shadow-subtle mx-auto">
               <Sparkles className="w-3.5 h-3.5 text-[#527965] shrink-0" />
               <span>{about.hero.tag}</span>
             </div>
@@ -41,7 +41,7 @@ export default function AboutPage() {
               Human first, <span className="font-serif italic font-normal text-[#527965]">therapist later.</span>
             </h1>
 
-            <p className="font-sans text-base sm:text-lg md:text-xl text-[#46544E] font-normal leading-relaxed max-w-2xl mx-auto">
+            <p className="font-sans text-lg sm:text-xl md:text-2xl text-[#46544E] font-normal leading-relaxed max-w-2xl mx-auto">
               A warm, supportive, collaborative and safe space to slow down, understand yourself, and navigate the ups and downs of life.
             </p>
 
@@ -50,7 +50,7 @@ export default function AboutPage() {
                 href={siteContent.practice.topmateUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-xs sm:text-sm font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all min-h-[48px]"
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-sm sm:text-base font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all min-h-[48px]"
               >
                 <Calendar className="w-4 h-4 text-[#BDDBE7]" />
                 <span>Book a session</span>
@@ -80,10 +80,10 @@ export default function AboutPage() {
                   {siteContent.practice.therapistName}
                 </h3>
                 <div className="space-y-1">
-                  <p className="font-sans text-xs sm:text-sm text-[#527965] font-semibold">
+                  <p className="font-sans text-sm sm:text-base text-[#527965] font-semibold">
                     Counselling Psychologist & Psychotherapist
                   </p>
-                  <p className="font-sans text-xs text-[#697A72]">
+                  <p className="font-sans text-sm text-[#697A72]">
                     MSc in Clinical Psychology
                   </p>
                 </div>
@@ -123,7 +123,7 @@ export default function AboutPage() {
 
             {/* Narrative Story - Consistent with Home Page */}
             <div className="lg:col-span-7 space-y-5 sm:space-y-6">
-              <div className="inline-flex items-center space-x-1.5 text-xs text-[#527965] font-semibold uppercase tracking-wider">
+              <div className="inline-flex items-center space-x-1.5 text-sm text-[#527965] font-semibold uppercase tracking-wider">
                 <Heart className="w-3.5 h-3.5" />
                 <span>{about.hero.tag}</span>
               </div>
@@ -134,13 +134,13 @@ export default function AboutPage() {
 
               {/* Intro text - bigger and bold */}
               <div className="p-4 sm:p-5 rounded-2xl bg-[#FAF8F5] border border-[#E3ECE6]">
-                <p className="font-sans text-sm sm:text-base font-medium text-[#1A2421] leading-relaxed">
+                <p className="font-sans text-base sm:text-lg font-medium text-[#1A2421] leading-relaxed">
                   {about.hero.intro}
                 </p>
               </div>
 
               {/* Narrative paragraphs */}
-              <div className="font-sans text-xs sm:text-sm text-[#46544E] space-y-4 leading-relaxed font-normal">
+              <div className="font-sans text-base sm:text-lg text-[#46544E] space-y-4 leading-relaxed font-normal">
                 <p>{about.paragraphs[0]}</p>
                 <p>{about.paragraphs[1]}</p>
                 <p>{about.paragraphs[2]}</p>
@@ -152,7 +152,7 @@ export default function AboutPage() {
                 </p>
 
                 {/* Paragraph 6 */}
-                <p className="p-3.5 rounded-xl bg-[#F6F8F7] border border-[#E1ECE6] font-medium text-[#1A2421]">
+                <p className="p-4 rounded-xl bg-[#F6F8F7] border border-[#E1ECE6] font-medium text-[#1A2421] text-base sm:text-lg">
                   Therapy is a space where you feel seen, heard, and supported as you work towards building a life that feels more true to YOU.
                 </p>
 
@@ -164,7 +164,7 @@ export default function AboutPage() {
                   href={siteContent.practice.topmateUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-xs font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-colors min-h-[46px]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-3.5 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-sm sm:text-base font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-colors min-h-[46px]"
                 >
                   <Calendar className="w-4 h-4 text-[#BDDBE7]" />
                   <span>Book a session</span>
@@ -176,12 +176,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. THE MAP METAPHOR (WHAT THERAPY CAN BE LIKE) */}
+      {/* 3. THE MAP METAPHOR (The map that leads to "YOU") */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="bg-gradient-to-tr from-[#FAF3F0] via-[#FAF8F5] to-[#E8F2F7] border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-16 shadow-card space-y-8">
           
           <div className="space-y-3 max-w-3xl">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#E8EFEA] text-xs text-[#527965] font-medium">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#E8EFEA] text-sm text-[#527965] font-medium">
               <MapIcon className="w-3.5 h-3.5" />
               <span>{about.mapMetaphor.tag}</span>
             </div>
@@ -200,7 +200,7 @@ export default function AboutPage() {
           </div>
 
           {/* Single clean text format (boxes and subheadings removed per request) */}
-          <div className="max-w-3xl mx-auto space-y-4 text-xs sm:text-sm text-[#46544E] leading-relaxed font-normal">
+          <div className="max-w-3xl mx-auto space-y-4 text-base sm:text-lg text-[#46544E] leading-relaxed font-normal">
             {about.mapMetaphor.paragraphs.map((para, idx) => (
               <p key={idx}>{para}</p>
             ))}

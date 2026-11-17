@@ -4,6 +4,7 @@
 
 @layer base {
   html {
+    font-size: 17px;
     color-scheme: light;
     background-color: #FAF8F5;
     color: #1A2421;
@@ -11,6 +12,18 @@
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
     -webkit-text-size-adjust: 100%;
+  }
+
+  @media (min-width: 640px) {
+    html {
+      font-size: 17.5px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      font-size: 18px;
+    }
   }
   
   body {

@@ -79,7 +79,7 @@ export default function ContactForm() {
           <h3 className="font-serif text-2xl sm:text-3xl text-[#1A2421]">
             Thank you for reaching out, {formData.name.split(' ')[0] || 'friend'}.
           </h3>
-          <p className="font-sans text-[#5B6D64] text-xs sm:text-base leading-relaxed max-w-lg">
+          <p className="font-sans text-[#5B6D64] text-base sm:text-lg leading-relaxed max-w-lg">
             I’ve received your enquiry note with care. I personally read every enquiry and will reach out to you at <span className="font-medium text-[#1A2421]">{formData.email}</span> to schedule our 15-minute consultation call.
           </p>
         </div>
@@ -88,7 +88,7 @@ export default function ContactForm() {
           <button
             type="button"
             onClick={handleReset}
-            className="text-xs font-sans font-medium text-[#194B4E] hover:text-[#527965] underline underline-offset-4 transition-colors min-h-[44px] inline-flex items-center"
+            className="text-sm font-sans font-medium text-[#194B4E] hover:text-[#527965] underline underline-offset-4 transition-colors min-h-[44px] inline-flex items-center"
           >
             Send another enquiry
           </button>
@@ -100,21 +100,21 @@ export default function ContactForm() {
   return (
     <div id="enquiry-form" className="bg-white border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-5 sm:p-10 shadow-card">
       <div className="mb-5 sm:mb-6 space-y-1.5 sm:space-y-2">
-        <div className="inline-flex items-center space-x-1.5 text-xs text-[#527965] font-semibold uppercase tracking-wider">
+        <div className="inline-flex items-center space-x-1.5 text-sm text-[#527965] font-semibold uppercase tracking-wider">
           <Sparkles className="w-3.5 h-3.5" />
           <span>Option 2 · Reach Out First</span>
         </div>
-        <h3 className="font-serif text-xl sm:text-3xl text-[#1A2421]">
+        <h3 className="font-serif text-2xl sm:text-3xl text-[#1A2421]">
           Fill the Enquiry Form
         </h3>
-        <p className="text-xs sm:text-sm text-[#5B6D64] leading-relaxed">
+        <p className="text-sm sm:text-base text-[#5B6D64] leading-relaxed">
           If you’d rather share a little about yourself or ask a question before booking, fill out the short form and I’ll reach out to you to schedule a 15-minute consultation call.
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
         {errorMsg && (
-          <div className="p-3 sm:p-3.5 bg-[#FAF3F0] border border-[#ECCDC0] rounded-xl flex items-center space-x-2 text-xs text-[#8A4834]">
+          <div className="p-3 sm:p-3.5 bg-[#FAF3F0] border border-[#ECCDC0] rounded-xl flex items-center space-x-2 text-sm text-[#8A4834]">
             <AlertCircle className="w-4 h-4 shrink-0 text-[#C67D63]" />
             <span>{errorMsg}</span>
           </div>
@@ -123,7 +123,7 @@ export default function ContactForm() {
         {/* Name and Email */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
           <div className="space-y-1.5">
-            <label htmlFor="name" className="block text-xs font-medium text-[#1A2421]">
+            <label htmlFor="name" className="block text-sm sm:text-base font-medium text-[#1A2421]">
               Your Name <span className="text-[#C67D63]">*</span>
             </label>
             <input
@@ -134,12 +134,12 @@ export default function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               placeholder="e.g. Radhika"
-              className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all min-h-[48px]"
+              className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all min-h-[48px]"
             />
           </div>
 
           <div className="space-y-1.5">
-            <label htmlFor="email" className="block text-xs font-medium text-[#1A2421]">
+            <label htmlFor="email" className="block text-sm sm:text-base font-medium text-[#1A2421]">
               Your Email <span className="text-[#C67D63]">*</span>
             </label>
             <input
@@ -150,7 +150,7 @@ export default function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               placeholder="e.g. radhika@example.com"
-              className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all min-h-[48px]"
+              className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all min-h-[48px]"
             />
           </div>
         </div>
@@ -158,7 +158,7 @@ export default function ContactForm() {
         {/* Phone & Location */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
           <div className="space-y-1.5">
-            <label htmlFor="phone" className="block text-xs font-medium text-[#1A2421]">
+            <label htmlFor="phone" className="block text-sm sm:text-base font-medium text-[#1A2421]">
               Phone / WhatsApp <span className="text-[#889B92] font-normal">(optional)</span>
             </label>
             <input
@@ -170,12 +170,12 @@ export default function ContactForm() {
               value={formData.phone}
               onChange={handleChange}
               placeholder="+91 98..."
-              className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all min-h-[48px]"
+              className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all min-h-[48px]"
             />
           </div>
 
           <div className="space-y-1.5">
-            <label htmlFor="location" className="block text-xs font-medium text-[#1A2421]">
+            <label htmlFor="location" className="block text-sm sm:text-base font-medium text-[#1A2421]">
               Where are you based?
             </label>
             <select
@@ -183,7 +183,7 @@ export default function ContactForm() {
               name="location"
               value={formData.location}
               onChange={handleChange}
-              className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all min-h-[48px]"
+              className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base text-[#1A2421] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all min-h-[48px]"
             >
               <option value="India">Client based in India (₹1,750 / session)</option>
               <option value="International">Client based outside India (₹4,750 / session)</option>
@@ -193,7 +193,7 @@ export default function ContactForm() {
 
         {/* Focus Area / Topic */}
         <div className="space-y-1.5">
-          <label htmlFor="topic" className="block text-xs font-medium text-[#1A2421]">
+          <label htmlFor="topic" className="block text-sm sm:text-base font-medium text-[#1A2421]">
             What is currently on your mind?
           </label>
           <select
@@ -201,7 +201,7 @@ export default function ContactForm() {
             name="topic"
             value={formData.topic}
             onChange={handleChange}
-            className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all min-h-[48px]"
+            className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base text-[#1A2421] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all min-h-[48px]"
           >
             {topicOptions.map((opt) => (
               <option key={opt} value={opt}>
@@ -213,7 +213,7 @@ export default function ContactForm() {
 
         {/* Message */}
         <div className="space-y-1.5">
-          <label htmlFor="message" className="block text-xs font-medium text-[#1A2421]">
+          <label htmlFor="message" className="block text-sm sm:text-base font-medium text-[#1A2421]">
             Share a little about yourself or what brings you here <span className="text-[#C67D63]">*</span>
           </label>
           <textarea
@@ -223,12 +223,12 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             placeholder="You don't need the perfect words or a neat explanation. Start wherever you are..."
-            className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base sm:text-sm text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all resize-y min-h-[110px]"
+            className="w-full bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl px-3.5 sm:px-4 py-3 text-base text-[#1A2421] placeholder-[#A0B0A8] focus:bg-white focus:border-[#527965] focus:ring-2 focus:ring-[#527965]/20 focus:outline-none transition-all resize-y min-h-[110px]"
           />
         </div>
 
         {/* Sliding Scale Checkbox note */}
-        <div className="p-3 bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl text-xs text-[#5B6D64] flex items-start space-x-2.5">
+        <div className="p-3 bg-[#FAF8F5] border border-[#E3ECE6] rounded-xl text-sm sm:text-base text-[#5B6D64] flex items-start space-x-2.5">
           <input
             type="checkbox"
             id="slidingScaleInterest"
@@ -251,7 +251,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className="w-full inline-flex items-center justify-center space-x-2 px-6 py-4 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-xs sm:text-sm font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all min-h-[50px] disabled:opacity-70"
+          className="w-full inline-flex items-center justify-center space-x-2 px-6 py-4 bg-[#194B4E] hover:bg-[#133A3C] active:bg-[#0E282A] text-white text-sm sm:text-base font-medium tracking-wide rounded-full shadow-subtle hover:shadow transition-all min-h-[50px] disabled:opacity-70"
         >
           {status === 'submitting' ? (
             <span>Sending your enquiry...</span>
@@ -263,7 +263,7 @@ export default function ContactForm() {
           )}
         </button>
 
-        <p className="text-[11px] text-center text-[#788B81]">
+        <p className="text-xs sm:text-sm text-center text-[#788B81]">
           Sessions are conducted online via Google Meet or Zoom. 100% confidential.
         </p>
       </form>

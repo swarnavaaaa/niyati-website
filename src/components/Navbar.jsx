@@ -166,17 +166,17 @@ export default function Navbar() {
             aria-label={`${siteContent.practice.brandName} Home`}
           >
             <div className="flex flex-col min-w-0 whitespace-nowrap">
-              <span className="font-serif text-lg sm:text-2xl font-medium tracking-tight text-[#1A2421] group-hover:text-[#194B4E] transition-colors">
-                Lost <span className="text-[#8A4834] font-normal">&</span> Found Therapy
+              <span className="font-serif text-xl sm:text-2xl md:text-[26px] font-medium tracking-tight text-[#1A2421] group-hover:text-[#194B4E] transition-colors">
+                Therapy with Niyati Bagla
               </span>
-              <span className="font-sans text-[10px] sm:text-[11px] text-[#697A72] tracking-wide font-normal">
-                Therapy with {siteContent.practice.therapistName}
+              <span className="font-sans text-xs sm:text-sm text-[#697A72] tracking-wide font-normal">
+                {siteContent.practice.title}
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation - Clean single line with active highlighting */}
-          <nav className="hidden md:flex items-center space-x-5 lg:space-x-7 text-sm font-sans flex-nowrap whitespace-nowrap" aria-label="Main Navigation">
+          <nav className="hidden md:flex items-center space-x-5 lg:space-x-7 font-sans flex-nowrap whitespace-nowrap" aria-label="Main Navigation">
             {siteContent.navigation.map((item) => {
               const active = isItemActive(item);
               return (
@@ -184,7 +184,7 @@ export default function Navbar() {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`transition-all duration-200 py-2 font-medium relative text-[13px] tracking-wide min-h-[44px] flex items-center whitespace-nowrap cursor-pointer ${
+                  className={`transition-all duration-200 py-2 font-medium relative text-[15px] sm:text-base tracking-normal min-h-[44px] flex items-center whitespace-nowrap cursor-pointer ${
                     active
                       ? 'text-[#194B4E] font-semibold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#527965] after:rounded-full'
                       : 'text-[#46544E] hover:text-[#194B4E]'
@@ -200,7 +200,7 @@ export default function Navbar() {
               href={siteContent.practice.topmateUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-all duration-200 py-2 font-medium text-[13px] tracking-wide min-h-[44px] flex items-center text-[#194B4E] hover:text-[#527965] whitespace-nowrap"
+              className="transition-all duration-200 py-2 font-medium text-[15px] sm:text-base tracking-normal min-h-[44px] flex items-center text-[#194B4E] hover:text-[#527965] whitespace-nowrap"
             >
               Book a session
             </a>
@@ -238,10 +238,10 @@ export default function Navbar() {
           >
             <div className="flex flex-col space-y-2.5 pt-1">
               <div className="flex items-center justify-between pb-2.5 border-b border-[#E3ECE6]">
-                <span className="text-xs text-[#527965] font-semibold uppercase tracking-wider">
+                <span className="text-sm text-[#527965] font-semibold uppercase tracking-wider">
                   Menu
                 </span>
-                <span className="text-xs text-[#697A72]">Online Therapy for Adults</span>
+                <span className="text-sm text-[#697A72]">Online Therapy for Adults</span>
               </div>
 
               {siteContent.navigation.map((item, idx) => {
@@ -257,9 +257,9 @@ export default function Navbar() {
                         : 'bg-white text-[#1A2421] border-[#E3ECE6] active:bg-[#F2F7F4]'
                     }`}
                   >
-                    <span className="font-serif text-base sm:text-lg">{item.name}</span>
+                    <span className="font-serif text-lg sm:text-xl">{item.name}</span>
                     <span
-                      className={`text-[11px] font-sans font-medium px-2 py-0.5 rounded-full border ${
+                      className={`text-xs sm:text-sm font-sans font-medium px-2.5 py-0.5 rounded-full border ${
                         active
                           ? 'bg-[#527965] text-white border-[#527965]'
                           : 'bg-[#FAF8F5] text-[#697A72] border-[#E3ECE6]'
@@ -274,18 +274,18 @@ export default function Navbar() {
 
             <div className="pt-4 border-t border-[#E3ECE6] flex flex-col space-y-3 bg-white p-4 sm:p-5 rounded-2xl border border-[#E3ECE6] mt-4 shadow-subtle">
               <div>
-                <p className="text-[#194B4E] font-medium text-xs">Lost & Found Therapy</p>
-                <p className="text-xs text-[#697A72] mt-0.5">{siteContent.practice.mode}</p>
+                <p className="text-[#194B4E] font-semibold text-sm">Therapy with Niyati Bagla</p>
+                <p className="text-sm text-[#697A72] mt-0.5">{siteContent.practice.mode}</p>
               </div>
               <a
                 href={siteContent.practice.topmateUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center py-3 text-[#194B4E] hover:text-[#527965] font-sans text-xs font-medium transition-colors flex items-center justify-center space-x-1.5 whitespace-nowrap border border-[#D8E4DC] rounded-full bg-[#FAF8F5]"
+                className="w-full text-center py-3.5 text-[#194B4E] hover:text-[#527965] font-sans text-sm font-medium transition-colors flex items-center justify-center space-x-1.5 whitespace-nowrap border border-[#D8E4DC] rounded-full bg-[#FAF8F5]"
               >
                 <span>Book a session</span>
-                <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
+                <ArrowUpRight className="w-4 h-4 opacity-70" />
               </a>
             </div>
           </div>
