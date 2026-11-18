@@ -316,12 +316,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. The map that leads to "YOU" (The Map Metaphor) */}
+      {/* 4. WHAT THERAPY MIGHT BE LIKE (The Map Metaphor) */}
       <section id="therapy-experience" className="max-w-7xl mx-auto px-4 sm:px-8 scroll-mt-24">
         <div className="bg-gradient-to-tr from-[#FAF8F5] via-white to-[#E8F2F7] border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-16 shadow-card space-y-8 sm:space-y-10">
           
           <div className="space-y-3 max-w-3xl">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#E8EFEA] text-sm text-[#527965] font-medium">
+            <div className="inline-flex items-center space-x-1.5 text-sm text-[#527965] font-semibold uppercase tracking-wider">
               <MapIcon className="w-3.5 h-3.5" />
               <span>{therapyExperience.tag}</span>
             </div>
@@ -350,19 +350,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. WHAT WE CAN WORK ON (Updated heading and bullets) */}
+      {/* 5. WHAT WE CAN WORK ON */}
       <section id="what-we-can-work-on" className="max-w-7xl mx-auto px-4 sm:px-8 scroll-mt-24 space-y-8 sm:space-y-10">
         
-        <div className="text-center space-y-3 max-w-3xl mx-auto">
+        <div className="text-center space-y-4 max-w-3xl mx-auto">
           <span className="text-sm text-[#527965] font-semibold uppercase tracking-wider">
             {whatWeWorkOn.tag}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#1A2421] leading-tight font-normal">
             {whatWeWorkOn.headline}
           </h2>
-          <div className="inline-block p-3 px-5 rounded-2xl bg-[#FAF8F5] border border-[#E3ECE6]">
-            <p className="font-serif italic text-lg sm:text-xl text-[#5B6D64]">
+          {/* Inside the box: neat checklist + non-exhaustive note */}
+          <div className="max-w-2xl mx-auto p-5 sm:p-6 rounded-2xl bg-[#FAF8F5] border border-[#E3ECE6] space-y-2.5 shadow-subtle text-center">
+            <p className="font-serif italic text-lg sm:text-xl text-[#1A2421]">
               {whatWeWorkOn.subheading}
+            </p>
+            <p className="font-sans text-sm sm:text-base text-[#5B6D64] leading-relaxed">
+              {whatWeWorkOn.closingNote}
             </p>
           </div>
         </div>
@@ -382,14 +386,6 @@ export default function HomePage() {
           ))}
         </div>
 
-        {/* Non-exhaustive closing note */}
-        <div className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl p-4 sm:p-6 text-center max-w-2xl mx-auto shadow-subtle">
-          <p className="font-sans text-sm sm:text-base text-[#5B6D64] leading-relaxed">
-            <Info className="w-4 h-4 inline-block mr-1.5 text-[#527965] -mt-0.5" />
-            {whatWeWorkOn.closingNote}
-          </p>
-        </div>
-
       </section>
 
       {/* 6. ABOUT THE WORK (Duration & Mode Box + Fees Box + Sliding scale subtext) */}
@@ -399,10 +395,22 @@ export default function HomePage() {
         
         <div className="bg-white border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-12 shadow-card space-y-8 sm:space-y-10">
           
-          <div className="text-center max-w-2xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="text-sm text-[#527965] font-semibold uppercase tracking-wider block">
+              {sessions.tag}
+            </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#1A2421] font-normal">
               {sessions.sectionHeading}
             </h2>
+          </div>
+
+          {/* Section 6 Image */}
+          <div className="max-w-2xl mx-auto rounded-2xl overflow-hidden border border-[#E3ECE6] shadow-subtle bg-white">
+            <img
+              src={sessions.image}
+              alt="About the work - therapy sessions"
+              className="w-full h-auto object-cover"
+            />
           </div>
 
           {/* Two distinct boxes: Duration and Mode & Fees (consistent styling) */}
@@ -425,19 +433,27 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Box 2: Fees (one line each for India and outside India) */}
+            {/* Box 2: Fees (per session + clearly for clients residing in India and outside India) */}
             <div className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl p-6 sm:p-8 space-y-4 shadow-subtle flex flex-col justify-center text-center">
               <div className="w-12 h-12 rounded-full bg-[#FAF3F0] text-[#C67D63] flex items-center justify-center mx-auto">
                 <BadgeIndianRupee className="w-6 h-6 text-[#C67D63]" />
               </div>
-              <div className="space-y-2.5">
-                <div className="flex items-baseline justify-center gap-2">
-                  <span className="font-serif text-2xl sm:text-3xl text-[#1A2421] font-medium">{sessions.feesIndia}</span>
-                  <span className="font-sans text-sm sm:text-base text-[#5B6D64]">{sessions.feesIndiaLabel}</span>
+              <div className="space-y-4">
+                <div className="space-y-1">
+                  <div className="font-serif text-2xl sm:text-3xl text-[#1A2421] font-medium">
+                    {sessions.feesIndia} <span className="font-sans text-base sm:text-lg font-normal text-[#5B6D64]">per session</span>
+                  </div>
+                  <div className="font-sans text-sm sm:text-base text-[#5B6D64]">
+                    {sessions.feesIndiaLabel}
+                  </div>
                 </div>
-                <div className="flex items-baseline justify-center gap-2">
-                  <span className="font-serif text-2xl sm:text-3xl text-[#1A2421] font-medium">{sessions.feesInternational}</span>
-                  <span className="font-sans text-sm sm:text-base text-[#5B6D64]">{sessions.feesInternationalLabel}</span>
+                <div className="pt-3 border-t border-[#E3ECE6]/70 space-y-1">
+                  <div className="font-serif text-2xl sm:text-3xl text-[#1A2421] font-medium">
+                    {sessions.feesInternational} <span className="font-sans text-base sm:text-lg font-normal text-[#5B6D64]">per session</span>
+                  </div>
+                  <div className="font-sans text-sm sm:text-base text-[#5B6D64]">
+                    {sessions.feesInternationalLabel}
+                  </div>
                 </div>
               </div>
               <div className="pt-3 border-t border-[#E3ECE6] text-sm text-[#527965]">

@@ -90,8 +90,8 @@ export const siteContent = {
     },
 
     therapyExperience: {
-      tag: 'The map that leads to "YOU"',
-      headline: "Sometimes, therapy is about finding the map.",
+      tag: "WHAT THERAPY MIGHT BE LIKE",
+      headline: "Drawing your map, together",
       image: "/section4-map.png",
       paragraphs: [
         "Sometimes, life can feel like finding yourself in a place you don’t quite recognise, with no clear map to tell you where you are or how to find your way. You might feel unhappy, overwhelmed, exhausted, stuck, lost, or simply not like yourself. But you can’t quite put your finger on why – why certain things keep happening, why you get stuck in the same situations, or which way to go next.",
@@ -131,22 +131,25 @@ export const siteContent = {
         "Low mood and emotional exhaustion",
         "Interpersonal relationships"
       ],
-      closingNote: "This list isn’t exhaustive. If something is bothering you or affecting your everyday life, we can always talk about it even if you’re not sure what to call it."
+      closingNote: "The following list isn’t exhaustive. If something is bothering you or affecting your everyday life, we can always talk about it even if you’re not sure what to call it."
     },
 
     sessions: {
       tag: "ABOUT THE WORK",
       sectionHeading: "About the work",
       duration: "50–60 min",
-      durationSubtext: "Each therapy session",
+      durationSubtext: "per session",
+      image: "/section6-about-the-work.png",
       mode: "Sessions are only online via Google Meet or Zoom.",
       feesIndia: "₹1,750",
-      feesIndiaLabel: "/ session (India)",
+      feesIndiaText: "₹1,750 per session",
+      feesIndiaLabel: "For clients residing in India",
       feesInternational: "₹4,750",
-      feesInternationalLabel: "/ session (outside India)",
+      feesInternationalText: "₹4,750 per session",
+      feesInternationalLabel: "For clients residing outside India",
       fees: [
-        { amount: "₹1,750", label: "/ session (India)" },
-        { amount: "₹4,750", label: "/ session (outside India)" }
+        { amount: "₹1,750 per session", label: "For clients residing in India" },
+        { amount: "₹4,750 per session", label: "For clients residing outside India" }
       ],
       slidingScale: "Sessions are only online, via Google Meet or Zoom. Limited sliding-scale spaces are available for students and for those experiencing financial constraints. If cost is a barrier, you’re welcome to mention this when you reach out.",
     },
@@ -245,6 +248,7 @@ export const siteContent = {
     gettingStarted: {
       tag: "GETTING STARTED",
       heading: "If you’d like to begin, here are two ways to reach me.",
+      image: "/section8-getting-started.png",
       option1: {
         title: "Book a session directly",
         desc: "If you already know you’d like to begin, you can choose a convenient slot.",
@@ -261,6 +265,7 @@ export const siteContent = {
     },
 
     quote: {
+      image: "/after-carl-rogers.png",
       statement: "“The curious paradox is that when I accept myself just as I am, then I can change.”",
       citation: "Carl Rogers"
     },
@@ -293,8 +298,8 @@ export const siteContent = {
       "My approach is relational and trauma-informed. I aim to create a space that is inclusive, affirming, and respectful of different identities, relationships, cultures, and lived experiences – a space where you can speak openly, take up space, and feel respected."
     ],
     mapMetaphor: {
-      tag: 'The map that leads to "YOU"',
-      headline: "Sometimes, therapy is about finding the map.",
+      tag: "WHAT THERAPY MIGHT BE LIKE",
+      headline: "Drawing your map, together",
       image: "/section4-map.png",
       paragraphs: [
         "Sometimes, life can feel like finding yourself in a place you don’t quite recognise, with no clear map to tell you where you are or how to find your way. You might feel unhappy, overwhelmed, exhausted, stuck, lost, or simply not like yourself. But you can’t quite put your finger on why – why certain things keep happening, why you get stuck in the same situations, or which way to go next.",

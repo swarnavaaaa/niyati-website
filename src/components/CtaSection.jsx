@@ -28,6 +28,15 @@ export default function CtaSection() {
           </h2>
         </div>
 
+        {/* Section 8 Image */}
+        <div className="relative z-10 max-w-2xl mx-auto rounded-2xl overflow-hidden border border-[#E3ECE6] shadow-subtle bg-white mb-8 sm:mb-10">
+          <img
+            src={gettingStarted.image || "/section8-getting-started.png"}
+            alt="If you'd like to begin"
+            className="w-full h-auto object-cover"
+          />
+        </div>
+
         {/* 2 DISTINCT PATHWAYS */}
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto">
           
@@ -106,7 +115,17 @@ export default function CtaSection() {
 
       {/* 2. CARL ROGERS QUOTE & MORE ABOUT ME SECTION */}
       <div className="bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-10 text-center space-y-6 shadow-subtle max-w-4xl mx-auto">
-        <div className="space-y-2">
+        
+        {/* Last image above Carl Rogers quote */}
+        <div className="max-w-2xl mx-auto rounded-2xl overflow-hidden border border-[#E3ECE6] shadow-subtle bg-white">
+          <img
+            src={quote.image || "/after-carl-rogers.png"}
+            alt="Reflection illustration"
+            className="w-full h-auto object-cover"
+          />
+        </div>
+
+        <div className="space-y-2 pt-2">
           <span className="font-serif text-3xl sm:text-4xl text-[#BDDBE7]">“</span>
           <p className="font-serif italic text-xl sm:text-2xl md:text-3xl text-[#1A2421] leading-relaxed max-w-2xl mx-auto -mt-2">
             The curious paradox is that when I accept myself just as I am, then I can change.

@@ -115,14 +115,14 @@ export default function ContactPage() {
                     <BadgeIndianRupee className="w-4 h-4 text-[#C67D63]" />
                     <span className="font-serif text-lg font-medium text-[#1A2421]">Session Fees</span>
                   </div>
-                  <div className="space-y-1.5 pt-1 border-t border-[#E3ECE6]/60 text-sm text-[#46544E]">
-                    <div className="flex items-baseline justify-between">
-                      <span className="font-serif text-base font-medium text-[#1A2421]">{sessions.feesIndia}</span>
-                      <span className="text-xs sm:text-sm text-[#5B6D64]">{sessions.feesIndiaLabel}</span>
+                  <div className="space-y-2.5 pt-2 border-t border-[#E3ECE6]/60 text-sm text-[#46544E]">
+                    <div className="space-y-0.5">
+                      <div className="font-serif text-base font-medium text-[#1A2421]">{sessions.feesIndia} per session</div>
+                      <div className="text-xs sm:text-sm text-[#5B6D64]">{sessions.feesIndiaLabel}</div>
                     </div>
-                    <div className="flex items-baseline justify-between">
-                      <span className="font-serif text-base font-medium text-[#1A2421]">{sessions.feesInternational}</span>
-                      <span className="text-xs sm:text-sm text-[#5B6D64]">{sessions.feesInternationalLabel}</span>
+                    <div className="space-y-0.5 pt-2 border-t border-[#E3ECE6]/40">
+                      <div className="font-serif text-base font-medium text-[#1A2421]">{sessions.feesInternational} per session</div>
+                      <div className="text-xs sm:text-sm text-[#5B6D64]">{sessions.feesInternationalLabel}</div>
                     </div>
                   </div>
                 </div>

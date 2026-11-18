@@ -176,12 +176,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. THE MAP METAPHOR (The map that leads to "YOU") */}
+      {/* 3. WHAT THERAPY MIGHT BE LIKE (The Map Metaphor) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="bg-gradient-to-tr from-[#FAF3F0] via-[#FAF8F5] to-[#E8F2F7] border border-[#E3ECE6] rounded-2xl sm:rounded-3xl p-6 sm:p-12 md:p-16 shadow-card space-y-8">
           
           <div className="space-y-3 max-w-3xl">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-[#E8EFEA] text-sm text-[#527965] font-medium">
+            <div className="inline-flex items-center space-x-1.5 text-sm text-[#527965] font-semibold uppercase tracking-wider">
               <MapIcon className="w-3.5 h-3.5" />
               <span>{about.mapMetaphor.tag}</span>
             </div>
