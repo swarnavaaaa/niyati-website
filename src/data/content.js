@@ -3,6 +3,7 @@ export const siteContent = {
     brandName: "Therapy with Niyati Bagla",
     subBrand: "Online Therapy for Adults",
     therapistName: "Niyati Bagla",
+    therapistPhoto: "/niyati-photo.png",
     title: "Counselling Psychologist & Psychotherapist",
     credentials: "MSc in Clinical Psychology",
     fullTitle: "Therapy with Niyati Bagla · Counselling Psychologist & Psychotherapist",

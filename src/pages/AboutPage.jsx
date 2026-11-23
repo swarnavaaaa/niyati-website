@@ -69,9 +69,14 @@ export default function AboutPage() {
             {/* Bio Card (Photo bigger, credentials ordered cleanly, no online/duration info here) */}
             <div className="lg:col-span-5 bg-[#FAF8F5] border border-[#E3ECE6] rounded-2xl p-6 sm:p-8 text-center space-y-5 shadow-subtle lg:sticky lg:top-28">
               
-              {/* Photo Circle - Larger */}
-              <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full bg-gradient-to-tr from-[#194B4E] to-[#527965] text-white flex items-center justify-center font-serif text-3xl sm:text-4xl shadow-card border-4 border-white">
-                NB
+              {/* Photo Circle */}
+              <div className="w-36 h-36 sm:w-44 sm:h-44 mx-auto rounded-full overflow-hidden shadow-card border-4 border-white bg-[#FAF8F5]">
+                <img
+                  src={siteContent.practice.therapistPhoto || "/niyati-photo.png"}
+                  alt={siteContent.practice.therapistName}
+                  className="w-full h-full object-cover object-top"
+                  loading="lazy"
+                />
               </div>
 
               {/* Name & Credentials: Counselling psychologist first, MSc later, once only */}
